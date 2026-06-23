@@ -298,6 +298,57 @@
     });
   });
 
+  /* ══════════════════════════════════
+     FACILITY PARALLAX SHOWCASE
+  ══════════════════════════════════ */
+  (function initFacility() {
+    var section  = document.querySelector('.facility-showcase');
+    var parallax = document.getElementById('facility-parallax');
+    var img      = document.getElementById('facility-img');
+    if (!section || !parallax) return;
+
+    /* Parallax scroll on the background image */
+    gsap.to(parallax, {
+      scrollTrigger: {
+        trigger: section,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.4
+      },
+      y: '18%',
+      ease: 'none'
+    });
+
+    /* Sky/clouds: subtle scale-up as you scroll in */
+    gsap.fromTo(img,
+      { scale: 1.08 },
+      {
+        scale: 1.0,
+        scrollTrigger: { trigger: section, start: 'top bottom', end: 'center center', scrub: 2 },
+        ease: 'none'
+      }
+    );
+
+    /* Text entrance animations */
+    var tl = gsap.timeline({
+      scrollTrigger: { trigger: section, start: 'top 72%', once: true }
+    });
+
+    tl
+      /* divider lines sweep in */
+      .to('.facility-line', { scaleX: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' })
+      .to('.facility-eyebrow-text', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+      /* Big title lines slide up */
+      .to('.fac-line-1', { opacity: 1, y: 0, duration: 0.9, ease: 'power4.out' }, '-=0.3')
+      .to('.fac-line-2', { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.6')
+      /* Description fade */
+      .to('.facility-desc', { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.4')
+      /* Stats count up */
+      .to('.facility-stats', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3')
+      /* CTA button */
+      .to('.facility-cta', { opacity: 1, y: 0, duration: 0.5, ease: 'back.out(2)' }, '-=0.2');
+  })();
+
   /* ── Testimonials ── */
   gsap.from('.testi-card', {
     scrollTrigger: { trigger: '.testimonials-grid', start: 'top 80%' },
