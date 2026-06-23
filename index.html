@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="中粤铁网片公司 — 专业钢铁制品制造商，提供高质量结构钢、钢管、镀锌板等五大核心产品，服务全球客户。" />
-<title>中粤铁网公司 — 专业钢铁制品制造商</title>
+<meta name="description" content="中粤铁网公司 — 专业焊接钢筋网制造商，线径3–12mm，网格间距100–500mm，服务全球客户。" />
+<title>中粤铁网公司 — 专业钢筋网制造商</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -12,9 +12,7 @@
 </head>
 <body>
 
-<!-- ══════════════════════════════════
-     TOPBAR
-══════════════════════════════════ -->
+<!-- TOPBAR -->
 <div class="topbar">
   <div class="container">
     <div class="topbar-info">
@@ -26,10 +24,8 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════
-     HEADER
-══════════════════════════════════ -->
-<header>
+<!-- HEADER -->
+<header id="site-header">
   <div class="header-inner">
     <a href="#home" class="logo">
       <img src="images/logo.png" alt="中粤铁网公司 Logo" />
@@ -42,6 +38,7 @@
       <a href="#home">首页</a>
       <a href="#about">关于我们</a>
       <a href="#products">产品中心</a>
+      <a href="#process">生产工艺</a>
       <a href="#why-us">优势</a>
       <a href="#contact">联系我们</a>
     </nav>
@@ -57,116 +54,233 @@
   <a href="#home">首页</a>
   <a href="#about">关于我们</a>
   <a href="#products">产品中心</a>
+  <a href="#process">生产工艺</a>
   <a href="#why-us">我们的优势</a>
   <a href="#contact">联系我们</a>
 </div>
 
-<!-- ══════════════════════════════════
-     HERO
-══════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
+  <!-- Three.js steel mesh canvas -->
+  <canvas id="mesh-canvas" aria-hidden="true"></canvas>
+  <!-- Sparks canvas -->
+  <canvas id="sparks-canvas" aria-hidden="true"></canvas>
+  <!-- Overlays -->
+  <div class="hero-vignette"></div>
   <div class="hero-accent-bar"></div>
-  <div class="hero-orbit" aria-hidden="true">
-    <div class="orbit-core">
-      <div class="orbit-core-inner"></div>
+
+  <div class="hero-content container">
+
+    <!-- Left: copy -->
+    <div class="hero-left">
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-dot"></span>
+        专业钢筋网制造商 · Since 1998
+      </div>
+
+      <h1 id="hero-h1">铸就<em>钢铁</em><br/>品质<em>恒久</em></h1>
+
+      <p class="hero-desc" id="hero-desc">
+        中粤铁网公司深耕钢铁行业逾26年，以全自动焊接工艺精密生产焊接钢筋网，
+        线径3–12mm，网格间距100–500mm，服务建筑、基础设施及工程领域全球客户。
+      </p>
+
+      <div class="hero-btns" id="hero-btns">
+        <a href="#products" class="btn-primary">
+          查看产品
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#process" class="btn-glass">了解工艺</a>
+      </div>
+
+      <div class="hero-meta" id="hero-meta">
+        <div class="hero-meta-item">
+          <div class="meta-row">
+            <span class="meta-num" data-count="26">0</span><span class="meta-plus">+</span>
+          </div>
+          <div class="meta-label">年行业经验</div>
+        </div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item">
+          <div class="meta-row">
+            <span class="meta-num" data-count="800">0</span><span class="meta-plus">+</span>
+          </div>
+          <div class="meta-label">日产能（吨）</div>
+        </div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item">
+          <div class="meta-row">
+            <span class="meta-num" data-count="60">0</span><span class="meta-plus">+</span>
+          </div>
+          <div class="meta-label">出口国家</div>
+        </div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item">
+          <div class="meta-row">
+            <span class="meta-num" data-count="98">0</span><span class="meta-plus">%</span>
+          </div>
+          <div class="meta-label">客户留存率</div>
+        </div>
+      </div>
     </div>
-    <div class="orbit-ring orbit-ring-1">
-      <div class="orbit-dot"></div>
+
+    <!-- Right: floating composition -->
+    <div class="hero-right">
+      <div class="hero-composition">
+
+        <!-- Main factory image card -->
+        <div class="comp-main" id="comp-main">
+          <img src="images/about-main.jpg" alt="中粤铁网焊网生产线" />
+          <div class="comp-main-bar">
+            <span class="comp-live-dot"></span>
+            中粤铁网 · 全自动焊网生产线
+          </div>
+        </div>
+
+        <!-- Accent product image -->
+        <div class="comp-accent" id="comp-accent">
+          <img src="images/about-accent.jpg" alt="高精度钢筋网产品" />
+        </div>
+
+        <!-- Spec cards -->
+        <div class="spec-card spec-card-1" id="spec-1">
+          <div class="spec-val">3–12mm</div>
+          <div class="spec-key">Wire Diameter</div>
+        </div>
+        <div class="spec-card spec-card-2" id="spec-2">
+          <div class="spec-val">100–500mm</div>
+          <div class="spec-key">Mesh Spacing</div>
+        </div>
+        <div class="spec-card spec-card-3" id="spec-3">
+          <div class="spec-val">定制规格</div>
+          <div class="spec-key">Custom Sizes</div>
+        </div>
+        <div class="spec-card spec-card-4" id="spec-4">
+          <div class="spec-val">高强度</div>
+          <div class="spec-key">Carbon Steel</div>
+        </div>
+
+        <!-- Floating orbit accent -->
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-core"><div class="orbit-core-inner"></div></div>
+          <div class="orbit-ring orbit-ring-1"><div class="orbit-dot"></div></div>
+          <div class="orbit-ring orbit-ring-2"><div class="orbit-dot"></div><div class="orbit-dot orbit-dot-b"></div></div>
+          <div class="orbit-ring orbit-ring-3"><div class="orbit-dot"></div></div>
+        </div>
+      </div>
     </div>
-    <div class="orbit-ring orbit-ring-2">
-      <div class="orbit-dot"></div>
-      <div class="orbit-dot orbit-dot-2"></div>
-    </div>
-    <div class="orbit-ring orbit-ring-3">
-      <div class="orbit-dot"></div>
-    </div>
-    <div class="orbit-ring orbit-ring-4">
-      <div class="orbit-dot"></div>
-      <div class="orbit-dot orbit-dot-3"></div>
-    </div>
-    <div class="orbit-particle p1"></div>
-    <div class="orbit-particle p2"></div>
-    <div class="orbit-particle p3"></div>
   </div>
-  <div class="hero-content">
-    <div>
-      <div class="hero-label">专业钢铁制品制造商</div>
-      <h1>铸就<em>钢铁</em><br/>品质<em>恒久</em></h1>
-      <p class="hero-desc">中粤铁网公司自1998年起深耕钢铁行业，以精密制造工艺和严格质量管控，为建筑、基础设施及工业领域提供高性能钢铁产品，服务全球客户。</p>
-      <div class="hero-btns">
-        <a href="#products" class="btn-primary">查看产品</a>
-        <a href="#about" class="btn-outline">了解更多</a>
-      </div>
+
+  <!-- Scroll cue -->
+  <div class="hero-scroll-cue" aria-hidden="true">
+    <div class="scroll-cue-line"></div>
+    <span class="scroll-cue-text">SCROLL</span>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">焊接钢筋网</span>
+    <span class="ticker-item">线径 3–12mm</span>
+    <span class="ticker-item">网格间距 100–500mm</span>
+    <span class="ticker-item">高强度碳素钢</span>
+    <span class="ticker-item">定制规格加工</span>
+    <span class="ticker-item">ISO 9001认证</span>
+    <span class="ticker-item">全球60+国家直发</span>
+    <span class="ticker-item">99%准时履约</span>
+    <span class="ticker-item">焊接钢筋网</span>
+    <span class="ticker-item">线径 3–12mm</span>
+    <span class="ticker-item">网格间距 100–500mm</span>
+    <span class="ticker-item">高强度碳素钢</span>
+    <span class="ticker-item">定制规格加工</span>
+    <span class="ticker-item">ISO 9001认证</span>
+    <span class="ticker-item">全球60+国家直发</span>
+    <span class="ticker-item">99%准时履约</span>
+  </div>
+</div>
+
+<!-- PRODUCTION TIMELINE -->
+<section class="process-timeline" id="process">
+  <div class="container">
+    <div class="ptl-header">
+      <span class="section-tag">生产工艺</span>
+      <h2 class="section-title">从<em>原料</em>到<em>成品</em></h2>
+      <p class="section-lead" style="text-align:center;margin:12px auto 0;">七道精密工序，全程质量追溯，确保每批产品达到最高标准</p>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num" data-count="26">0</div>
-        <div class="hero-stat-label">年行业经验</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num" data-count="800">0</div>
-        <div class="hero-stat-label">日产能（吨）</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num" data-count="60">0</div>
-        <div class="hero-stat-label">出口国家</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num" data-count="98">0</div>
-        <div class="hero-stat-label">% 客户留存率</div>
+    <div class="ptl-track">
+      <div class="ptl-line"><div class="ptl-line-fill" id="ptl-fill"></div></div>
+      <div class="ptl-steps">
+        <div class="ptl-step">
+          <div class="ptl-step-node"><span>01</span></div>
+          <div class="ptl-step-body">
+            <h4>原材料</h4>
+            <p>Steel Wire Rod</p>
+          </div>
+        </div>
+        <div class="ptl-step">
+          <div class="ptl-step-node"><span>02</span></div>
+          <div class="ptl-step-body">
+            <h4>调直切断</h4>
+            <p>Wire Straightening</p>
+          </div>
+        </div>
+        <div class="ptl-step">
+          <div class="ptl-step-node"><span>03</span></div>
+          <div class="ptl-step-body">
+            <h4>自动焊接</h4>
+            <p>Auto Welding</p>
+          </div>
+        </div>
+        <div class="ptl-step">
+          <div class="ptl-step-node"><span>04</span></div>
+          <div class="ptl-step-body">
+            <h4>剪裁成型</h4>
+            <p>Cutting & Forming</p>
+          </div>
+        </div>
+        <div class="ptl-step">
+          <div class="ptl-step-node"><span>05</span></div>
+          <div class="ptl-step-body">
+            <h4>质量检验</h4>
+            <p>QC Inspection</p>
+          </div>
+        </div>
+        <div class="ptl-step">
+          <div class="ptl-step-node"><span>06</span></div>
+          <div class="ptl-step-body">
+            <h4>包装入库</h4>
+            <p>Packaging</p>
+          </div>
+        </div>
+        <div class="ptl-step">
+          <div class="ptl-step-node"><span>07</span></div>
+          <div class="ptl-step-body">
+            <h4>出厂交付</h4>
+            <p>Global Delivery</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     TICKER
-══════════════════════════════════ -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="ticker-item">热轧型钢</span>
-    <span class="ticker-item">镀锌钢板</span>
-    <span class="ticker-item">钢管及空心型材</span>
-    <span class="ticker-item">不锈钢棒材</span>
-    <span class="ticker-item">热轧卷板</span>
-    <span class="ticker-item">ISO 9001认证</span>
-    <span class="ticker-item">定制加工服务</span>
-    <span class="ticker-item">全球直发货</span>
-    <span class="ticker-item">热轧型钢</span>
-    <span class="ticker-item">镀锌钢板</span>
-    <span class="ticker-item">钢管及空心型材</span>
-    <span class="ticker-item">不锈钢棒材</span>
-    <span class="ticker-item">热轧卷板</span>
-    <span class="ticker-item">ISO 9001认证</span>
-    <span class="ticker-item">定制加工服务</span>
-    <span class="ticker-item">全球直发货</span>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════
-     ABOUT
-══════════════════════════════════ -->
+<!-- ABOUT -->
 <section class="section" id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-imgs reveal-left">
-        <img class="about-img-main"
-             src="images/about-main.jpg"
-             alt="中粤铁网生产车间" />
-        <img class="about-img-accent"
-             src="images/about-accent.jpg"
-             alt="钢铁细节" />
+      <div class="about-imgs">
+        <img class="about-img-main" src="images/about-main.jpg" alt="中粤铁网生产车间" />
+        <img class="about-img-accent" src="images/about-accent.jpg" alt="钢筋网细节" />
         <div class="about-badge">
           <div class="about-badge-num">26</div>
           <div class="about-badge-text">年专业<br/>经验</div>
         </div>
       </div>
-      <div class="reveal-right">
+      <div>
         <span class="section-tag">关于中粤铁网</span>
         <h2 class="section-title">品质<em>铸就</em><br/>信赖</h2>
-        <p class="section-lead">自1998年成立以来，中粤铁网公司始终坚守"质量第一"的经营理念，将传统冶金工艺与现代化生产技术深度融合，成为华南地区具有影响力的钢铁制品供应商。</p>
+        <p class="section-lead">自1998年成立以来，中粤铁网公司专注焊接钢筋网研发与生产，以全自动焊接工艺、精密切断系统与严格质控流程，成为华南地区具有影响力的钢筋网制品供应商。</p>
         <div class="about-features">
           <div class="about-feat">
             <div class="about-feat-icon">
@@ -174,7 +288,7 @@
             </div>
             <div>
               <h4>ISO 9001:2015 质量认证</h4>
-              <p>每批产品出厂前均经过拉伸强度、尺寸精度、表面质量等全面检验，附随质保书和材质证明。</p>
+              <p>每批产品附随焊点抗拉强度、丝径公差、网格精度等全项检测报告，附质保书与材质证明。</p>
             </div>
           </div>
           <div class="about-feat">
@@ -182,8 +296,8 @@
               <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
             <div>
-              <h4>高效大产能生产线</h4>
-              <p>三班倒生产模式，日产能超800吨，配套完善的仓储物流体系，确保大订单按时履约。</p>
+              <h4>全自动高速生产线</h4>
+              <p>引进国际先进自动焊网机，精度±0.5mm，三班倒全天候运营，日产能超800吨。</p>
             </div>
           </div>
           <div class="about-feat">
@@ -192,7 +306,7 @@
             </div>
             <div>
               <h4>全球供应与物流</h4>
-              <p>通过广州港、深圳港等主要口岸，直发全球60余个国家，提供报关、货运、保险一站式服务。</p>
+              <p>通过广州港、深圳港直发全球60余个国家，提供报关、货运、保险一站式服务。</p>
             </div>
           </div>
         </div>
@@ -201,9 +315,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     PARTNERS
-══════════════════════════════════ -->
+<!-- PARTNERS -->
 <div class="partners">
   <div class="container">
     <p class="partners-label">合作客户与战略伙伴</p>
@@ -218,9 +330,7 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════
-     PRODUCTS
-══════════════════════════════════ -->
+<!-- PRODUCTS -->
 <section class="section products-section" id="products">
   <div class="container">
     <div class="products-header">
@@ -229,137 +339,103 @@
         <h2 class="section-title">五大<em>核心产品</em></h2>
       </div>
       <p style="max-width:340px;color:var(--gray);font-size:15px;line-height:1.65;">
-        所有产品均附随出厂质量证书，支持定制规格、定制材质，满足国标、欧标、美标等多种标准要求。
+        所有产品均附随出厂质量证书，支持定制规格、线径及网格间距，满足国标、欧标、美标等多种标准要求。
       </p>
     </div>
-
-    <div class="products-grid reveal">
-
-      <!-- 产品1 主推 -->
+    <div class="products-grid">
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="images/product-1.jpg"
-               alt="热轧H型钢" />
+          <img src="images/product-1.jpg" alt="焊接钢筋网" />
           <span class="product-num">01 — 主推产品</span>
         </div>
         <div class="product-body">
-          <div class="product-cat">结构用钢</div>
-          <div class="product-name">热轧H型钢<br/>/ 工字钢</div>
-          <p class="product-desc">适用于高荷载建筑结构、桥梁及工业厂房骨架的热轧H型钢与工字钢。可供Q235、Q355、SS400多种牌号，长度最长18米，支持定尺切割。</p>
+          <div class="product-cat">焊接网片</div>
+          <div class="product-name">焊接钢筋网<br/>/ 建筑网片</div>
+          <p class="product-desc">适用于楼板、墙体、路面铺设的标准焊接钢筋网。线径4–12mm，网格间距100–200mm，单张尺寸最大6×2.4m，可定尺切割。</p>
           <div class="product-price">
             <span class="price-label">含税价起</span>
             <span class="price-val">¥4,800</span>
             <span class="price-unit">/ 吨</span>
           </div>
-          <a href="#contact" class="product-link">
-            立即询价
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="#contact" class="product-link">立即询价 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-
-      <!-- 产品2 -->
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="images/product-2.jpg"
-               alt="热轧卷板" />
+          <img src="images/product-2.jpg" alt="地台网" />
           <span class="product-num">02</span>
         </div>
         <div class="product-body">
-          <div class="product-cat">板带产品</div>
-          <div class="product-name">热轧卷板</div>
-          <p class="product-desc">适用于汽车冲压件、管材生产和建筑基材的高强热轧卷。厚度1.5–25毫米，宽度最大2000毫米，可分卷定重供货。</p>
+          <div class="product-cat">地台网</div>
+          <div class="product-name">楼板钢筋网</div>
+          <p class="product-desc">专为现浇混凝土楼板设计，线径6–10mm，间距150mm，替代手工绑扎，大幅提升施工效率并保证钢筋间距均匀。</p>
           <div class="product-price">
             <span class="price-label">含税价起</span>
-            <span class="price-val">¥4,200</span>
+            <span class="price-val">¥5,100</span>
             <span class="price-unit">/ 吨</span>
           </div>
-          <a href="#contact" class="product-link">
-            立即询价
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="#contact" class="product-link">立即询价 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-
-      <!-- 产品3 -->
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="images/product-3.jpg"
-               alt="钢管及空心型材" />
+          <img src="images/product-3.jpg" alt="围栏网" />
           <span class="product-num">03</span>
         </div>
         <div class="product-body">
-          <div class="product-cat">管材产品</div>
-          <div class="product-name">钢管及空心型材</div>
-          <p class="product-desc">无缝钢管与ERW焊管，适用于油气管线、结构柱及流体输送。圆管、方管、矩形管均有现货，支持镀锌、涂漆处理。</p>
+          <div class="product-cat">围栏网片</div>
+          <div class="product-name">焊接围栏网</div>
+          <p class="product-desc">用于工地围栏、仓库分隔及安全防护的重型焊接网片。线径3–6mm，网格50–100mm，表面可镀锌或粉末涂层处理。</p>
           <div class="product-price">
             <span class="price-label">含税价起</span>
-            <span class="price-val">¥5,200</span>
+            <span class="price-val">¥4,500</span>
             <span class="price-unit">/ 吨</span>
           </div>
-          <a href="#contact" class="product-link">
-            立即询价
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="#contact" class="product-link">立即询价 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-
-      <!-- 产品4 -->
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="images/product-4.jpg"
-               alt="热镀锌钢板" />
+          <img src="images/product-4.jpg" alt="异型定制网" />
           <span class="product-num">04</span>
         </div>
         <div class="product-body">
-          <div class="product-cat">涂层产品</div>
-          <div class="product-name">热镀锌钢板</div>
-          <p class="product-desc">优异耐腐蚀性能的热镀锌卷板及平板，广泛用于屋面彩钢、幕墙围护和家电外壳制造。镀锌量Z100–Z450，可供分切加工。</p>
+          <div class="product-cat">定制产品</div>
+          <div class="product-name">异型钢筋网</div>
+          <p class="product-desc">按客户图纸定制的异形网片，支持L形、T形、弧形等特殊截面，适用于桥墩、隧道衬砌等复杂结构配筋。</p>
           <div class="product-price">
             <span class="price-label">含税价起</span>
             <span class="price-val">¥5,500</span>
             <span class="price-unit">/ 吨</span>
           </div>
-          <a href="#contact" class="product-link">
-            立即询价
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="#contact" class="product-link">立即询价 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-
-      <!-- 产品5 -->
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="images/product-5.jpg"
-               alt="不锈钢棒材" />
+          <img src="images/product-5.jpg" alt="冷拔钢丝" />
           <span class="product-num">05</span>
         </div>
         <div class="product-body">
-          <div class="product-cat">长材产品</div>
-          <div class="product-name">不锈钢棒材 / 型材</div>
-          <p class="product-desc">304、316、430等牌号不锈钢棒材、圆钢及角钢，适用于食品机械、化工设备及建筑装饰工程，可提供磨光、酸洗等表面处理。</p>
+          <div class="product-cat">原材料</div>
+          <div class="product-name">冷拔钢丝 / 盘条</div>
+          <p class="product-desc">高强度冷拔钢丝及热轧盘条，直径3–12mm，适用于自动焊网机直接投料，也可散装供货，满足不同规模需求。</p>
           <div class="product-price">
             <span class="price-label">含税价起</span>
-            <span class="price-val">¥15,000</span>
+            <span class="price-val">¥4,200</span>
             <span class="price-unit">/ 吨</span>
           </div>
-          <a href="#contact" class="product-link">
-            立即询价
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="#contact" class="product-link">立即询价 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     FUNFACTS
-══════════════════════════════════ -->
+<!-- FUNFACTS -->
 <section class="section funfacts">
   <div class="container">
-    <div class="funfacts-grid reveal">
+    <div class="funfacts-grid">
       <div class="fact-item">
         <span class="fact-emoji">🏭</span>
         <div class="fact-num" data-count="800">0</div>
@@ -384,90 +460,64 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     WHY US
-══════════════════════════════════ -->
+<!-- WHY US -->
 <section class="section" id="why-us">
   <div class="container">
     <div style="text-align:center;max-width:580px;margin:0 auto;">
       <span class="section-tag">为什么选择我们</span>
       <h2 class="section-title">中粤铁网<em>六大优势</em></h2>
-      <p class="section-lead" style="margin:14px auto 0;">
-        全球顶尖工程师和承包商选择中粤铁网的六个核心理由。
-      </p>
+      <p class="section-lead" style="margin:14px auto 0;">全球顶尖工程师和承包商选择中粤铁网的六个核心理由。</p>
     </div>
     <div class="process-grid">
-
-      <div class="process-card reveal">
+      <div class="process-card">
         <div class="process-num">01</div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
+        <div class="process-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
         <h3>出厂质量证书</h3>
-        <p>每批货物附随化学成分分析报告、力学性能检测报告及第三方检验报告，全程可追溯。</p>
+        <p>每批附随焊点抗拉强度、丝径公差、网格精度等检测报告，全程可追溯。</p>
       </div>
-
-      <div class="process-card reveal">
+      <div class="process-card">
         <div class="process-num">02</div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>
+        <div class="process-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
         <h3>准时交货</h3>
-        <p>99%的按期履约率，自有车队配合港口战略合作，常规订单15个工作日内发货，保障您的施工进度。</p>
+        <p>99%的按期履约率，自有车队配合港口战略合作，常规订单15个工作日内发货。</p>
       </div>
-
-      <div class="process-card reveal">
+      <div class="process-card">
         <div class="process-num">03</div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-        </div>
+        <div class="process-icon"><svg viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div>
         <h3>定制规格服务</h3>
-        <p>支持按客户图纸定制截面、材质及热处理工艺，厂内冶金工程师全程技术支持。</p>
+        <p>支持按图纸定制线径、间距及网片尺寸，厂内技术工程师全程支持。</p>
       </div>
-
-      <div class="process-card reveal">
+      <div class="process-card">
         <div class="process-num">04</div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
+        <div class="process-icon"><svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
         <h3>出厂直供价格</h3>
-        <p>去除中间商环节，直厂报价更具竞争力。长期合作及批量采购客户可享额外优惠。</p>
+        <p>去除中间商，直厂报价更具竞争力。批量采购客户可享额外优惠。</p>
       </div>
-
-      <div class="process-card reveal">
+      <div class="process-card">
         <div class="process-num">05</div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
-        </div>
+        <div class="process-icon"><svg viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg></div>
         <h3>全球供货能力</h3>
-        <p>4大洲均设有合作仓库，拥有专职外贸团队，熟悉海关申报流程，可提供FOB、CIF等多种贸易条款。</p>
+        <p>4大洲设有合作仓库，专职外贸团队，可提供FOB、CIF等多种贸易条款。</p>
       </div>
-
-      <div class="process-card reveal">
+      <div class="process-card">
         <div class="process-num">06</div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-        </div>
+        <div class="process-icon"><svg viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
         <h3>7×24 技术支持</h3>
-        <p>专属客户经理及结构工程师全天候在线，提供选型建议、焊接工艺指导及现场技术咨询。</p>
+        <p>专属客户经理及结构工程师全天候在线，提供选型建议及现场技术咨询。</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     TESTIMONIALS
-══════════════════════════════════ -->
+<!-- TESTIMONIALS -->
 <section class="section testimonials-section">
   <div class="container">
     <span class="section-tag" style="color:var(--red);">客户评价</span>
     <h2 class="section-title" style="color:#fff;">合作<em>客户说</em></h2>
     <div class="testimonials-grid">
-
-      <div class="testi-card reveal">
+      <div class="testi-card">
         <div class="stars">★★★★★</div>
-        <p class="testi-text">中粤铁网的H型钢到货时切割精准，附随完整的材质证明，我方结构工程师对340件产品的一致性印象深刻，交货周期仅12天，远超同行竞争对手。</p>
+        <p class="testi-text">中粤铁网的钢筋网焊点强度和尺寸公差完全符合设计要求，交货周期仅12天，配套的质检报告齐全，我方监理验收一次通过。</p>
         <div class="testi-author">
           <div class="testi-avatar">李</div>
           <div>
@@ -476,10 +526,9 @@
           </div>
         </div>
       </div>
-
-      <div class="testi-card reveal">
+      <div class="testi-card">
         <div class="stars">★★★★★</div>
-        <p class="testi-text">两年前将镀锌板全线切换为中粤铁网供货，质量稳定、价格透明，外贸团队的报关服务也非常专业，彻底省心。</p>
+        <p class="testi-text">两年前将楼板网配筋全线切换为中粤铁网供货，相比现场手工绑扎，施工效率提升40%，成本下降18%，质量更有保证。</p>
         <div class="testi-author">
           <div class="testi-avatar">陈</div>
           <div>
@@ -488,10 +537,9 @@
           </div>
         </div>
       </div>
-
-      <div class="testi-card reveal">
+      <div class="testi-card">
         <div class="stars">★★★★★</div>
-        <p class="testi-text">化工装备所用316L不锈钢棒材按我们特殊工况定制，中粤技术团队全程陪同选材，最终产品各项性能指标完全符合要求，合作非常愉快。</p>
+        <p class="testi-text">隧道衬砌所用异型钢筋网按图纸定制，中粤技术团队全程配合，精度达到设计要求，后续将持续合作。</p>
         <div class="testi-author">
           <div class="testi-avatar">王</div>
           <div>
@@ -500,19 +548,16 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     CTA BANNER
-══════════════════════════════════ -->
+<!-- CTA BANNER -->
 <div class="cta-banner">
   <div class="container">
     <div class="cta-inner">
       <div class="cta-text">
-        <h2>准备好采购<br/>优质钢铁产品？</h2>
+        <h2>准备好采购<br/>优质钢筋网？</h2>
         <p>24小时内提供附随质检报告的正式报价单。</p>
       </div>
       <div class="cta-btns">
@@ -523,53 +568,39 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════
-     CONTACT
-══════════════════════════════════ -->
+<!-- CONTACT -->
 <section class="section contact-section" id="contact">
   <div class="container">
     <div class="contact-grid">
-
-      <div class="reveal-left">
+      <div>
         <span class="section-tag">联系我们</span>
         <h2 class="section-title">商务<em>洽谈</em></h2>
         <div class="contact-info">
           <p>无论您需要即期报价、长期供货协议还是技术选型支持，我们的专业团队将在一个工作日内给予回复。</p>
-
           <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            </div>
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
             <div class="contact-detail-text">
               <strong>工厂地址</strong>
               <span>广东省广州市工业园区铁网路88号<br/>邮编：510000</span>
             </div>
           </div>
-
           <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            </div>
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
             <div class="contact-detail-text">
               <strong>销售热线</strong>
               <span>+86 020-8888-6688<br/>+86 135-0000-8888（微信同号）</span>
             </div>
           </div>
-
           <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            </div>
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
             <div class="contact-detail-text">
               <strong>电子邮件</strong>
               <span>sales@zhongyutiewang.com<br/>tech@zhongyutiewang.com</span>
             </div>
           </div>
-
         </div>
       </div>
-
-      <div class="reveal-right">
+      <div>
         <div class="contact-form">
           <h3>发送询价</h3>
           <div class="form-row">
@@ -596,36 +627,32 @@
             <label>意向产品</label>
             <select>
               <option value="">— 请选择产品 —</option>
-              <option>热轧H型钢 / 工字钢</option>
-              <option>热轧卷板</option>
-              <option>钢管及空心型材</option>
-              <option>热镀锌钢板</option>
-              <option>不锈钢棒材 / 型材</option>
+              <option>焊接钢筋网 / 建筑网片</option>
+              <option>楼板钢筋网</option>
+              <option>焊接围栏网</option>
+              <option>异型钢筋网（定制）</option>
+              <option>冷拔钢丝 / 盘条</option>
               <option>多种产品 / 综合询价</option>
             </select>
           </div>
           <div class="form-group">
             <label>询价详情 &amp; 规格要求</label>
-            <textarea placeholder="请填写所需牌号、规格尺寸、数量及交货地点……"></textarea>
+            <textarea placeholder="请填写线径、间距、网片尺寸、数量及交货地点……"></textarea>
           </div>
           <button class="btn-primary form-submit-btn" id="submit-btn">
             提交询价 / Send Inquiry
           </button>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     FOOTER
-══════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="container">
       <div class="footer-grid">
-
         <div class="footer-brand">
           <div class="footer-logo">
             <img src="images/logo.png" alt="中粤铁网公司" />
@@ -634,7 +661,7 @@
               <div class="footer-logo-sub">Zhongyu Steel Wire Group</div>
             </div>
           </div>
-          <p>专业从事钢铁制品研发、生产与销售，服务建筑、基础设施及工业领域，出口60余个国家，1998年成立至今始终如一。</p>
+          <p>专注焊接钢筋网研发、生产与销售，服务建筑、基础设施及工业领域，出口60余个国家，1998年成立至今始终如一。</p>
           <div class="footer-socials">
             <a class="footer-social" href="#">微</a>
             <a class="footer-social" href="#">信</a>
@@ -642,32 +669,29 @@
             <a class="footer-social" href="#">YT</a>
           </div>
         </div>
-
         <div class="footer-col">
           <h4>产品中心</h4>
           <ul>
-            <li><a href="#products">热轧H型钢</a></li>
-            <li><a href="#products">热轧卷板</a></li>
-            <li><a href="#products">钢管及空心型材</a></li>
-            <li><a href="#products">热镀锌钢板</a></li>
-            <li><a href="#products">不锈钢棒材</a></li>
+            <li><a href="#products">焊接钢筋网</a></li>
+            <li><a href="#products">楼板钢筋网</a></li>
+            <li><a href="#products">焊接围栏网</a></li>
+            <li><a href="#products">异型钢筋网</a></li>
+            <li><a href="#products">冷拔钢丝</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>公司信息</h4>
           <ul>
             <li><a href="#about">关于我们</a></li>
+            <li><a href="#process">生产工艺</a></li>
             <li><a href="#why-us">核心优势</a></li>
             <li><a href="#contact">联系我们</a></li>
             <li><a href="#">质量认证</a></li>
-            <li><a href="#">招聘信息</a></li>
           </ul>
         </div>
-
         <div class="footer-col footer-newsletter">
           <h4>订阅资讯</h4>
-          <p>订阅我们的电子报，获取最新价格行情、新品发布及行业动态。</p>
+          <p>订阅电子报，获取最新价格行情、新品发布及行业动态。</p>
           <div class="newsletter-form">
             <input type="email" placeholder="您的邮箱地址" id="newsletter-input" />
             <button id="newsletter-btn" aria-label="订阅">
@@ -675,7 +699,6 @@
             </button>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -691,6 +714,22 @@
   </div>
 </footer>
 
+<!-- FLOATING CTAs -->
+<div class="floating-actions" id="fab-group">
+  <a href="https://wa.me/862088886688" class="fab fab-wa" target="_blank" rel="noopener" aria-label="WhatsApp咨询">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a href="#contact" class="fab fab-quote">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9h8M8 13h5M5 3h14a2 2 0 012 2v11a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2z"/></svg>
+    <span>免费询价</span>
+  </a>
+</div>
+
+<!-- CDN Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
