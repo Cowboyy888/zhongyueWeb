@@ -335,6 +335,7 @@ function setLang(lang) {
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       var id = this.getAttribute('href').slice(1);
+      if (!id) { e.preventDefault(); return; }
       var target = document.getElementById(id);
       if (target) {
         e.preventDefault();
