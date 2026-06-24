@@ -835,17 +835,4 @@ function setLang(lang) {
     });
   }
 
-  /* ── Spec cards parallax tilt on mouse ── */
-  document.querySelectorAll('.spec-card').forEach(function (card) {
-    card.addEventListener('mousemove', function (e) {
-      var rect = card.getBoundingClientRect();
-      var cx = (e.clientX - rect.left) / rect.width  - 0.5;
-      var cy = (e.clientY - rect.top)  / rect.height - 0.5;
-      card.style.transform = 'translateY(-4px) scale(1.04) rotateX(' + (-cy * 12) + 'deg) rotateY(' + (cx * 12) + 'deg)';
-    });
-    card.addEventListener('mouseleave', function () {
-      card.style.transform = '';
-    });
-  });
-
 })();
