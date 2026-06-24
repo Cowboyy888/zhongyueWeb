@@ -359,10 +359,10 @@ function setLang(lang) {
   (function initHeroEntrance() {
     var tl = gsap.timeline({ delay: 0.25 });
     tl
-      .to('.hero-tagline', { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' })
-      .to('.hero-desc',    { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }, '-=0.4')
-      .to('.hero-btns',    { opacity: 1, y: 0, duration: 0.60, ease: 'power3.out' }, '-=0.35')
-      .to('.hero-stats-bar', { opacity: 1, y: 0, duration: 0.60, ease: 'power3.out' }, '-=0.3');
+      .fromTo('.hero-tagline',   { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' })
+      .fromTo('.hero-desc',      { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }, '-=0.4')
+      .fromTo('.hero-btns',      { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.60, ease: 'power3.out' }, '-=0.35')
+      .fromTo('.hero-stats-bar', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.60, ease: 'power3.out' }, '-=0.3');
   })();
 
   /* ── Feature Cards Entrance ── */
