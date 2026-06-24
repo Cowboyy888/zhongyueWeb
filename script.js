@@ -355,6 +355,32 @@
     opacity: 0, y: 50, stagger: 0.14, duration: 0.8, ease: 'power3.out'
   });
 
+  /* ── Delivery Section ── */
+  (function initDelivery() {
+    var cards = document.querySelectorAll('.delivery-card');
+    if (!cards.length) return;
+    gsap.from(cards, {
+      scrollTrigger: { trigger: '.delivery-grid', start: 'top 82%' },
+      opacity: 0, y: 60, scale: 0.96, stagger: 0.18, duration: 0.9, ease: 'power3.out'
+    });
+    /* Counter animation for delivery stats */
+    var statNums = document.querySelectorAll('.delivery-stat-num');
+    statNums.forEach(function(el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      ScrollTrigger.create({
+        trigger: '.delivery-stats',
+        start: 'top 85%',
+        once: true,
+        onEnter: function() {
+          gsap.to({ val: 0 }, {
+            val: target, duration: 1.8, ease: 'power2.out',
+            onUpdate: function() { el.textContent = Math.round(this.targets()[0].val); }
+          });
+        }
+      });
+    });
+  })();
+
   /* ══════════════════════════════════
      PRODUCTION TIMELINE ANIMATION
   ══════════════════════════════════ */
