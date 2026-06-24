@@ -17,8 +17,13 @@ var i18nData = {
     'nav-why-long': '我们的优势', 'nav-cta': '免费询价',
     'hero-badge': '专业钢筋网制造商 · Since 1998',
     'hero-h1': '铸就<em>钢铁</em><br/>品质<em>恒久</em>',
-    'hero-desc': '中粤铁网公司深耕钢铁行业逾26年，以全自动焊接工艺精密生产焊接钢筋网，线径3–12mm，网格间距100–500mm，服务建筑、基础设施及工程领域全球客户。',
-    'hero-btn-products': '查看产品', 'hero-btn-process': '了解工艺',
+    'hero-tagline': '铸造力量，塑造未来',
+    'hero-desc': '中粤铁网公司深耕钢铁行业逾26年，精密生产焊接钢筋网，服务全球60余个国家。',
+    'hero-btn-products': '查看产品', 'hero-btn-process': '了解工艺', 'hero-btn-contact': '联系我们',
+    'feat-1-title': '高品质产品', 'feat-1-desc': 'ISO 9001认证，每批附随完整质检报告',
+    'feat-2-title': '先进技术', 'feat-2-desc': '全自动焊网生产线，日产能超800吨',
+    'feat-3-title': '值得信赖的伙伴', 'feat-3-desc': '26年深耕行业，服务全球60余个国家',
+    'feat-4-title': '可持续发展', 'feat-4-desc': '绿色生产工艺，符合国际环保标准',
     'meta-years': '年行业经验', 'meta-cap': '日产能（吨）', 'meta-countries': '出口国家', 'meta-retention': '客户留存率',
     'spec-custom-val': '定制规格', 'spec-strength-val': '高强度',
     'tick-1': '焊接钢筋网', 'tick-2': '高强度碳素钢', 'tick-3': '定制规格加工', 'tick-4': '全球60+国家直发', 'tick-5': '99%准时履约',
@@ -136,8 +141,13 @@ var i18nData = {
     'nav-why-long': 'Our Advantages', 'nav-cta': 'Get a Quote',
     'hero-badge': 'Professional Steel Mesh Manufacturer · Since 1998',
     'hero-h1': 'Built for <em>Strength</em><br/>Made to <em>Last</em>',
-    'hero-desc': 'Zhongyu Steel has served the steel industry for over 26 years, precision-manufacturing welded rebar mesh with fully automated welding technology — wire diameter 3–12mm, mesh spacing 100–500mm — for construction, infrastructure, and engineering clients worldwide.',
-    'hero-btn-products': 'View Products', 'hero-btn-process': 'Our Process',
+    'hero-tagline': 'Building Strength. Shaping Tomorrow.',
+    'hero-desc': 'Zhongyu Steel — 26+ years of precision steel mesh manufacturing. Serving 60+ countries worldwide.',
+    'hero-btn-products': 'View Products', 'hero-btn-process': 'Our Process', 'hero-btn-contact': 'Contact Us',
+    'feat-1-title': 'High Quality Products', 'feat-1-desc': 'ISO 9001 certified with full QC reports on every batch',
+    'feat-2-title': 'Advanced Technology', 'feat-2-desc': 'Fully automated welding lines, 800+ tonnes daily capacity',
+    'feat-3-title': 'Trusted Partner', 'feat-3-desc': '26 years of industry expertise, serving 60+ countries',
+    'feat-4-title': 'Sustainable Future', 'feat-4-desc': 'Green production processes meeting international standards',
     'meta-years': 'Yrs Experience', 'meta-cap': 'Daily Output (T)', 'meta-countries': 'Export Countries', 'meta-retention': 'Client Retention',
     'spec-custom-val': 'Custom Sizes', 'spec-strength-val': 'High Strength',
     'tick-1': 'Welded Rebar Mesh', 'tick-2': 'High-Strength Carbon Steel', 'tick-3': 'Custom Specifications', 'tick-4': 'Ships to 60+ Countries', 'tick-5': '99% On-Time Delivery',
@@ -326,7 +336,7 @@ function setLang(lang) {
   });
 
   /* ══════════════════════════════════
-     THREE.JS — Wire Mesh Background
+     THREE.JS — Cinematic Particle Field
   ══════════════════════════════════ */
   (function initMeshCanvas() {
     var canvas = document.getElementById('mesh-canvas');
@@ -334,57 +344,81 @@ function setLang(lang) {
 
     var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-    renderer.setClearColor(0x0D1117, 1);
+    renderer.setClearColor(0x000000, 0);
 
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(55, 1, 0.1, 500);
-    camera.position.set(0, 0, 28);
+    var camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+    camera.position.set(0, 0, 50);
 
-    /* Grid geometry */
-    var COLS = 24, ROWS = 16, SPACING = 2.2;
-    var positions = [];
-    var baseZ = [];
+    var COUNT = 2200;
+    var positions = new Float32Array(COUNT * 3);
+    var colors    = new Float32Array(COUNT * 3);
+    var sizes     = new Float32Array(COUNT);
+    var velocities = [];
 
-    /* Horizontal lines */
-    for (var r = 0; r <= ROWS; r++) {
-      for (var c = 0; c < COLS; c++) {
-        var x1 = (c - COLS / 2) * SPACING;
-        var y1 = (r - ROWS / 2) * SPACING;
-        var x2 = (c + 1 - COLS / 2) * SPACING;
-        positions.push(x1, y1, 0, x2, y1, 0);
-        baseZ.push(0, 0);
+    for (var i = 0; i < COUNT; i++) {
+      positions[i * 3]     = (Math.random() - 0.5) * 160;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 90;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 60;
+
+      /* colour palette: steel blue, white, faint orange */
+      var roll = Math.random();
+      if (roll < 0.55) {
+        colors[i*3] = 0.16 + Math.random()*0.1;
+        colors[i*3+1] = 0.38 + Math.random()*0.15;
+        colors[i*3+2] = 1.0;
+      } else if (roll < 0.80) {
+        colors[i*3] = colors[i*3+1] = colors[i*3+2] = 0.8 + Math.random()*0.2;
+      } else {
+        colors[i*3] = 1.0;
+        colors[i*3+1] = 0.45 + Math.random()*0.2;
+        colors[i*3+2] = 0.05;
       }
-    }
-    /* Vertical lines */
-    for (var c2 = 0; c2 <= COLS; c2++) {
-      for (var r2 = 0; r2 < ROWS; r2++) {
-        var x3 = (c2 - COLS / 2) * SPACING;
-        var y3 = (r2 - ROWS / 2) * SPACING;
-        var y4 = (r2 + 1 - ROWS / 2) * SPACING;
-        positions.push(x3, y3, 0, x3, y4, 0);
-        baseZ.push(0, 0);
-      }
+      sizes[i] = Math.random() < 0.06 ? 3.5 + Math.random() * 3 : 0.6 + Math.random() * 1.8;
+      velocities.push({
+        x: (Math.random() - 0.5) * 0.018,
+        y: 0.008 + Math.random() * 0.018,
+        z: (Math.random() - 0.5) * 0.008
+      });
     }
 
     var geo = new THREE.BufferGeometry();
-    var posArray = new Float32Array(positions);
-    geo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
+    geo.setAttribute('size',     new THREE.BufferAttribute(sizes, 1));
 
-    var mat = new THREE.LineBasicMaterial({ color: 0xE31E24, transparent: true, opacity: 0.15 });
-    var mesh = new THREE.LineSegments(geo, mat);
-    scene.add(mesh);
+    var mat = new THREE.PointsMaterial({
+      size: 1.2, vertexColors: true, transparent: true,
+      opacity: 0.7, sizeAttenuation: true,
+      blending: THREE.AdditiveBlending, depthWrite: false
+    });
+    var points = new THREE.Points(geo, mat);
+    scene.add(points);
+
+    /* Floating wire mesh lines (subtle) */
+    var lineGeo = new THREE.BufferGeometry();
+    var linePos = [];
+    var GRID = 10;
+    for (var gx = -GRID; gx <= GRID; gx++) {
+      linePos.push(gx*8, -GRID*8, -20, gx*8, GRID*8, -20);
+    }
+    for (var gy = -GRID; gy <= GRID; gy++) {
+      linePos.push(-GRID*8, gy*8, -20, GRID*8, gy*8, -20);
+    }
+    lineGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePos), 3));
+    var lineMat = new THREE.LineBasicMaterial({ color: 0x2962ff, transparent: true, opacity: 0.04 });
+    var lines = new THREE.LineSegments(lineGeo, lineMat);
+    scene.add(lines);
 
     var clock = new THREE.Clock();
     var mouse = { x: 0, y: 0 };
     document.addEventListener('mousemove', function (e) {
-      mouse.x = (e.clientX / window.innerWidth - 0.5) * 2;
-      mouse.y = -(e.clientY / window.innerHeight - 0.5) * 2;
+      mouse.x = (e.clientX / window.innerWidth - 0.5);
+      mouse.y = -(e.clientY / window.innerHeight - 0.5);
     }, { passive: true });
 
     function resize() {
-      var hero = canvas.parentElement;
-      var w = hero ? hero.offsetWidth : window.innerWidth;
-      var h = hero ? hero.offsetHeight : window.innerHeight;
+      var w = window.innerWidth, h = window.innerHeight;
       canvas.width = w; canvas.height = h;
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
@@ -396,20 +430,27 @@ function setLang(lang) {
     function animate() {
       requestAnimationFrame(animate);
       var t = clock.getElapsedTime();
+      var pos = geo.attributes.position.array;
 
-      /* wave on Z axis */
-      var pos = geo.attributes.position;
-      var arr = pos.array;
-      for (var i = 0; i < arr.length; i += 3) {
-        var wx = arr[i];
-        var wy = arr[i + 1];
-        arr[i + 2] = Math.sin(wx * 0.18 + t * 0.5) * Math.cos(wy * 0.18 + t * 0.3) * 1.8;
+      for (var i = 0; i < COUNT; i++) {
+        pos[i*3]   += velocities[i].x;
+        pos[i*3+1] += velocities[i].y;
+        pos[i*3+2] += velocities[i].z;
+        /* wrap */
+        if (pos[i*3+1] > 45) pos[i*3+1] = -45;
+        if (pos[i*3]   >  80) pos[i*3]   = -80;
+        if (pos[i*3]   < -80) pos[i*3]   =  80;
       }
-      pos.needsUpdate = true;
+      geo.attributes.position.needsUpdate = true;
 
-      /* slow rotation + mouse parallax */
-      mesh.rotation.x = t * 0.012 + mouse.y * 0.06;
-      mesh.rotation.y = t * 0.018 + mouse.x * 0.06;
+      /* gentle scene parallax with mouse */
+      points.rotation.y = t * 0.008 + mouse.x * 0.04;
+      points.rotation.x = t * 0.004 + mouse.y * 0.03;
+      lines.rotation.y  = t * 0.004 + mouse.x * 0.02;
+      lines.rotation.x  = mouse.y * 0.015;
+
+      /* pulsing opacity */
+      mat.opacity = 0.6 + Math.sin(t * 0.4) * 0.1;
 
       renderer.render(scene, camera);
     }
@@ -435,18 +476,19 @@ function setLang(lang) {
 
     function spawnSpark() {
       var w = canvas.width, h = canvas.height;
-      /* sparks appear from right-side weld points */
+      /* sparks rise from the factory road / bottom of scene */
+      var isBlue = Math.random() < 0.25;
       particles.push({
-        x:  w * 0.55 + Math.random() * w * 0.4,
-        y:  h * 0.25 + Math.random() * h * 0.5,
-        vx: (Math.random() - 0.5) * 3.5,
-        vy: -Math.random() * 5 - 1,
+        x:  w * 0.2 + Math.random() * w * 0.6,
+        y:  h * 0.72 + Math.random() * h * 0.2,
+        vx: (Math.random() - 0.5) * 2.8,
+        vy: -Math.random() * 4.5 - 0.8,
         life: 1,
-        decay: 0.015 + Math.random() * 0.025,
-        size: Math.random() * 2.5 + 0.8,
-        r:   255,
-        g:   Math.floor(Math.random() * 100 + 80),
-        b:   0
+        decay: 0.012 + Math.random() * 0.022,
+        size: Math.random() * 2.2 + 0.6,
+        r:   isBlue ? 80  : 255,
+        g:   isBlue ? 140 : Math.floor(Math.random() * 110 + 70),
+        b:   isBlue ? 255 : 0
       });
     }
 
@@ -504,17 +546,22 @@ function setLang(lang) {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  /* ── Hero Entrance ── */
-  var heroTl = gsap.timeline({ delay: 0.3 });
+  /* ── Hero Cinematic Entrance ── */
+  var heroTl = gsap.timeline({ delay: 0.4 });
   heroTl
-    .to('.hero-badge',  { opacity: 1, y: 0,  duration: 0.7, ease: 'power3.out', from: { y: 20 } })
-    .from('.hero h1',   { opacity: 0, y: 40, duration: 0.9, ease: 'power3.out' }, '-=0.4')
-    .from('.hero-desc', { opacity: 0, y: 30, duration: 0.7, ease: 'power3.out' }, '-=0.5')
-    .from('.hero-btns', { opacity: 0, y: 24, duration: 0.6, ease: 'power3.out' }, '-=0.4')
-    .from('.hero-meta', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.3')
-    .from('.comp-main',   { opacity: 0, x: 60, rotationY: -20, duration: 1.0, ease: 'power3.out' }, '-=0.7')
-    .from('.comp-accent', { opacity: 0, x: 40, rotationY: 12,  duration: 0.8, ease: 'power3.out' }, '-=0.6')
-    .from('.spec-card', { opacity: 0, scale: 0.7, stagger: 0.12, duration: 0.6, ease: 'back.out(2)' }, '-=0.5');
+    .from('.hero-gate-bg img', { scale: 1.18, duration: 2.4, ease: 'power2.out' })
+    .from('.hero-badge',       { opacity: 0, y: 24, duration: 0.7, ease: 'power3.out' }, '-=1.8')
+    .from('.hero-brand-block', { opacity: 0, y: 50, duration: 1.0, ease: 'power3.out' }, '-=0.5')
+    .from('.hero-tagline',     { opacity: 0, y: 28, duration: 0.7, ease: 'power3.out' }, '-=0.5')
+    .from('.hero-desc',        { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.45')
+    .from('.hero-btns',        { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+    .from('.hero-stats-bar',   { opacity: 0, y: 16, duration: 0.6, ease: 'power3.out' }, '-=0.35');
+
+  /* ── Feature Cards Entrance ── */
+  gsap.from('.feature-card', {
+    scrollTrigger: { trigger: '.feature-cards-section', start: 'top 88%' },
+    opacity: 0, y: 40, stagger: 0.12, duration: 0.7, ease: 'power3.out'
+  });
 
   /* ── Section Reveals (generic) ── */
   gsap.utils.toArray('.section-tag, .section-title, .section-lead').forEach(function (el) {

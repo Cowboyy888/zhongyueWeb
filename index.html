@@ -70,106 +70,144 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
+
+  <!-- Layer 1: Three.js particles canvas -->
   <canvas id="mesh-canvas" aria-hidden="true"></canvas>
+
+  <!-- Layer 2: Factory gate photo background -->
+  <div class="hero-gate-bg" id="hero-gate-bg">
+    <img src="images/factory-gate.jpg" alt="ZY Steel Factory Entrance" id="gate-bg-img" />
+  </div>
+
+  <!-- Layer 3: Cinematic gradient overlays -->
+  <div class="hero-cinematic-overlay" aria-hidden="true"></div>
+  <div class="hero-bottom-fog" aria-hidden="true"></div>
+
+  <!-- Layer 4: Moving clouds -->
+  <div class="hero-clouds" aria-hidden="true">
+    <div class="h-cloud h-cloud-1"></div>
+    <div class="h-cloud h-cloud-2"></div>
+    <div class="h-cloud h-cloud-3"></div>
+    <div class="h-cloud h-cloud-4"></div>
+  </div>
+
+  <!-- Layer 5: Light rays -->
+  <div class="hero-rays" aria-hidden="true">
+    <div class="h-ray h-ray-1"></div>
+    <div class="h-ray h-ray-2"></div>
+    <div class="h-ray h-ray-3"></div>
+  </div>
+
+  <!-- Layer 6: Spark particles canvas -->
   <canvas id="sparks-canvas" aria-hidden="true"></canvas>
+
+  <!-- Layer 7: Animated steel mesh overlay -->
+  <div class="hero-mesh-overlay" aria-hidden="true"></div>
+
+  <!-- Layer 8: Vignette -->
   <div class="hero-vignette"></div>
-  <div class="hero-accent-bar"></div>
 
-  <div class="hero-content container">
-    <div class="hero-left">
-      <div class="hero-badge" id="hero-badge">
-        <span class="badge-dot"></span>
-        <span data-i18n="hero-badge">专业钢筋网制造商 · Since 1998</span>
-      </div>
-
-      <h1 id="hero-h1" data-i18n="hero-h1">铸就<em>钢铁</em><br/>品质<em>恒久</em></h1>
-
-      <p class="hero-desc" id="hero-desc" data-i18n="hero-desc">
-        中粤铁网公司深耕钢铁行业逾26年，以全自动焊接工艺精密生产焊接钢筋网，
-        线径3–12mm，网格间距100–500mm，服务建筑、基础设施及工程领域全球客户。
-      </p>
-
-      <div class="hero-btns" id="hero-btns">
-        <a href="#products" class="btn-primary">
-          <span data-i18n="hero-btn-products">查看产品</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#process" class="btn-glass" data-i18n="hero-btn-process">了解工艺</a>
-      </div>
-
-      <div class="hero-meta" id="hero-meta">
-        <div class="hero-meta-item">
-          <div class="meta-row">
-            <span class="meta-num" data-count="26">0</span><span class="meta-plus">+</span>
-          </div>
-          <div class="meta-label" data-i18n="meta-years">年行业经验</div>
-        </div>
-        <div class="hero-meta-sep"></div>
-        <div class="hero-meta-item">
-          <div class="meta-row">
-            <span class="meta-num" data-count="800">0</span><span class="meta-plus">+</span>
-          </div>
-          <div class="meta-label" data-i18n="meta-cap">日产能（吨）</div>
-        </div>
-        <div class="hero-meta-sep"></div>
-        <div class="hero-meta-item">
-          <div class="meta-row">
-            <span class="meta-num" data-count="60">0</span><span class="meta-plus">+</span>
-          </div>
-          <div class="meta-label" data-i18n="meta-countries">出口国家</div>
-        </div>
-        <div class="hero-meta-sep"></div>
-        <div class="hero-meta-item">
-          <div class="meta-row">
-            <span class="meta-num" data-count="98">0</span><span class="meta-plus">%</span>
-          </div>
-          <div class="meta-label" data-i18n="meta-retention">客户留存率</div>
-        </div>
-      </div>
+  <!-- Hero content — centered cinematic layout -->
+  <div class="hero-content-cinematic" id="hero-content">
+    <!-- Top badge -->
+    <div class="hero-badge hero-badge-cinematic" id="hero-badge">
+      <span class="badge-dot"></span>
+      <span data-i18n="hero-badge">专业钢筋网制造商 · Since 1998</span>
     </div>
 
-    <!-- Right: floating composition -->
-    <div class="hero-right">
-      <div class="hero-composition">
-        <div class="comp-main" id="comp-main">
-          <img src="images/factory-gate.jpg" alt="ZY Steel 中粤钢铁厂区大门" />
-          <div class="comp-main-bar">
-            <span class="comp-live-dot"></span>
-            ZY Steel 中粤钢铁 · 广东工业园区
-          </div>
-        </div>
-        <div class="comp-accent" id="comp-accent">
-          <img src="images/machine-1.jpg" alt="全自动焊网生产线" />
-        </div>
-        <div class="spec-card spec-card-1" id="spec-1">
-          <div class="spec-val">3–12mm</div>
-          <div class="spec-key">Wire Diameter</div>
-        </div>
-        <div class="spec-card spec-card-2" id="spec-2">
-          <div class="spec-val">100–500mm</div>
-          <div class="spec-key">Mesh Spacing</div>
-        </div>
-        <div class="spec-card spec-card-3" id="spec-3">
-          <div class="spec-val" data-i18n="spec-custom-val">定制规格</div>
-          <div class="spec-key">Custom Sizes</div>
-        </div>
-        <div class="spec-card spec-card-4" id="spec-4">
-          <div class="spec-val" data-i18n="spec-strength-val">高强度</div>
-          <div class="spec-key">Carbon Steel</div>
-        </div>
-        <div class="hero-orbit" aria-hidden="true">
-          <div class="orbit-core"><div class="orbit-core-inner"></div></div>
-          <div class="orbit-ring orbit-ring-1"><div class="orbit-dot"></div></div>
-          <div class="orbit-ring orbit-ring-2"><div class="orbit-dot"></div><div class="orbit-dot orbit-dot-b"></div></div>
-          <div class="orbit-ring orbit-ring-3"><div class="orbit-dot"></div></div>
-        </div>
+    <!-- Brand block -->
+    <div class="hero-brand-block" id="hero-brand">
+      <div class="hero-brand-en" id="hero-brand-en">ZY STEELS</div>
+      <div class="hero-brand-cn" id="hero-brand-cn">中粤钢铁</div>
+    </div>
+
+    <!-- Tagline -->
+    <p class="hero-tagline" id="hero-tagline" data-i18n="hero-tagline">
+      Building Strength. Shaping Tomorrow.
+    </p>
+
+    <!-- Description -->
+    <p class="hero-desc" id="hero-desc" data-i18n="hero-desc">
+      中粤铁网公司深耕钢铁行业逾26年，精密生产焊接钢筋网，服务全球60余个国家。
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="hero-btns" id="hero-btns">
+      <a href="#products" class="btn-primary btn-hero-primary">
+        <span data-i18n="hero-btn-products">查看产品</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#contact" class="btn-hero-glass" data-i18n="hero-btn-contact">联系我们</a>
+    </div>
+
+    <!-- Stats row -->
+    <div class="hero-stats-bar" id="hero-meta">
+      <div class="hero-stat-item">
+        <div class="hero-stat-num"><span class="meta-num" data-count="26">0</span><span class="meta-plus">+</span></div>
+        <div class="hero-stat-label" data-i18n="meta-years">年行业经验</div>
+      </div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num"><span class="meta-num" data-count="800">0</span><span class="meta-plus">+</span></div>
+        <div class="hero-stat-label" data-i18n="meta-cap">日产能（吨）</div>
+      </div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num"><span class="meta-num" data-count="60">0</span><span class="meta-plus">+</span></div>
+        <div class="hero-stat-label" data-i18n="meta-countries">出口国家</div>
+      </div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num"><span class="meta-num" data-count="98">0</span><span class="meta-plus">%</span></div>
+        <div class="hero-stat-label" data-i18n="meta-retention">客户留存率</div>
       </div>
     </div>
   </div>
 
+  <!-- Scroll cue -->
   <div class="hero-scroll-cue" aria-hidden="true">
     <div class="scroll-cue-line"></div>
     <span class="scroll-cue-text">SCROLL</span>
+  </div>
+</section>
+
+<!-- FEATURE CARDS (below hero) -->
+<section class="feature-cards-section" id="features">
+  <div class="container">
+    <div class="feature-cards-grid">
+      <div class="feature-card" id="feat-1">
+        <div class="feature-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 data-i18n="feat-1-title">高品质产品</h3>
+        <p data-i18n="feat-1-desc">ISO 9001认证，每批附随完整质检报告</p>
+        <div class="feature-card-line"></div>
+      </div>
+      <div class="feature-card" id="feat-2">
+        <div class="feature-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 data-i18n="feat-2-title">先进技术</h3>
+        <p data-i18n="feat-2-desc">全自动焊网生产线，日产能超800吨</p>
+        <div class="feature-card-line"></div>
+      </div>
+      <div class="feature-card" id="feat-3">
+        <div class="feature-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3 data-i18n="feat-3-title">值得信赖的伙伴</h3>
+        <p data-i18n="feat-3-desc">26年深耕行业，服务全球60余个国家</p>
+        <div class="feature-card-line"></div>
+      </div>
+      <div class="feature-card" id="feat-4">
+        <div class="feature-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 data-i18n="feat-4-title">可持续发展</h3>
+        <p data-i18n="feat-4-desc">绿色生产工艺，符合国际环保标准</p>
+        <div class="feature-card-line"></div>
+      </div>
+    </div>
   </div>
 </section>
 
