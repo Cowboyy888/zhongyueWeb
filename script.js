@@ -129,7 +129,7 @@ var i18nData = {
     'footer-newsletter-desc': '订阅电子报，获取最新价格行情、新品发布及行业动态。',
     'footer-email-ph': '您的邮箱地址',
     'footer-cert': '质量认证',
-    'footer-copy': '© 2025 中粤铁网公司. 版权所有. | <a href="#">粤ICP备XXXXXXXX号</a>',
+    'footer-copy': '© 2026 中粤铁网公司. 版权所有. | <a href="#">粤ICP备XXXXXXXX号</a>',
     'footer-privacy': '隐私政策', 'footer-terms': '使用条款', 'footer-cert-link': '质量证书'
   },
   en: {
@@ -254,7 +254,7 @@ var i18nData = {
     'footer-newsletter-desc': 'Subscribe for the latest prices, new product releases, and industry updates.',
     'footer-email-ph': 'Your email address',
     'footer-cert': 'Quality Certificate',
-    'footer-copy': '© 2025 Zhongyu Steel Wire Group. All Rights Reserved.',
+    'footer-copy': '© 2026 Zhongyu Steel Wire Group. All Rights Reserved.',
     'footer-privacy': 'Privacy Policy', 'footer-terms': 'Terms of Use', 'footer-cert-link': 'Certificates'
   }
 };
