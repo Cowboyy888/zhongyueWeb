@@ -1813,3 +1813,120 @@ footer { background: var(--dark); color: #8FA0B8; }
   .hero-stat-item { flex: 0 0 50%; }
   .hero-stat-div { display: none; }
 }
+
+/* ══════════════════════════════════
+   RESPONSIVE — EXTENDED COVERAGE
+   1024 · 768 · 640 · 480 · 375
+   Touch  ·  Reduced-motion
+══════════════════════════════════ */
+
+/* ── 1024px supplement ── */
+@media (max-width: 1024px) {
+  .header-right .btn-primary { display: none; }
+  .contact-grid { gap: 48px; }
+  .process-timeline { padding: 72px 0; }
+  .ptl-header { margin-bottom: 52px; }
+}
+
+/* ── 768px supplement ── */
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .about-steel { padding: 80px 0 96px; }
+  .cta-banner { padding: 60px 0; }
+}
+
+/* ── 640px supplement ── */
+@media (max-width: 640px) {
+  .section { padding: 52px 0; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .btn-hero-primary,
+  .btn-hero-glass { width: 100%; max-width: 360px; justify-content: center; }
+  .cta-banner { padding: 52px 0; }
+  .cta-btns { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+  .btn-cta-call,
+  .btn-white { justify-content: center; }
+  .fact-item { padding: 36px 16px; }
+  .fact-num { font-size: 48px; }
+  .contact-form { padding: 28px 20px; }
+  .footer-top { padding: 56px 0 32px; }
+  .delivery-stat { padding: 22px 14px; }
+  .delivery-stat-num { font-size: 34px; }
+  .process-timeline { padding: 60px 0; }
+  .ptl-header { margin-bottom: 40px; }
+}
+
+/* ── 480px — Small phones ── */
+@media (max-width: 480px) {
+  .section { padding: 44px 0; }
+  .container { padding: 0 16px; }
+  .topbar { display: none; }
+  .header-inner { padding: 0 16px; }
+  .mobile-nav { padding: 20px 16px; }
+  .hero-badge { font-size: 9.5px; padding: 6px 14px 6px 10px; }
+  .hero-stats-bar { border-radius: 8px; }
+  .hero-stat-item { padding: 12px 6px; }
+  .meta-num { font-size: 20px; }
+  .meta-label, .hero-stat-label { font-size: 8.5px; letter-spacing: 0.8px; }
+  .about-steel { padding: 52px 0 68px; }
+  .about-stats-grid { gap: 10px; }
+  .about-stat-count { font-size: 24px; }
+  .about-stat-suf { font-size: 16px; }
+  .process-timeline { padding: 44px 0; }
+  .ptl-header { margin-bottom: 28px; }
+  .ptl-steps { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .fact-item { padding: 26px 12px; }
+  .fact-num { font-size: 40px; }
+  .fact-emoji { font-size: 28px; margin-bottom: 12px; }
+  .fact-label { font-size: 9.5px; letter-spacing: 1.5px; }
+  .cta-banner { padding: 40px 0; }
+  .cta-text p { font-size: 14px; }
+  .contact-form { padding: 22px 16px; }
+  .contact-grid { gap: 28px; }
+  .footer-top { padding: 44px 0 28px; }
+  .footer-grid { gap: 24px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .footer-bottom-links { flex-wrap: wrap; gap: 14px; }
+  .delivery-stat { padding: 16px 10px; }
+  .delivery-stat-num { font-size: 26px; }
+  .delivery-stat-unit { font-size: 11px; }
+  .delivery-stat-label { font-size: 10px; }
+  .partners-row { gap: 28px; }
+  .testi-card { padding: 24px 20px; }
+  .process-card { padding: 28px 20px; }
+}
+
+/* ── 375px — iPhone SE / small budget phones ── */
+@media (max-width: 375px) {
+  .container { padding: 0 14px; }
+  .hero-brand-en { font-size: 52px !important; letter-spacing: -1px; }
+  .hero-brand-cn { font-size: 18px; letter-spacing: 3px; }
+  .hero-stat-item { padding: 10px 4px; }
+  .meta-num { font-size: 18px; }
+  .footer-socials { flex-wrap: wrap; gap: 8px; }
+  .logo-text { font-size: 17px; }
+}
+
+/* ── Touch devices — remove non-functional hover transforms ── */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary:hover,
+  .btn-glass:hover,
+  .btn-outline:hover,
+  .btn-white:hover { transform: none; }
+  .btn-hero-primary:hover,
+  .btn-hero-glass:hover { transform: none; }
+  .product-card:hover { transform: none; box-shadow: none; z-index: auto; }
+  .factory-card:hover { transform: none; box-shadow: none; }
+  .process-card:hover { transform: none; box-shadow: none; }
+  .testi-card:hover { transform: none; }
+  .fab:hover { transform: none; }
+  .about-stat-card:hover { background: rgba(255,255,255,0.03); }
+}
+
+/* ── Reduced motion — disable CSS-layer animations ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-img { animation: none; }
+  .ticker-inner { animation-duration: 0.01ms !important; }
+  .about-live-dot { animation: none; opacity: 1; }
+  .ptl-step,
+  .ptl-step-node { transition: none !important; }
+}

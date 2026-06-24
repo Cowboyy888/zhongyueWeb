@@ -298,7 +298,7 @@
         <div class="about-corner about-corner-br"></div>
         <!-- Year badge -->
         <div class="about-year-badge">
-          <div class="about-year-num">1998</div>
+          <div class="about-year-num">2002</div>
           <div class="about-year-label" data-i18n="about-year-label">Founded · 成立年份</div>
         </div>
       </div>
@@ -843,31 +843,36 @@
         </div>
       </div>
       <div>
-        <div class="contact-form">
+        <!-- Replace REPLACE_WITH_FORM_ID: sign up at formspree.io, create a form, paste the ID here -->
+        <form class="contact-form" id="contact-form"
+              action="https://formspree.io/f/REPLACE_WITH_FORM_ID"
+              method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New Inquiry — Zhongyue Steel" />
+          <input type="hidden" name="_replyto" id="replyto-field" value="" />
           <h3 data-i18n="form-title">发送询价</h3>
           <div class="form-row">
             <div class="form-group">
               <label for="input-name" data-i18n="form-name">姓名</label>
-              <input id="input-name" type="text" placeholder="张先生 / Ms. Zhang" autocomplete="name" required />
+              <input id="input-name" name="name" type="text" placeholder="张先生 / Ms. Zhang" autocomplete="name" required />
             </div>
             <div class="form-group">
               <label for="input-company" data-i18n="form-company">公司名称</label>
-              <input id="input-company" type="text" data-i18n-placeholder="form-company-ph" placeholder="贵公司名称" autocomplete="organization" />
+              <input id="input-company" name="company" type="text" data-i18n-placeholder="form-company-ph" placeholder="贵公司名称" autocomplete="organization" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="input-email" data-i18n="form-email">电子邮件</label>
-              <input id="input-email" type="email" placeholder="example@company.com" autocomplete="email" required />
+              <input id="input-email" name="email" type="email" placeholder="example@company.com" autocomplete="email" required />
             </div>
             <div class="form-group">
               <label for="input-phone" data-i18n="form-phone">联系电话</label>
-              <input id="input-phone" type="tel" placeholder="+86 000-0000-0000" autocomplete="tel" />
+              <input id="input-phone" name="phone" type="tel" placeholder="+86 000-0000-0000" autocomplete="tel" />
             </div>
           </div>
           <div class="form-group">
             <label for="input-product" data-i18n="form-product">意向产品</label>
-            <select id="input-product">
+            <select id="input-product" name="product">
               <option value="" data-i18n="form-product-default">— 请选择产品 —</option>
               <option data-i18n="form-opt-1">焊接钢筋网 / 建筑网片</option>
               <option data-i18n="form-opt-2">楼板钢筋网</option>
@@ -879,12 +884,12 @@
           </div>
           <div class="form-group">
             <label for="input-detail" data-i18n="form-detail">询价详情 &amp; 规格要求</label>
-            <textarea id="input-detail" data-i18n-placeholder="form-detail-ph" placeholder="请填写线径、间距、网片尺寸、数量及交货地点……"></textarea>
+            <textarea id="input-detail" name="message" data-i18n-placeholder="form-detail-ph" placeholder="请填写线径、间距、网片尺寸、数量及交货地点……"></textarea>
           </div>
-          <button class="btn-primary form-submit-btn" id="submit-btn" data-i18n="form-submit">
+          <button class="btn-primary form-submit-btn" id="submit-btn" type="submit" data-i18n="form-submit">
             提交询价 / Send Inquiry
           </button>
-        </div>
+        </form>
       </div>
     </div>
   </div>

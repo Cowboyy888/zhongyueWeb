@@ -793,35 +793,62 @@ function setLang(lang) {
   }
 
   /* ── CONTACT FORM ── */
-  var submitBtn = document.getElementById('submit-btn');
-  if (submitBtn) {
-    submitBtn.addEventListener('click', function () {
-      var form = submitBtn.closest('.contact-form');
-      var nameEl  = document.getElementById('input-name');
-      var emailEl = document.getElementById('input-email');
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nameEl   = document.getElementById('input-name');
+      var emailEl  = document.getElementById('input-email');
+      var submitBtn = document.getElementById('submit-btn');
+      var replyTo  = document.getElementById('replyto-field');
 
       if (nameEl && !nameEl.value.trim()) {
         nameEl.focus();
         nameEl.style.borderColor = 'var(--red)';
         return;
       }
-      if (emailEl && (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value))) {
+      if (emailEl && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
         emailEl.focus();
         emailEl.style.borderColor = 'var(--red)';
         return;
       }
+      if (nameEl) nameEl.style.borderColor = '';
+      if (emailEl) emailEl.style.borderColor = '';
+      if (replyTo && emailEl) replyTo.value = emailEl.value;
 
-      var btn = this;
       var currentLang = localStorage.getItem('zy-lang') || 'zh';
-      btn.textContent = currentLang === 'en' ? '✓ Sent!' : '✓ 提交成功';
-      btn.classList.add('success');
-      if (form) form.querySelectorAll('input, textarea, select').forEach(function(el) { el.value = ''; });
-      setTimeout(function () {
-        btn.textContent = currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry';
-        btn.classList.remove('success');
-        if (nameEl) nameEl.style.borderColor = '';
-        if (emailEl) emailEl.style.borderColor = '';
-      }, 3500);
+      submitBtn.disabled = true;
+      submitBtn.textContent = currentLang === 'en' ? 'Sending…' : '提交中…';
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        if (res.ok) {
+          submitBtn.textContent = currentLang === 'en' ? '✓ Sent!' : '✓ 提交成功';
+          submitBtn.classList.add('success');
+          contactForm.querySelectorAll('input:not([type="hidden"]), textarea, select')
+            .forEach(function (el) { el.value = ''; });
+          setTimeout(function () {
+            submitBtn.textContent = currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry';
+            submitBtn.classList.remove('success');
+            submitBtn.disabled = false;
+          }, 3500);
+        } else {
+          submitBtn.textContent = currentLang === 'en' ? 'Error — try again' : '提交失败，请重试';
+          setTimeout(function () {
+            submitBtn.textContent = currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry';
+            submitBtn.disabled = false;
+          }, 3000);
+        }
+      }).catch(function () {
+        submitBtn.textContent = currentLang === 'en' ? 'Error — try again' : '提交失败，请重试';
+        setTimeout(function () {
+          submitBtn.textContent = currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry';
+          submitBtn.disabled = false;
+        }, 3000);
+      });
     });
   }
 
