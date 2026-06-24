@@ -9,7 +9,7 @@
 var i18nData = {
   zh: {
     'topbar-addr': 'CJJG+HHH, Khum Trapeang Kong, Cambodia',
-    'topbar-hours': '周一至周六：08:00 – 18:00',
+    'topbar-hours': '每天：08:00 – 17:00',
     'topbar-cta': '免费询价',
     'nav-home': '首页', 'nav-about': '关于我们', 'nav-facility': '工厂实景',
     'nav-products': '产品中心', 'nav-process': '生产工艺', 'nav-factory': '设备展示',
@@ -134,7 +134,7 @@ var i18nData = {
   },
   en: {
     'topbar-addr': 'CJJG+HHH, Khum Trapeang Kong, Cambodia',
-    'topbar-hours': 'Mon–Sat: 08:00 – 18:00',
+    'topbar-hours': 'Everyday 8:00 - 17:00',
     'topbar-cta': 'Free Quote',
     'nav-home': 'Home', 'nav-about': 'About', 'nav-facility': 'Facility',
     'nav-products': 'Products', 'nav-process': 'Process', 'nav-factory': 'Equipment',
