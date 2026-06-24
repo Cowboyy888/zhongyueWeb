@@ -249,7 +249,7 @@ var i18nData = {
     'form-detail': 'Inquiry Details &amp; Specifications',
     'form-detail-ph': 'Please provide wire diameter, spacing, panel size, quantity, and delivery destination…',
     'form-submit': 'Send Inquiry',
-    'footer-about': 'Focused on the R&D, production, and sales of welded steel mesh — serving construction, infrastructure, and industrial sectors. Exporting to 60+ countries since 1998.',
+    'footer-about': 'Focused on the R&D, production, and sales of welded steel mesh — serving construction, infrastructure, and industrial sectors since 2022.',
     'footer-col-1': 'Products', 'footer-col-2': 'Company', 'footer-col-3': 'Newsletter',
     'footer-newsletter-desc': 'Subscribe for the latest prices, new product releases, and industry updates.',
     'footer-email-ph': 'Your email address',
