@@ -38,6 +38,8 @@ var i18nData = {
     'step-7': '出厂交付', 'step-7-sub': 'Global Delivery',
     'about-tag': '关于中粤铁网', 'about-title': '品质<em>铸就</em><br/>信赖',
     'about-badge-text': '年专业<br/>经验',
+    'about-year-label': 'Founded · 成立年份',
+    'about-live-label': '生产中 · Live Production',
     'about-lead': '自1998年成立以来，中粤铁网公司专注焊接钢筋网研发与生产，以全自动焊接工艺、精密切断系统与严格质控流程，成为华南地区具有影响力的钢筋网制品供应商。',
     'about-f1-title': 'ISO 9001:2015 质量认证',
     'about-f1-desc': '每批产品附随焊点抗拉强度、丝径公差、网格精度等全项检测报告，附质保书与材质证明。',
@@ -162,6 +164,8 @@ var i18nData = {
     'step-7': 'Delivery', 'step-7-sub': 'Global Delivery',
     'about-tag': 'About Zhongyu Steel', 'about-title': 'Quality <em>Built</em><br/>to Last',
     'about-badge-text': 'Yrs of<br/>Expertise',
+    'about-year-label': 'Founded · Est. Year',
+    'about-live-label': 'Live Production',
     'about-lead': 'Founded in 1998, Zhongyu Steel has dedicated itself to the R&D and production of welded rebar mesh. With fully automated welding, precision cutting systems, and rigorous QC, we have become one of the most influential steel mesh suppliers in South China.',
     'about-f1-title': 'ISO 9001:2015 Certified',
     'about-f1-desc': 'Every batch ships with a full test report covering weld tensile strength, wire diameter tolerance, and mesh spacing accuracy — plus a quality certificate and material certificate.',
@@ -336,226 +340,12 @@ function setLang(lang) {
   });
 
   /* ══════════════════════════════════
-     THREE.JS — Cinematic Particle Field
-  ══════════════════════════════════ */
-  (function initMeshCanvas() {
-    var canvas = document.getElementById('mesh-canvas');
-    if (!canvas || typeof THREE === 'undefined') return;
-
-    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-    renderer.setClearColor(0x000000, 0);
-
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
-    camera.position.set(0, 0, 50);
-
-    var COUNT = 2200;
-    var positions = new Float32Array(COUNT * 3);
-    var colors    = new Float32Array(COUNT * 3);
-    var sizes     = new Float32Array(COUNT);
-    var velocities = [];
-
-    for (var i = 0; i < COUNT; i++) {
-      positions[i * 3]     = (Math.random() - 0.5) * 160;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 90;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 60;
-
-      /* colour palette: steel blue, white, faint orange */
-      var roll = Math.random();
-      if (roll < 0.55) {
-        colors[i*3] = 0.16 + Math.random()*0.1;
-        colors[i*3+1] = 0.38 + Math.random()*0.15;
-        colors[i*3+2] = 1.0;
-      } else if (roll < 0.80) {
-        colors[i*3] = colors[i*3+1] = colors[i*3+2] = 0.8 + Math.random()*0.2;
-      } else {
-        colors[i*3] = 1.0;
-        colors[i*3+1] = 0.45 + Math.random()*0.2;
-        colors[i*3+2] = 0.05;
-      }
-      sizes[i] = Math.random() < 0.06 ? 3.5 + Math.random() * 3 : 0.6 + Math.random() * 1.8;
-      velocities.push({
-        x: (Math.random() - 0.5) * 0.018,
-        y: 0.008 + Math.random() * 0.018,
-        z: (Math.random() - 0.5) * 0.008
-      });
-    }
-
-    var geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geo.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
-    geo.setAttribute('size',     new THREE.BufferAttribute(sizes, 1));
-
-    var mat = new THREE.PointsMaterial({
-      size: 1.2, vertexColors: true, transparent: true,
-      opacity: 0.7, sizeAttenuation: true,
-      blending: THREE.AdditiveBlending, depthWrite: false
-    });
-    var points = new THREE.Points(geo, mat);
-    scene.add(points);
-
-    /* Floating wire mesh lines (subtle) */
-    var lineGeo = new THREE.BufferGeometry();
-    var linePos = [];
-    var GRID = 10;
-    for (var gx = -GRID; gx <= GRID; gx++) {
-      linePos.push(gx*8, -GRID*8, -20, gx*8, GRID*8, -20);
-    }
-    for (var gy = -GRID; gy <= GRID; gy++) {
-      linePos.push(-GRID*8, gy*8, -20, GRID*8, gy*8, -20);
-    }
-    lineGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePos), 3));
-    var lineMat = new THREE.LineBasicMaterial({ color: 0x2962ff, transparent: true, opacity: 0.04 });
-    var lines = new THREE.LineSegments(lineGeo, lineMat);
-    scene.add(lines);
-
-    var clock = new THREE.Clock();
-    var mouse = { x: 0, y: 0 };
-    document.addEventListener('mousemove', function (e) {
-      mouse.x = (e.clientX / window.innerWidth - 0.5);
-      mouse.y = -(e.clientY / window.innerHeight - 0.5);
-    }, { passive: true });
-
-    function resize() {
-      var w = window.innerWidth, h = window.innerHeight;
-      canvas.width = w; canvas.height = h;
-      renderer.setSize(w, h, false);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-    }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    function animate() {
-      requestAnimationFrame(animate);
-      var t = clock.getElapsedTime();
-      var pos = geo.attributes.position.array;
-
-      for (var i = 0; i < COUNT; i++) {
-        pos[i*3]   += velocities[i].x;
-        pos[i*3+1] += velocities[i].y;
-        pos[i*3+2] += velocities[i].z;
-        /* wrap */
-        if (pos[i*3+1] > 45) pos[i*3+1] = -45;
-        if (pos[i*3]   >  80) pos[i*3]   = -80;
-        if (pos[i*3]   < -80) pos[i*3]   =  80;
-      }
-      geo.attributes.position.needsUpdate = true;
-
-      /* gentle scene parallax with mouse */
-      points.rotation.y = t * 0.008 + mouse.x * 0.04;
-      points.rotation.x = t * 0.004 + mouse.y * 0.03;
-      lines.rotation.y  = t * 0.004 + mouse.x * 0.02;
-      lines.rotation.x  = mouse.y * 0.015;
-
-      /* pulsing opacity */
-      mat.opacity = 0.6 + Math.sin(t * 0.4) * 0.1;
-
-      renderer.render(scene, camera);
-    }
-    animate();
-  })();
-
-  /* ══════════════════════════════════
-     CANVAS 2D — Welding Sparks
-  ══════════════════════════════════ */
-  (function initSparks() {
-    var canvas = document.getElementById('sparks-canvas');
-    if (!canvas) return;
-    var ctx = canvas.getContext('2d');
-    var particles = [];
-
-    function resize() {
-      var hero = canvas.parentElement;
-      canvas.width  = hero ? hero.offsetWidth  : window.innerWidth;
-      canvas.height = hero ? hero.offsetHeight : window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    function spawnSpark() {
-      var w = canvas.width, h = canvas.height;
-      /* sparks rise from the factory road / bottom of scene */
-      var isBlue = Math.random() < 0.25;
-      particles.push({
-        x:  w * 0.2 + Math.random() * w * 0.6,
-        y:  h * 0.72 + Math.random() * h * 0.2,
-        vx: (Math.random() - 0.5) * 2.8,
-        vy: -Math.random() * 4.5 - 0.8,
-        life: 1,
-        decay: 0.012 + Math.random() * 0.022,
-        size: Math.random() * 2.2 + 0.6,
-        r:   isBlue ? 80  : 255,
-        g:   isBlue ? 140 : Math.floor(Math.random() * 110 + 70),
-        b:   isBlue ? 255 : 0
-      });
-    }
-
-    function draw() {
-      requestAnimationFrame(draw);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      /* spawn burst */
-      if (Math.random() < 0.35) spawnSpark();
-      if (Math.random() < 0.08) {
-        for (var b = 0; b < 6; b++) spawnSpark();
-      }
-
-      particles = particles.filter(function (p) {
-        p.x  += p.vx;
-        p.y  += p.vy;
-        p.vy += 0.12;      /* gravity */
-        p.vx *= 0.98;
-        p.life -= p.decay;
-
-        if (p.life <= 0) return false;
-
-        ctx.save();
-        ctx.globalAlpha = p.life * 0.8;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgb(' + p.r + ',' + Math.floor(p.g * p.life) + ',' + p.b + ')';
-        ctx.shadowBlur = 6;
-        ctx.shadowColor = '#E31E24';
-        ctx.fill();
-        ctx.restore();
-
-        /* trail streak */
-        if (p.life > 0.5) {
-          ctx.save();
-          ctx.globalAlpha = p.life * 0.25;
-          ctx.strokeStyle = 'rgb(255,140,0)';
-          ctx.lineWidth = 0.8;
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p.x - p.vx * 3, p.y - p.vy * 3);
-          ctx.stroke();
-          ctx.restore();
-        }
-        return true;
-      });
-    }
-    draw();
-  })();
-
-  /* ══════════════════════════════════
      GSAP ANIMATIONS
   ══════════════════════════════════ */
   if (typeof gsap === 'undefined') return;
 
   gsap.registerPlugin(ScrollTrigger);
 
-  /* ── Hero Cinematic Entrance ── */
-  var heroTl = gsap.timeline({ delay: 0.4 });
-  heroTl
-    .from('.hero-gate-bg img', { scale: 1.18, duration: 2.4, ease: 'power2.out' })
-    .from('.hero-badge',       { opacity: 0, y: 24, duration: 0.7, ease: 'power3.out' }, '-=1.8')
-    .from('.hero-brand-block', { opacity: 0, y: 50, duration: 1.0, ease: 'power3.out' }, '-=0.5')
-    .from('.hero-tagline',     { opacity: 0, y: 28, duration: 0.7, ease: 'power3.out' }, '-=0.5')
-    .from('.hero-desc',        { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.45')
-    .from('.hero-btns',        { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.4')
-    .from('.hero-stats-bar',   { opacity: 0, y: 16, duration: 0.6, ease: 'power3.out' }, '-=0.35');
 
   /* ── Feature Cards Entrance ── */
   gsap.from('.feature-card', {
@@ -571,15 +361,196 @@ function setLang(lang) {
     });
   });
 
-  /* ── About Section ── */
-  gsap.from('.about-imgs', {
-    scrollTrigger: { trigger: '.about-imgs', start: 'top 80%' },
-    opacity: 0, x: -50, duration: 1.0, ease: 'power3.out'
-  });
-  gsap.from('.about-feat', {
-    scrollTrigger: { trigger: '.about-features', start: 'top 80%' },
-    opacity: 0, x: 40, stagger: 0.15, duration: 0.7, ease: 'power3.out'
-  });
+  /* ── About Section — Steel Factory Redesign ── */
+
+  // Canvas animated steel-wire background
+  (function initAboutCanvas() {
+    const canvas = document.getElementById('about-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, lines = [], dots = [];
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Build grid lines
+    function buildGrid() {
+      lines = [];
+      const cols = 18, rows = 12;
+      for (let c = 0; c <= cols; c++) {
+        lines.push({ x1: (W/cols)*c, y1: 0, x2: (W/cols)*c, y2: H, vertical: true });
+      }
+      for (let r = 0; r <= rows; r++) {
+        lines.push({ x1: 0, y1: (H/rows)*r, x2: W, y2: (H/rows)*r, vertical: false });
+      }
+      dots = [];
+      for (let c = 0; c <= cols; c++) {
+        for (let r = 0; r <= rows; r++) {
+          dots.push({ x: (W/cols)*c, y: (H/rows)*r,
+            phase: Math.random() * Math.PI * 2, speed: 0.4 + Math.random() * 0.8 });
+        }
+      }
+    }
+    buildGrid();
+    window.addEventListener('resize', buildGrid);
+
+    let t = 0;
+    function drawAboutBg() {
+      ctx.clearRect(0, 0, W, H);
+      t += 0.008;
+
+      // Grid lines — pulsing opacity
+      lines.forEach(l => {
+        const pulse = 0.04 + 0.04 * Math.sin(t * 0.7 + (l.vertical ? l.x1 : l.y1) * 0.015);
+        ctx.strokeStyle = `rgba(40,100,200,${pulse})`;
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(l.x1, l.y1);
+        ctx.lineTo(l.x2, l.y2);
+        ctx.stroke();
+      });
+
+      // Intersection weld dots
+      dots.forEach(d => {
+        const glow = 0.15 + 0.15 * Math.sin(t * d.speed + d.phase);
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, 1.2, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(227,30,36,${glow})`;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(drawAboutBg);
+    }
+    drawAboutBg();
+  })();
+
+  // Photo sparks — glowing embers rising from bottom of the photo
+  (function initAboutSparks() {
+    const canvas = document.getElementById('about-sparks');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, sparks = [];
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function spawn() {
+      sparks.push({
+        x: W * 0.3 + Math.random() * W * 0.4,
+        y: H,
+        vx: (Math.random() - 0.5) * 1.0,
+        vy: -(1.5 + Math.random() * 2.5),
+        life: 1,
+        decay: 0.008 + Math.random() * 0.012,
+        size: 1 + Math.random() * 2,
+        color: Math.random() > 0.5 ? 'rgba(255,120,30,' : 'rgba(227,30,36,'
+      });
+    }
+
+    function drawAboutSparks() {
+      ctx.clearRect(0, 0, W, H);
+      if (Math.random() < 0.35) spawn();
+
+      sparks = sparks.filter(s => s.life > 0);
+      sparks.forEach(s => {
+        s.x += s.vx;
+        s.y += s.vy;
+        s.vy *= 0.99;
+        s.vx += (Math.random() - 0.5) * 0.08;
+        s.life -= s.decay;
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size * s.life, 0, Math.PI*2);
+        ctx.fillStyle = s.color + s.life.toFixed(2) + ')';
+        ctx.shadowColor = s.color + '0.8)';
+        ctx.shadowBlur = 4;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+
+      requestAnimationFrame(drawAboutSparks);
+    }
+    drawAboutSparks();
+  })();
+
+  // GSAP scroll animations
+  const aboutSection = document.querySelector('.about-steel');
+  if (aboutSection) {
+
+    // Photo frame entrance
+    gsap.from('.about-photo-frame', {
+      scrollTrigger: { trigger: '.about-steel', start: 'top 75%' },
+      opacity: 0, x: -60, duration: 1.1, ease: 'power3.out'
+    });
+    gsap.from('.about-accent-frame', {
+      scrollTrigger: { trigger: '.about-steel', start: 'top 70%' },
+      opacity: 0, x: -40, y: 30, duration: 0.9, delay: 0.3, ease: 'power3.out'
+    });
+
+    // Year badge
+    gsap.from('.about-year-badge', {
+      scrollTrigger: { trigger: '.about-steel', start: 'top 72%' },
+      opacity: 0, scale: 0.7, duration: 0.7, delay: 0.6, ease: 'back.out(1.6)'
+    });
+
+    // Text content stagger
+    gsap.from(['.about-content .section-tag', '.about-content .section-title', '.about-lead-text'], {
+      scrollTrigger: { trigger: '.about-content', start: 'top 80%' },
+      opacity: 0, y: 28, stagger: 0.12, duration: 0.8, ease: 'power3.out'
+    });
+
+    // Stat cards entrance + progress bars + number counters
+    const statCards = document.querySelectorAll('.about-stat-card');
+    statCards.forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: { trigger: '.about-stats-grid', start: 'top 82%' },
+        opacity: 0, y: 24, duration: 0.6, delay: i * 0.1, ease: 'power3.out'
+      });
+
+      ScrollTrigger.create({
+        trigger: '.about-stats-grid',
+        start: 'top 80%',
+        once: true,
+        onEnter() {
+          // Animate progress bar
+          const bar = card.querySelector('.about-stat-bar');
+          const pct = parseInt(bar.dataset.pct) || 75;
+          gsap.to(bar, { width: pct + '%', duration: 1.4, delay: i * 0.1, ease: 'power2.out' });
+
+          // Animate number counter
+          const counter = card.querySelector('.about-stat-count');
+          const target = parseInt(counter.dataset.target) || 0;
+          gsap.to({ val: 0 }, {
+            val: target,
+            duration: 1.6,
+            delay: i * 0.1 + 0.2,
+            ease: 'power2.out',
+            onUpdate() { counter.textContent = Math.round(this.targets()[0].val); }
+          });
+        }
+      });
+    });
+
+    // Feature rows entrance
+    gsap.from('.about-feat-row', {
+      scrollTrigger: { trigger: '.about-feats', start: 'top 85%' },
+      opacity: 0, x: 30, stagger: 0.12, duration: 0.7, ease: 'power3.out'
+    });
+
+    // Corner accent glow pulse
+    gsap.to('.about-corner', {
+      boxShadow: '0 0 18px rgba(227,30,36,1)',
+      repeat: -1, yoyo: true, duration: 2.0, ease: 'sine.inOut'
+    });
+  }
 
   /* ── Products ── */
   gsap.from('.product-card', {
