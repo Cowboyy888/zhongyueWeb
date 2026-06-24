@@ -1417,7 +1417,23 @@ nav a:hover::after { width: 100%; }
 }
 .contact-detail-icon svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2; }
 .contact-detail-text strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
-.contact-detail-text span { font-size: 15px; color: var(--gray); }
+.contact-detail-text span { font-size: 15px; color: var(--gray); display: block; margin-bottom: 10px; }
+.btn-view-map {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #1a73e8; color: #fff;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+  padding: 8px 16px; border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(26,115,232,0.3);
+  margin-top: 2px;
+}
+.btn-view-map svg { width: 14px; height: 14px; flex-shrink: 0; }
+.btn-view-map:hover {
+  background: #1558b0; transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(26,115,232,0.45);
+}
+.btn-view-map:active { transform: translateY(0); }
 .contact-form { background: #fff; padding: 40px; border-radius: 4px; box-shadow: 0 4px 40px rgba(0,0,0,0.06); }
 .contact-form h3 { font-family: var(--font-display); font-size: 20px; font-weight: 800; text-transform: uppercase; color: var(--dark); margin-bottom: 28px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }

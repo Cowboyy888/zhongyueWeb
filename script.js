@@ -8,7 +8,7 @@
 ══════════════════════════════════ */
 var i18nData = {
   zh: {
-    'topbar-addr': '广东省广州市工业园区铁网路88号',
+    'topbar-addr': 'CJJG+HHH, Khum Trapeang Kong, Cambodia',
     'topbar-hours': '周一至周六：08:00 – 18:00',
     'topbar-cta': '免费询价',
     'nav-home': '首页', 'nav-about': '关于我们', 'nav-facility': '工厂实景',
@@ -106,7 +106,8 @@ var i18nData = {
     'cta-btn': '立即获取报价',
     'contact-tag': '联系我们', 'contact-title': '商务<em>洽谈</em>',
     'contact-desc': '无论您需要即期报价、长期供货协议还是技术选型支持，我们的专业团队将在一个工作日内给予回复。',
-    'contact-addr-label': '工厂地址', 'contact-addr': '广东省广州市工业园区铁网路88号<br/>邮编：510000',
+    'contact-addr-label': '工厂地址', 'contact-addr': 'CJJG+HHH, Khum Trapeang Kong, Cambodia',
+    'contact-map-btn': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg> 查看地图',
     'contact-phone-label': '销售热线', 'contact-email-label': '电子邮件',
     'form-title': '发送询价', 'form-name': '姓名', 'form-company': '公司名称',
     'form-company-ph': '贵公司名称', 'form-email': '电子邮件', 'form-phone': '联系电话',
@@ -126,7 +127,7 @@ var i18nData = {
     'footer-privacy': '隐私政策', 'footer-terms': '使用条款', 'footer-cert-link': '质量证书'
   },
   en: {
-    'topbar-addr': 'No. 88 Tiewang Rd, Industrial Park, Guangzhou, Guangdong',
+    'topbar-addr': 'CJJG+HHH, Khum Trapeang Kong, Cambodia',
     'topbar-hours': 'Mon–Sat: 08:00 – 18:00',
     'topbar-cta': 'Free Quote',
     'nav-home': 'Home', 'nav-about': 'About', 'nav-facility': 'Facility',
@@ -224,7 +225,8 @@ var i18nData = {
     'cta-btn': 'Get a Quote Now',
     'contact-tag': 'Contact Us', 'contact-title': 'Business <em>Inquiries</em>',
     'contact-desc': 'Whether you need an immediate quote, a long-term supply agreement, or technical selection support — our expert team will reply within one business day.',
-    'contact-addr-label': 'Factory Address', 'contact-addr': 'No. 88 Tiewang Rd, Industrial Park, Guangzhou, Guangdong<br/>Postcode: 510000',
+    'contact-addr-label': 'Factory Address', 'contact-addr': 'CJJG+HHH, Khum Trapeang Kong, Cambodia',
+    'contact-map-btn': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg> View on Google Maps',
     'contact-phone-label': 'Sales Hotline', 'contact-email-label': 'Email',
     'form-title': 'Send an Inquiry', 'form-name': 'Name', 'form-company': 'Company',
     'form-company-ph': 'Your company name', 'form-email': 'Email', 'form-phone': 'Phone',
