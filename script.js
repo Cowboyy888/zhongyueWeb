@@ -277,10 +277,13 @@ function setLang(lang) {
   localStorage.setItem('zy-lang', lang);
 }
 
-/* Apply saved language on load + wire lang toggle buttons */
+/* Apply language on load: URL param > localStorage > browser language > default zh */
 (function() {
-  var saved = localStorage.getItem('zy-lang');
-  if (saved && saved !== 'zh') setLang(saved);
+  var urlLang = new URLSearchParams(window.location.search).get('lang');
+  var saved   = localStorage.getItem('zy-lang');
+  var browser = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  var lang    = urlLang || saved || (browser.startsWith('en') ? 'en' : 'zh');
+  setLang(lang);
 
   document.querySelectorAll('.lang-btn[data-lang]').forEach(function(btn) {
     btn.addEventListener('click', function() {
