@@ -99,6 +99,50 @@ All reports saved to project root:
 
 ---
 
+---
+
+## [1.2.0] — 2026-06-24 · Real Harness Engineering Mode · Phase 4
+
+### P0 — Critical
+
+#### WQ-01 · Remove duplicate `.meta-num` counter handler (script.js)
+- **commit 2cca67b** — The `initHeroEntrance()` block introduced a second `ScrollTrigger` counter targeting `.meta-num` in parallel with the canonical `[data-count]` handler. Both animated the same hero stats elements, causing each number to animate twice. Deleted the duplicate block (~19 lines). Surviving `[data-count]` handler covers all counters.
+
+### P1 — High
+
+#### WQ-02 · Hero entrance: `gsap.to → gsap.fromTo` with real y offset (script.js)
+- **commit 9d877d1** — `gsap.to('.hero-tagline', { y: 0 })` was a no-op: `y` starts at 0 so nothing moved. Changed all four hero tweens to `fromTo` with `{ opacity: 0, y: 20 }` as the from state, producing the intended 20px slide-up entrance. The `will-change: opacity, transform` CSS hint is now accurate.
+
+#### WQ-03 · Replace no-op `gsap.to(steps, { duration: 0 })` with `ScrollTrigger.create()` (script.js)
+- **commit c55a9c8** — `gsap.to(steps, { scrollTrigger: {...}, duration: 0 })` animated nothing and existed only to hold a ScrollTrigger config. Replaced with a plain `ScrollTrigger.create()` call. Same behaviour, no wasted tween object.
+
+### P2 — Medium
+
+#### WQ-04 · Delete dead `.spec-card` tilt listener (script.js)
+- **commit 6ca1235** — No `.spec-card` elements exist in index.html. `querySelectorAll('.spec-card')` returned an empty NodeList every run. Removed the unreachable 13-line block.
+
+#### WQ-05 · Delete dead `.hero-meta` / `.meta-row` / `.hero-meta-sep` CSS rules (style.css)
+- **commit ec870bc** — All three class selectors matched no elements. The real element uses `id="hero-meta"` (an ID, not a class), so the `.hero-meta { display: none }` rule was inert. Removed along with misleading "potential reuse" comments.
+
+#### WQ-06 · Remove three orphaned images — 160 KB (images/)
+- **commit bed60bf** — `about-accent.jpg`, `about-main.jpg`, and `hero-bg.jpg` were never referenced by any `src`, `url()`, or `href` in the three source files. Removed via `git rm`.
+
+#### WQ-07 · Nav highlight: `window.scrollY` → `lenis.on('scroll', e => e.scroll)` (script.js)
+- **commit ec55bec** — `ScrollTrigger.create({ onUpdate })` + `window.scrollY` read the raw browser scroll position, which lags behind Lenis's interpolated virtual scroll. Replaced with `lenis.on('scroll')` using `e.scroll` so the active link updates in sync with what the user sees. Passive `window.scroll` fallback added for when Lenis is unavailable.
+
+#### WQ-08 · Fix `href="#"` links scrolling to page top (script.js)
+- **commit 40fddc0** — The anchor intercept handler called `e.preventDefault()` only when `document.getElementById(id)` returned a match. For `href="#"`, `id = ""` and `getElementById("")` returns `null`, so default was never prevented. Added an early-exit guard: empty fragment → cancel event immediately. Covers 9 footer/social placeholder links.
+
+### P3 — Low
+
+#### WQ-09 · Update copyright year 2025 → 2026 (index.html + script.js)
+- **commit 29d234e** — Updated in three places: index.html default text, zh i18n string, and en i18n string. All three must match because the i18n system overwrites HTML content at runtime.
+
+#### WQ-10 · ICP placeholder replacement — BLOCKED
+- `粤ICP备XXXXXXXX号` requires the actual ICP registration number from the client. No code change made.
+
+---
+
 ## Open Items (Next Iteration)
 
 The following were identified but not yet applied — they require hosting/infrastructure decisions or larger scope:
