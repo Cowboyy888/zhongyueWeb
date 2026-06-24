@@ -772,18 +772,21 @@ function setLang(lang) {
   /* ── Active nav highlighting ── */
   var sections = document.querySelectorAll('section[id]');
   var navLinks = document.querySelectorAll('nav a[href^="#"], .mobile-nav a[href^="#"]');
-  ScrollTrigger.create({
-    onUpdate: function () {
-      var scrollY = window.scrollY + 100;
-      sections.forEach(function (sec) {
-        if (scrollY >= sec.offsetTop && scrollY < sec.offsetTop + sec.offsetHeight) {
-          navLinks.forEach(function (link) { link.style.color = ''; });
-          var active = document.querySelector('nav a[href="#' + sec.id + '"]');
-          if (active) active.style.color = 'var(--red)';
-        }
-      });
-    }
-  });
+  function updateNavHighlight(scrollY) {
+    var pos = scrollY + 100;
+    sections.forEach(function (sec) {
+      if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) {
+        navLinks.forEach(function (link) { link.style.color = ''; });
+        var active = document.querySelector('nav a[href="#' + sec.id + '"]');
+        if (active) active.style.color = 'var(--red)';
+      }
+    });
+  }
+  if (lenis) {
+    lenis.on('scroll', function (e) { updateNavHighlight(e.scroll); });
+  } else {
+    window.addEventListener('scroll', function () { updateNavHighlight(window.scrollY); }, { passive: true });
+  }
 
   /* ── CONTACT FORM ── */
   var submitBtn = document.getElementById('submit-btn');
