@@ -365,26 +365,6 @@ function setLang(lang) {
       .to('.hero-stats-bar', { opacity: 1, y: 0, duration: 0.60, ease: 'power3.out' }, '-=0.3');
   })();
 
-  /* ── Stats counter in hero ── */
-  gsap.utils.toArray('.meta-num').forEach(function (el) {
-    var target = parseInt(el.getAttribute('data-count'), 10);
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 95%',
-      once: true,
-      onEnter: function () {
-        gsap.to({ val: 0 }, {
-          val: target,
-          duration: 2.0,
-          ease: 'power2.out',
-          onUpdate: function () {
-            el.textContent = Math.round(this.targets()[0].val).toLocaleString();
-          }
-        });
-      }
-    });
-  });
-
   /* ── Feature Cards Entrance ── */
   gsap.from('.feature-card', {
     scrollTrigger: { trigger: '.feature-cards-section', start: 'top 88%' },
