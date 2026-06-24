@@ -721,20 +721,17 @@ function setLang(lang) {
     if (!lineFill || !steps.length) return;
 
     /* Stagger reveal steps on scroll */
-    gsap.to(steps, {
-      scrollTrigger: {
-        trigger: '.ptl-track',
-        start: 'top 80%',
-        once: true,
-        onEnter: function () {
-          steps.forEach(function (s, i) {
-            setTimeout(function () {
-              s.classList.add('visible');
-            }, i * 130);
-          });
-        }
-      },
-      duration: 0
+    ScrollTrigger.create({
+      trigger: '.ptl-track',
+      start: 'top 80%',
+      once: true,
+      onEnter: function () {
+        steps.forEach(function (s, i) {
+          setTimeout(function () {
+            s.classList.add('visible');
+          }, i * 130);
+        });
+      }
     });
 
     /* Animate the fill line */
