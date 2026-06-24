@@ -604,14 +604,6 @@ nav a:hover::after { width: 100%; }
 }
 .feature-card:hover .feature-card-line { width: 100%; }
 
-/* Legacy meta-row for other sections */
-.hero-meta { display: none; }
-.meta-row { display: flex; align-items: baseline; gap: 2px; }
-
-/* Keep old hero-meta-sep for potential reuse */
-.hero-meta-sep { display: none; }
-
-
 /* ── TICKER ── */
 .ticker {
   background: var(--red);
