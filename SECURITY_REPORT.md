@@ -1,4 +1,4 @@
-# Security Report — 中粤铁网公司 / Zhongyu Steel Wire Group
+# Security Report — 中粤铁网公司 / Zhongyue Steel Wire Group
 
 **Site type:** Static HTML/CSS/JS  
 **Date:** 2026-06-24  

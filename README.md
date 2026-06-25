@@ -1,11 +1,11 @@
 # 中粤铁网公司 — Official Website
-### Zhongyu Steel Wire Group · Premium Welded Rebar Mesh Manufacturer
+### Zhongyue Steel Wire Group · Premium Welded Rebar Mesh Manufacturer
 
 ---
 
 ## Project Overview
 
-This is the official marketing website for **中粤铁网公司 (Zhongyu Steel Wire Group)**, a professional welded rebar mesh manufacturer founded in 1998, serving 60+ countries worldwide. The site is a high-performance, fully bilingual (Chinese/English) static website built with a cinematic industrial aesthetic.
+This is the official marketing website for **中粤铁网公司 (Zhongyue Steel Wire Group)**, a professional welded rebar mesh manufacturer founded in 1998, serving 60+ countries worldwide. The site is a high-performance, fully bilingual (Chinese/English) static website built with a cinematic industrial aesthetic.
 
 **Live stack:** Pure HTML5 · CSS3 · Vanilla JavaScript · GSAP 3 · Lenis Smooth Scroll · Canvas API
 
@@ -165,14 +165,14 @@ zhongyueWeb/
 
 ## Company Info
 
-**中粤铁网公司 / Zhongyu Steel Wire Group**
+**中粤铁网公司 / Zhongyue Steel Wire Group**
 - Founded: 1998
 - Location: CJJG+HHH, Khum Trapeang Kong, Cambodia
 - Products: Welded rebar mesh, floor slab mesh, fence panels, custom-shape mesh, cold-drawn wire
 - Wire diameter: 3–12 mm · Mesh spacing: 100–500 mm
 - Daily capacity: 800+ tonnes · Export countries: 60+
 - Certifications: ISO 9001:2015
-- Contact: sales@zhongyutiewang.com · +86 020-8888-6688
+- Contact: sales@zhongyuetiewang.com · +86 020-8888-6688
 
 ---
 

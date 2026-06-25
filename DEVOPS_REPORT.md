@@ -1,4 +1,4 @@
-# DevOps Report — 中粤铁网公司 / Zhongyu Steel Wire Group
+# DevOps Report — 中粤铁网公司 / Zhongyue Steel Wire Group
 
 **Site type:** Static HTML/CSS/JS  
 **Date:** 2026-06-24  
@@ -222,7 +222,7 @@ There is no `robots.txt` or `sitemap.xml` in the project. Without a sitemap, sea
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.zhongyutiewang.com/</loc>
+    <loc>https://www.zhongyuetiewang.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -233,7 +233,7 @@ There is no `robots.txt` or `sitemap.xml` in the project. Without a sitemap, sea
 # robots.txt
 User-agent: *
 Allow: /
-Sitemap: https://www.zhongyutiewang.com/sitemap.xml
+Sitemap: https://www.zhongyuetiewang.com/sitemap.xml
 ```
 
 ---

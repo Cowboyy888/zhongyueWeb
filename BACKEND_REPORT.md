@@ -1,4 +1,4 @@
-# Backend Report — 中粤铁网公司 / Zhongyu Steel Wire Group
+# Backend Report — 中粤铁网公司 / Zhongyue Steel Wire Group
 
 **Site type:** Fully static HTML/CSS/JS — no server-side backend exists  
 **Date:** 2026-06-24  
@@ -91,12 +91,12 @@ Static forms without a server-side action have no CSRF exposure today. However, 
 ### 6. No Email Infrastructure
 **Severity: INFO**
 
-The site references `sales@zhongyutiewang.com` and `tech@zhongyutiewang.com`. There is no evidence that SPF, DKIM, or DMARC DNS records exist for the domain. If outbound transactional email is added, deliverability will be poor without these DNS records.
+The site references `sales@zhongyuetiewang.com` and `tech@zhongyuetiewang.com`. There is no evidence that SPF, DKIM, or DMARC DNS records exist for the domain. If outbound transactional email is added, deliverability will be poor without these DNS records.
 
 **Recommendation:** Before integrating any email-sending service, publish:
 - An `SPF` TXT record authorizing the sending service's IP ranges.
 - A `DKIM` TXT record with the public key provided by the sending service.
-- A `DMARC` TXT record (`v=DMARC1; p=quarantine; rua=mailto:dmarc@zhongyutiewang.com`).
+- A `DMARC` TXT record (`v=DMARC1; p=quarantine; rua=mailto:dmarc@zhongyuetiewang.com`).
 
 ---
 
@@ -114,7 +114,7 @@ Cloudflare Worker (free tier)
     - Turnstile token verification
     ↓
 Resend API (or Mailgun)
-    - Send formatted inquiry email to sales@zhongyutiewang.com
+    - Send formatted inquiry email to sales@zhongyuetiewang.com
     - Send auto-reply confirmation to submitter
     ↓
 (Optional) D1 / KV Store

@@ -1,4 +1,4 @@
-# Frontend Report — 中粤铁网公司 / Zhongyu Steel Wire Group
+# Frontend Report — 中粤铁网公司 / Zhongyue Steel Wire Group
 Generated: 2026-06-24
 
 ---
