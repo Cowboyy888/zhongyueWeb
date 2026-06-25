@@ -217,14 +217,13 @@ img { max-width: 100%; display: block; }
 
 /* ── HEADER ── */
 header {
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.97);
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 1px 0 rgba(0,0,0,0.08);
   transition: background 0.3s;
+  transform: translateZ(0);
 }
 .header-inner {
   display: flex;
@@ -312,8 +311,7 @@ nav a:hover::after { width: 100%; }
   display: none;
   position: fixed;
   top: 70px; left: 0; right: 0;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(10px);
+  background: #fff;
   padding: 24px 40px;
   z-index: 999;
   box-shadow: 0 8px 30px rgba(0,0,0,0.12);

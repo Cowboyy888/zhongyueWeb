@@ -319,12 +319,15 @@ function setLang(lang) {
     lenis = new Lenis({
       duration: 0.85,
       easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      syncTouch: false,
+      touchMultiplier: 1.5,
     });
 
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
       gsap.ticker.lagSmoothing(0);
+      gsap.ticker.fps(60);
     } else {
       function lenisRaf(time) {
         lenis.raf(time);
