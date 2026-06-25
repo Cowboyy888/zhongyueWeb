@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "mkdir -p dist && cp -r index.html index-en.html style.css script.js images dist/"
+  },
   "devDependencies": {
     "@playwright/test": "^1.61.1"
   }
