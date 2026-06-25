@@ -1493,6 +1493,9 @@ nav a:hover::after { width: 100%; }
 
 /* ── DELIVERY SECTION ── */
 .delivery-section { background: var(--dark); position: relative; overflow: hidden; }
+.delivery-section .section-label { color: var(--red); }
+.delivery-section .section-title { color: #fff; }
+.delivery-section .section-sub { color: rgba(255,255,255,0.72); }
 .delivery-section::before {
   content: ''; position: absolute; inset: 0;
   background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(227,30,36,0.06) 0%, transparent 70%);
