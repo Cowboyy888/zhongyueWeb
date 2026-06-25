@@ -313,31 +313,7 @@ function setLang(lang) {
     });
   }
 
-  /* ── LENIS SMOOTH SCROLL ── */
-  var lenis;
-  if (typeof Lenis !== 'undefined') {
-    lenis = new Lenis({
-      duration: 0.85,
-      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-      syncTouch: false,
-      touchMultiplier: 1.5,
-    });
-
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
-      gsap.ticker.lagSmoothing(0);
-      gsap.ticker.fps(60);
-    } else {
-      function lenisRaf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(lenisRaf);
-      }
-      requestAnimationFrame(lenisRaf);
-    }
-  }
-
-  /* smooth anchor scrolling via Lenis */
+  /* ── NATIVE SMOOTH SCROLL (anchor links) ── */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       var id = this.getAttribute('href').slice(1);
@@ -345,11 +321,8 @@ function setLang(lang) {
       var target = document.getElementById(id);
       if (target) {
         e.preventDefault();
-        if (lenis) {
-          lenis.scrollTo(target, { offset: -70, duration: 1.2 });
-        } else {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
+        var top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top: top, behavior: 'smooth' });
       }
     });
   });
@@ -789,11 +762,7 @@ function setLang(lang) {
       }
     });
   }
-  if (lenis) {
-    lenis.on('scroll', function (e) { updateNavHighlight(e.scroll); });
-  } else {
-    window.addEventListener('scroll', function () { updateNavHighlight(window.scrollY); }, { passive: true });
-  }
+  window.addEventListener('scroll', function () { updateNavHighlight(window.scrollY); }, { passive: true });
 
   /* ── CONTACT FORM ── */
   var contactForm = document.getElementById('contact-form');
