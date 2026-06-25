@@ -3,6 +3,25 @@
 
 ---
 
+## [1.4.0] — 2026-06-25
+
+### Performance
+- **Image compression (81% reduction):** All product, machine, and delivery photos resized to max 1600px and recompressed to JPEG quality 78. Total image payload reduced from ~53MB to ~10MB. Logo.png reduced from 1.3MB to 216KB. Directly improves LCP and mobile load times.
+
+### SEO
+- **Open Graph + Twitter Card:** Added full `og:*` meta set (title, description, image, type, locale, site_name) and `twitter:card summary_large_image` to `index.html`. Social shares now render rich previews on WhatsApp, LinkedIn, Facebook, Twitter.
+- **Canonical URL:** `<link rel="canonical">` added pointing to production domain.
+- **robots meta:** `index, follow` added.
+- **keywords meta:** Chinese + English search terms.
+- **JSON-LD structured data:** `ManufacturingBusiness` schema with name, address, phone, founding date — improves Google Knowledge Panel eligibility.
+
+### Next.js App (zhongyue-web/)
+- **Replace boilerplate metadata:** `layout.tsx` title changed from "Create Next App" to full brand name with template. Added openGraph, twitter, keywords, robots, and `metadataBase` (silences build warning).
+- **Replace starter page:** `page.tsx` now renders a branded holding page with company name, tagline, phone CTA, and WhatsApp link — removes all Vercel/Next.js template references.
+- All checks pass: lint ✓ · typecheck ✓ · test 1/1 ✓ · build ✓
+
+---
+
 ## [1.1.0] — 2026-06-24
 
 ### Critical Fixes
