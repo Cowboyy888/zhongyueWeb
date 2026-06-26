@@ -61,7 +61,8 @@
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
 <link rel="dns-prefetch" href="https://formspree.io" />
 <link rel="dns-prefetch" href="https://maps.app.goo.gl" />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet" /></noscript>
 <link rel="alternate" hreflang="zh-CN" href="index.html" />
 <link rel="alternate" hreflang="en" href="index.html?lang=en" />
 <link rel="preload" as="image" href="images/factory-gate.jpg" fetchpriority="high" />
@@ -146,11 +147,11 @@
       <span data-i18n="hero-badge">专业钢筋网制造商 · Since 2002</span>
     </div>
 
-    <!-- Brand block -->
-    <div class="hero-brand-block" id="hero-brand">
-      <div class="hero-brand-en" id="hero-brand-en">ZY STEELS</div>
-      <div class="hero-brand-cn" id="hero-brand-cn">中粤钢铁</div>
-    </div>
+    <!-- Brand block — semantic h1 for SEO/a11y -->
+    <h1 class="hero-brand-block" id="hero-brand">
+      <span class="hero-brand-en" id="hero-brand-en">ZY STEELS</span>
+      <span class="hero-brand-cn" id="hero-brand-cn">中粤钢铁</span>
+    </h1>
 
     <!-- Tagline -->
     <p class="hero-tagline" id="hero-tagline" data-i18n="hero-tagline">
@@ -938,7 +939,7 @@
           </div>
           <div class="form-group">
             <label for="input-detail" data-i18n="form-detail">询价详情 &amp; 规格要求</label>
-            <textarea id="input-detail" name="message" data-i18n-placeholder="form-detail-ph" placeholder="请填写线径、间距、网片尺寸、数量及交货地点……"></textarea>
+            <textarea id="input-detail" name="message" data-i18n-placeholder="form-detail-ph" placeholder="请填写线径、间距、网片尺寸、数量及交货地点……" spellcheck="true"></textarea>
           </div>
           <button class="btn-primary form-submit-btn" id="submit-btn" type="submit" data-i18n="form-submit">
             提交询价 / Send Inquiry
@@ -962,7 +963,7 @@
               <div class="footer-logo-sub">Zhongyue Steel Wire Group</div>
             </div>
           </div>
-          <p data-i18n="footer-about">专注焊接钢筋网研发、生产与销售，服务建筑、基础设施及工业领域，出口60余个国家，1998年成立至今始终如一。</p>
+          <p data-i18n="footer-about">专注焊接钢筋网研发、生产与销售，服务建筑、基础设施及工业领域，出口60余个国家，2002年成立至今始终如一。</p>
           <div class="footer-socials">
             <a class="footer-social" href="weixin://dl/chat?username=lishan899870" aria-label="WeChat: lishan899870">微</a>
             <a class="footer-social" href="weixin://dl/chat?username=lishan899870" aria-label="WeChat: lishan899870">信</a>
@@ -993,13 +994,13 @@
         <div class="footer-col footer-newsletter">
           <h4 data-i18n="footer-col-3">订阅资讯</h4>
           <p data-i18n="footer-newsletter-desc">订阅电子报，获取最新价格行情、新品发布及行业动态。</p>
-          <div class="newsletter-form">
+          <form class="newsletter-form" id="newsletter-form" novalidate>
             <label for="newsletter-input" class="sr-only">订阅邮箱 / Newsletter email</label>
-            <input type="email" data-i18n-placeholder="footer-email-ph" placeholder="您的邮箱地址" id="newsletter-input" />
-            <button id="newsletter-btn" aria-label="订阅">
+            <input type="email" name="email" data-i18n-placeholder="footer-email-ph" placeholder="您的邮箱地址" id="newsletter-input" autocomplete="email" />
+            <button type="submit" id="newsletter-btn" aria-label="订阅">
               <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>

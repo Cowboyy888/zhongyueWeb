@@ -22,7 +22,7 @@
   --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
 
 /* ── ACCESSIBILITY ── */
 .skip-link {
@@ -78,7 +78,7 @@ img { max-width: 100%; display: block; }
   font-weight: 900;
   font-size: clamp(28px, 4vw, 52px);
   text-transform: uppercase;
-  line-height: 1.0;
+  line-height: 1.1;
   color: var(--dark);
 }
 .section-title em { color: var(--red); font-style: normal; }
@@ -419,7 +419,8 @@ nav a:hover::after { transform: scaleX(1); }
   background: var(--red); flex-shrink: 0;
 }
 
-/* Brand block */
+/* Brand block — h1 reset so browser heading styles don't override */
+h1.hero-brand-block { font: inherit; }
 .hero-brand-block {
   margin-bottom: 16px;
 }
@@ -456,9 +457,9 @@ nav a:hover::after { transform: scaleX(1); }
   text-transform: uppercase;
 }
 
-/* Description */
+/* Description — 0.68 meets WCAG AA on dark hero bg */
 .hero-desc {
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.68);
   font-size: 15px;
   line-height: 1.75;
   margin-bottom: 36px;
@@ -927,7 +928,7 @@ nav a:hover::after { transform: scaleX(1); }
 .about-lead-text {
   font-size: 15px;
   line-height: 1.85;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.72);
   margin-bottom: 40px;
   max-width: 500px;
 }
@@ -1477,7 +1478,7 @@ nav a:hover::after { transform: scaleX(1); }
 .process-card p { font-size: 14px; color: var(--gray); line-height: 1.65; }
 
 /* ── TESTIMONIALS ── */
-.testimonials-section { background: var(--dark); position: relative; }
+.testimonials-section { background: var(--dark); position: relative; border-bottom: 1px solid var(--border); }
 .testimonials-section::before {
   content: '';
   position: absolute; left: 0; top: 0; bottom: 0; width: 38%;
@@ -1932,6 +1933,7 @@ footer { background: var(--dark); color: #8FA0B8; }
   .meta-num { font-size: 18px; }
   .footer-socials { flex-wrap: wrap; gap: 8px; }
   .logo-text { font-size: 17px; }
+  .logo-sub { display: none; }
 }
 
 /* ── Touch devices — remove non-functional hover transforms ── */
@@ -1948,6 +1950,7 @@ footer { background: var(--dark); color: #8FA0B8; }
   .testi-card:hover { transform: none; }
   .fab:hover { transform: none; }
   .about-stat-card:hover { background: rgba(255,255,255,0.03); }
+  .delivery-card:hover img { transform: none; }
 }
 
 /* ── Reduced motion — disable CSS-layer animations ── */
@@ -1957,4 +1960,7 @@ footer { background: var(--dark); color: #8FA0B8; }
   .about-live-dot { animation: none; opacity: 1; }
   .ptl-step,
   .ptl-step-node { transition: none !important; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  .scroll-cue-line { animation: none; }
+  .badge-dot { animation: none; }
 }

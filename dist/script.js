@@ -47,7 +47,7 @@ var i18nData = {
     'about-f2-desc': '引进国际先进自动焊网机，精度±0.5mm，三班倒全天候运营，日产能超800吨。',
     'about-f3-title': '全球供应与物流',
     'about-f3-desc': '通过广州港、深圳港直发全球60余个国家，提供报关、货运、保险一站式服务。',
-    'fac-eyebrow-text': 'Our Facility · 实地工厂',
+    'fac-eyebrow-text': '实地工厂',
     'fac-subtitle': '中粤钢铁 · 实力工厂',
     'fac-desc': '坐落于柬埔寨工业园区，占地超26,000㎡的现代化钢铁生产基地。<br/>全封闭厂区、智能安防、ISO认证车间——我们的每一批产品都诞生于此。',
     'fstat-1': '总占地面积', 'fstat-2-unit': '条', 'fstat-2': '全自动生产线',
@@ -130,7 +130,9 @@ var i18nData = {
     'footer-email-ph': '您的邮箱地址',
     'footer-cert': '质量认证',
     'footer-copy': '© 2026 中粤铁网公司. 版权所有. | <a href="#">粤ICP备XXXXXXXX号</a>',
-    'footer-privacy': '隐私政策', 'footer-terms': '使用条款', 'footer-cert-link': '质量证书'
+    'footer-privacy': '隐私政策', 'footer-terms': '使用条款', 'footer-cert-link': '质量证书',
+    'page-title': '中粤铁网公司 — 专业钢筋网制造商 | Zhongyue Steel',
+    'meta-desc': 'Zhongyue Steel — 专业焊接钢筋网制造商，ISO 9001认证，线径3–12mm，服务全球60余个国家，2002年成立。',
   },
   en: {
     'topbar-addr': 'CJJG+HHH, Khum Trapeang Kong, Cambodia',
@@ -207,14 +209,14 @@ var i18nData = {
     'fc5-overlay': 'Zhongyue Steel · Factory Overview', 'fc5-title': '26,000㎡ Modern Factory',
     'fc5-desc': 'Equipped with 10-tonne overhead cranes and a fully integrated cold-draw → straighten → weld → cut → inspect → stock line. Daily capacity up to 800 tonnes.',
     'fact-1': 'Daily Output (T)', 'fact-2': 'Export Countries', 'fact-3': 'Staff Members', 'fact-4': 'Industry Awards',
-    'why-tag': 'Why Choose Us', 'why-title': 'Zhongyue Steel <em>Six Advantages</em>',
+    'why-tag': 'Why Choose Us', 'why-title': 'Six Reasons to <em>Choose Zhongyue</em>',
     'why-lead': 'Six core reasons why top global engineers and contractors choose Zhongyue Steel.',
     'why-1-title': 'Factory Quality Certificate', 'why-1-desc': 'Every batch ships with test reports covering weld tensile strength, wire tolerance, and mesh accuracy — fully traceable.',
     'why-2-title': 'On-Time Delivery', 'why-2-desc': '99% on-time fulfillment rate. Own fleet plus port partnerships — standard orders ship within 15 business days.',
     'why-3-title': 'Custom Specification Service', 'why-3-desc': 'Custom wire diameter, spacing, and panel size per drawing. In-house technical engineers provide full support.',
     'why-4-title': 'Factory-Direct Pricing', 'why-4-desc': 'No middlemen — our direct factory quotes are highly competitive. Volume buyers enjoy additional discounts.',
     'why-5-title': 'Global Supply Capability', 'why-5-desc': 'Partner warehouses on 4 continents. Dedicated export team offers FOB, CIF, and other trade terms.',
-    'why-6-title': '7×24 Technical Support', 'why-6-desc': 'Dedicated account managers and structural engineers online around the clock for selection advice and on-site technical consultation.',
+    'why-6-title': '24/7 Technical Support', 'why-6-desc': 'Dedicated account managers and structural engineers online around the clock for selection advice and on-site technical consultation.',
     'testi-tag': 'Client Reviews', 'testi-title': 'What <em>Clients Say</em>',
     'testi-1-text': 'Zhongyue Steel\'s mesh weld strength and dimensional tolerances fully met our design requirements. Lead time was just 12 days, QC reports were complete, and inspection passed on the first try.',
     'testi-1-name': 'Li Jianming / Procurement Director',
@@ -223,7 +225,7 @@ var i18nData = {
     'testi-3-text': 'Custom-shape mesh for tunnel lining was fabricated per our drawings. The Zhongyue technical team supported us throughout, achieving the required precision. We will continue the partnership.',
     'testi-3-name': 'Wang Haitao / Equipment Engineer',
     'del-label': 'On-Time Delivery', 'del-title': 'Efficient Logistics · <span>Direct to Site</span>',
-    'del-desc': 'From workshop to worksite, fully tracked delivery. Our heavy-duty truck fleet covers South China and nationwide, ensuring steel mesh arrives safely and on schedule.',
+    'del-desc': 'From workshop to worksite, fully tracked delivery. Our heavy-duty truck fleet covers Cambodia and surrounding regions, ensuring steel mesh arrives safely and on schedule.',
     'del-badge-1': 'Bulk Dispatch', 'del-card-1-title': 'Full Truckload · Ready to Ship',
     'del-card-1-desc': 'Heavy flatbed trucks fully loaded with steel mesh panels — up to 20–30 tonnes per truck',
     'del-badge-2': 'Nationwide', 'del-card-2-title': 'Pro Fleet · Full Tracking',
@@ -255,7 +257,9 @@ var i18nData = {
     'footer-email-ph': 'Your email address',
     'footer-cert': 'Quality Certificate',
     'footer-copy': '© 2026 Zhongyue Steel Wire Group. All Rights Reserved.',
-    'footer-privacy': 'Privacy Policy', 'footer-terms': 'Terms of Use', 'footer-cert-link': 'Certificates'
+    'footer-privacy': 'Privacy Policy', 'footer-terms': 'Terms of Use', 'footer-cert-link': 'Certificates',
+    'page-title': 'Zhongyue Steel — Professional Welded Rebar Mesh Manufacturer',
+    'meta-desc': 'ISO 9001 certified welded rebar mesh manufacturer in Cambodia. Wire 3–12mm, custom sizes. Serving 60+ countries since 2002. Get a free quote in 24 hours.',
   },
 };
 
@@ -274,6 +278,9 @@ function setLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(function(btn) {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
+  if (data['page-title']) document.title = data['page-title'];
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && data['meta-desc']) metaDesc.setAttribute('content', data['meta-desc']);
   localStorage.setItem('zy-lang', lang);
 }
 
@@ -801,27 +808,29 @@ function setLang(lang) {
         body: new FormData(contactForm),
         headers: { 'Accept': 'application/json' }
       }).then(function (res) {
+        var submitLabel = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry');
         if (res.ok) {
           submitBtn.textContent = currentLang === 'en' ? '✓ Sent!' : '✓ 提交成功';
           submitBtn.classList.add('success');
           contactForm.querySelectorAll('input:not([type="hidden"]), textarea, select')
             .forEach(function (el) { el.value = ''; });
           setTimeout(function () {
-            submitBtn.textContent = currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry';
+            submitBtn.textContent = submitLabel;
             submitBtn.classList.remove('success');
             submitBtn.disabled = false;
           }, 3500);
         } else {
           submitBtn.textContent = currentLang === 'en' ? 'Error — try again' : '提交失败，请重试';
           setTimeout(function () {
-            submitBtn.textContent = currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry';
+            submitBtn.textContent = submitLabel;
             submitBtn.disabled = false;
           }, 3000);
         }
       }).catch(function () {
+        var submitLabel = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry');
         submitBtn.textContent = currentLang === 'en' ? 'Error — try again' : '提交失败，请重试';
         setTimeout(function () {
-          submitBtn.textContent = currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry';
+          submitBtn.textContent = submitLabel;
           submitBtn.disabled = false;
         }, 3000);
       });
@@ -829,14 +838,18 @@ function setLang(lang) {
   }
 
   /* ── NEWSLETTER ── */
-  var newsletterBtn = document.getElementById('newsletter-btn');
-  if (newsletterBtn) {
-    newsletterBtn.addEventListener('click', function () {
+  var newsletterForm = document.getElementById('newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function (e) {
+      e.preventDefault();
       var input = document.getElementById('newsletter-input');
       if (input && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
+        var lang = localStorage.getItem('zy-lang') || 'zh';
+        var successMsg = lang === 'en' ? '✓ Subscribed!' : '✓ 订阅成功！';
+        var defaultPh = (i18nData[lang] && i18nData[lang]['footer-email-ph']) || '您的邮箱地址';
         input.value = '';
-        input.placeholder = '✓ Subscribed!';
-        setTimeout(function () { input.placeholder = '您的邮箱 / Your email'; }, 2500);
+        input.placeholder = successMsg;
+        setTimeout(function () { input.placeholder = defaultPh; }, 2500);
       } else if (input) {
         input.focus();
         input.style.borderColor = 'var(--red)';
