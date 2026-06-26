@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Privacy Policy for Zhongyue Steel / 中粤铁网公司 — how we collect, use, and protect your personal information." />
+<meta name="robots" content="index, follow" />
+<title>Privacy Policy — Zhongyue Steel</title>
+<link rel="canonical" href="https://www.zysteels.net/privacy-policy.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Zhongyue Steel" />
+<meta property="og:url" content="https://www.zysteels.net/privacy-policy.html" />
+<meta property="og:title" content="Privacy Policy — Zhongyue Steel" />
+<meta property="og:description" content="How Zhongyue Steel collects, uses, and protects your personal information." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* ── Privacy Policy page-specific styles ── */
+  .policy-hero {
+    background: var(--dark);
+    padding: 120px 0 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .policy-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(196,28,28,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .policy-hero .section-label {
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .policy-hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 12px;
+  }
+  .policy-hero p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+  }
+
+  .policy-body {
+    padding: 80px 0 100px;
+    background: #fafafa;
+  }
+  .policy-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 56px 64px;
+    max-width: 860px;
+    margin: 0 auto;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+  }
+  @media (max-width: 768px) {
+    .policy-card { padding: 32px 24px; }
+    .policy-hero { padding: 100px 0 48px; }
+  }
+
+  .policy-card h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 48px 0 12px;
+    padding-top: 48px;
+    border-top: 1px solid #eee;
+  }
+  .policy-card h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  .policy-card h2 .num {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 4px;
+    margin-right: 10px;
+    vertical-align: middle;
+    letter-spacing: 0;
+  }
+  .policy-card p {
+    color: #4a4a4a;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0 0 16px;
+  }
+  .policy-card ul, .policy-card ol {
+    margin: 0 0 16px 20px;
+    color: #4a4a4a;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  .policy-card li { margin-bottom: 6px; }
+  .policy-card a {
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(196,28,28,0.3);
+    transition: border-color 0.2s;
+  }
+  .policy-card a:hover { border-color: var(--red); }
+
+  .policy-highlight {
+    background: rgba(196,28,28,0.05);
+    border-left: 3px solid var(--red);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 20px 0;
+    color: #3a3a3a;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .policy-updated {
+    display: inline-block;
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+  .policy-contact-box {
+    background: var(--dark);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 48px;
+    text-align: center;
+  }
+  .policy-contact-box h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+    letter-spacing: 0.04em;
+  }
+  .policy-contact-box p {
+    color: rgba(255,255,255,0.6);
+    margin: 0 0 20px;
+    font-size: 0.95rem;
+  }
+  .policy-contact-box a.btn-primary {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .policy-contact-box a.btn-primary:hover {
+    background: #a81c1c;
+    transform: translateY(-1px);
+  }
+  .toc {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+  }
+  .toc h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 14px;
+  }
+  .toc ol {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--dark);
+  }
+  .toc li { margin-bottom: 6px; font-size: 0.92rem; }
+  .toc a {
+    color: var(--dark);
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    text-decoration: none;
+  }
+  .toc a:hover { color: var(--red); border-color: var(--red); }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-info">
+      <span>📍 CJJG+HHH, Khum Trapeang Kong, Cambodia</span>
+      <span>📞 +855 76 497 6187</span>
+      <span>✉️ sales@zhongyuetiewang.com</span>
+    </div>
+    <div>Mon–Sat: 08:00 – 17:00 | <a href="index.html#contact">Free Quote</a></div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="中粤铁网公司 Logo" />
+      <div>
+        <div class="logo-text"><span>中粤</span>铁网公司</div>
+        <div class="logo-sub">Zhongyue Steel Wire Group</div>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#products">Products</a>
+      <a href="index.html#facility">Factory</a>
+      <a href="index.html#delivery">Delivery</a>
+      <a href="index.html#why-us">Why Us</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-right">
+      <a href="index.html#contact" class="btn-primary">Free Quote</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#products">Products</a>
+  <a href="index.html#delivery">Delivery</a>
+  <a href="index.html#why-us">Why Us</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="policy-hero">
+  <div class="container">
+    <div class="section-label">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p>隐私政策 &nbsp;·&nbsp; Last updated: June 26, 2026</p>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="policy-body">
+  <div class="container">
+    <div class="policy-card">
+
+      <span class="policy-updated">Effective: June 26, 2026</span>
+
+      <p>
+        Zhongyue Steel Wire Group / 中粤铁网公司 (<strong>"Zhongyue Steel"</strong>, <strong>"we"</strong>, <strong>"our"</strong>) respects your privacy. This Privacy Policy explains what personal information we collect when you visit <a href="https://www.zysteels.net">www.zysteels.net</a>, how we use it, and your rights regarding that information.
+      </p>
+      <p>
+        By using our website or submitting an inquiry, you agree to the practices described in this policy.
+      </p>
+
+      <!-- Table of Contents -->
+      <div class="toc">
+        <h3>Contents</h3>
+        <ol>
+          <li><a href="#s1">Information We Collect</a></li>
+          <li><a href="#s2">How We Use Your Information</a></li>
+          <li><a href="#s3">How We Share Your Information</a></li>
+          <li><a href="#s4">Cookies & Tracking Technologies</a></li>
+          <li><a href="#s5">Data Retention</a></li>
+          <li><a href="#s6">Data Security</a></li>
+          <li><a href="#s7">Your Rights</a></li>
+          <li><a href="#s8">Children's Privacy</a></li>
+          <li><a href="#s9">International Data Transfers</a></li>
+          <li><a href="#s10">Changes to This Policy</a></li>
+          <li><a href="#s11">Contact Us</a></li>
+        </ol>
+      </div>
+
+      <!-- 1 -->
+      <h2 id="s1"><span class="num">1</span>Information We Collect</h2>
+      <p>We collect information in two ways:</p>
+      <p><strong>A. Information you provide directly</strong></p>
+      <ul>
+        <li><strong>Contact &amp; inquiry forms</strong> — name, company name, email address, phone number, country, and the message content you submit when requesting a quote or asking a question.</li>
+        <li><strong>Newsletter subscription</strong> — your email address when you subscribe to product updates or pricing newsletters.</li>
+        <li><strong>WhatsApp / phone inquiries</strong> — if you contact us via WhatsApp (+855 76 497 6187) or phone, we may retain the conversation for order fulfilment purposes.</li>
+      </ul>
+      <p><strong>B. Information collected automatically</strong></p>
+      <ul>
+        <li><strong>Usage data</strong> — pages visited, time spent, referral URL, browser type, device type, and general geographic region (country/city level) derived from your IP address.</li>
+        <li><strong>IP address</strong> — collected by our hosting provider (Cloudflare) for security, fraud prevention, and analytics.</li>
+        <li><strong>Cookies</strong> — see Section 4 for details.</li>
+      </ul>
+
+      <!-- 2 -->
+      <h2 id="s2"><span class="num">2</span>How We Use Your Information</h2>
+      <p>We use your information for the following purposes:</p>
+      <ul>
+        <li><strong>Responding to inquiries</strong> — to send you product specifications, pricing, and quotations you requested.</li>
+        <li><strong>Order fulfilment</strong> — to process, ship, and track orders, and to communicate delivery updates.</li>
+        <li><strong>Customer support</strong> — to resolve questions, complaints, or after-sales issues.</li>
+        <li><strong>Marketing communications</strong> — with your consent, to send product news, promotions, and industry updates. You may opt out at any time.</li>
+        <li><strong>Website improvement</strong> — to analyse traffic patterns, fix errors, and improve user experience.</li>
+        <li><strong>Legal compliance</strong> — to comply with applicable law, resolve disputes, and enforce our agreements.</li>
+      </ul>
+      <div class="policy-highlight">
+        We do not sell, rent, or trade your personal information to any third party for their own marketing purposes.
+      </div>
+
+      <!-- 3 -->
+      <h2 id="s3"><span class="num">3</span>How We Share Your Information</h2>
+      <p>We may share your data only in these limited circumstances:</p>
+      <ul>
+        <li><strong>Service providers</strong> — trusted vendors who help us operate the website or fulfil orders (e.g., Formspree for form processing, Cloudflare for hosting and security). These providers are contractually bound to use your data only for the service they provide to us.</li>
+        <li><strong>Business transfers</strong> — if Zhongyue Steel is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you before your data becomes subject to a different privacy policy.</li>
+        <li><strong>Legal requirements</strong> — when required by law, court order, or governmental authority, or when we believe disclosure is necessary to protect our rights, your safety, or the safety of others.</li>
+        <li><strong>Logistics partners</strong> — shipping carriers and freight forwarders receive only the address and contact details necessary to complete your delivery.</li>
+      </ul>
+
+      <!-- 4 -->
+      <h2 id="s4"><span class="num">4</span>Cookies &amp; Tracking Technologies</h2>
+      <p>Our website uses minimal, essential technologies:</p>
+      <ul>
+        <li><strong>No analytics cookies</strong> — we do not use Google Analytics, Facebook Pixel, or similar third-party tracking scripts at this time.</li>
+        <li><strong>Cloudflare security cookies</strong> — Cloudflare may set a small cookie (<code>__cf_bm</code>) to distinguish humans from bots and protect against DDoS attacks. This cookie contains no personally identifiable information and expires within 30 minutes.</li>
+        <li><strong>Session / preference cookies</strong> — if you use our language switcher (中文 / EN), a session-level value may be stored in your browser's <code>localStorage</code> to remember your language preference. No data is sent to any server.</li>
+        <li><strong>Form submission</strong> — Formspree (our form backend) may set its own cookies to prevent spam. Please review <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Formspree's Privacy Policy</a> for details.</li>
+      </ul>
+      <p>You can disable cookies in your browser settings at any time. Disabling cookies will not prevent you from using our website.</p>
+
+      <!-- 5 -->
+      <h2 id="s5"><span class="num">5</span>Data Retention</h2>
+      <ul>
+        <li><strong>Inquiry and contact data</strong> — retained for up to 3 years from the date of last contact, or as long as needed to fulfil an ongoing business relationship.</li>
+        <li><strong>Order and transaction data</strong> — retained for 7 years in accordance with standard commercial record-keeping requirements.</li>
+        <li><strong>Newsletter subscriptions</strong> — retained until you unsubscribe. You may unsubscribe at any time by clicking the link in any email or contacting us directly.</li>
+        <li><strong>Web server logs</strong> — typically retained by Cloudflare for up to 30 days for security purposes.</li>
+      </ul>
+
+      <!-- 6 -->
+      <h2 id="s6"><span class="num">6</span>Data Security</h2>
+      <p>
+        We take reasonable technical and organisational measures to protect your personal information from unauthorised access, alteration, disclosure, or destruction. These measures include:
+      </p>
+      <ul>
+        <li>HTTPS encryption (TLS) for all data transmitted between your browser and our site, enforced by Cloudflare.</li>
+        <li>Access controls limiting who within our organisation can view personal data.</li>
+        <li>Third-party processors (Formspree, Cloudflare) who maintain their own security certifications.</li>
+      </ul>
+      <div class="policy-highlight">
+        No method of transmission over the Internet is 100% secure. While we strive to protect your information, we cannot guarantee absolute security. Please contact us immediately if you suspect any unauthorised use of your data.
+      </div>
+
+      <!-- 7 -->
+      <h2 id="s7"><span class="num">7</span>Your Rights</h2>
+      <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+      <ul>
+        <li><strong>Access</strong> — request a copy of the personal information we hold about you.</li>
+        <li><strong>Correction</strong> — ask us to correct any inaccurate or incomplete data.</li>
+        <li><strong>Deletion</strong> — request that we delete your personal data, subject to legal retention obligations.</li>
+        <li><strong>Restriction</strong> — ask us to limit how we process your data in certain circumstances.</li>
+        <li><strong>Objection</strong> — object to processing based on our legitimate interests, including direct marketing.</li>
+        <li><strong>Data portability</strong> — receive your data in a structured, commonly used format.</li>
+        <li><strong>Withdraw consent</strong> — where processing is based on consent, you may withdraw it at any time without affecting the lawfulness of prior processing.</li>
+      </ul>
+      <p>
+        To exercise any of these rights, please contact us at <a href="mailto:sales@zhongyuetiewang.com">sales@zhongyuetiewang.com</a>. We will respond within 30 days. We may need to verify your identity before processing your request.
+      </p>
+
+      <!-- 8 -->
+      <h2 id="s8"><span class="num">8</span>Children's Privacy</h2>
+      <p>
+        Our website and services are intended for business-to-business (B2B) use and are not directed at children under the age of 18. We do not knowingly collect personal information from minors. If you believe a child has submitted personal data to us, please contact us and we will delete it promptly.
+      </p>
+
+      <!-- 9 -->
+      <h2 id="s9"><span class="num">9</span>International Data Transfers</h2>
+      <p>
+        Zhongyue Steel is headquartered in Cambodia. When you submit an inquiry from another country, your data may be transferred to and processed in Cambodia or other countries where our service providers (such as Cloudflare and Formspree, both US-based) operate. We take steps to ensure that such transfers comply with applicable data protection law and that adequate safeguards are in place.
+      </p>
+
+      <!-- 10 -->
+      <h2 id="s10"><span class="num">10</span>Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make material changes, we will update the "Last updated" date at the top of this page. We encourage you to review this policy periodically.
+      </p>
+      <p>
+        Continued use of our website after any changes constitutes your acceptance of the revised policy.
+      </p>
+
+      <!-- 11 -->
+      <h2 id="s11"><span class="num">11</span>Contact Us</h2>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please reach out to us:</p>
+      <ul>
+        <li><strong>Company:</strong> 中粤铁网公司 / Zhongyue Steel Wire Group</li>
+        <li><strong>Address:</strong> CJJG+HHH, Khum Trapeang Kong, Cambodia</li>
+        <li><strong>Email:</strong> <a href="mailto:sales@zhongyuetiewang.com">sales@zhongyuetiewang.com</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+85576497618">+855 76 497 6187</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/855764976187" target="_blank" rel="noopener noreferrer">wa.me/855764976187</a></li>
+      </ul>
+
+      <!-- Contact CTA -->
+      <div class="policy-contact-box">
+        <h3>Have a Privacy Question?</h3>
+        <p>We're committed to transparency. Send us a message and we'll respond within 2 business days.</p>
+        <a href="index.html#contact" class="btn-primary">Contact Us</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="中粤铁网公司 Logo" />
+            <div>
+              <div class="logo-text"><span>中粤</span>铁网公司</div>
+              <div class="logo-sub">Zhongyue Steel Wire Group</div>
+            </div>
+          </a>
+          <p class="footer-about">Professional welded rebar mesh manufacturer in Cambodia. ISO 9001 certified, serving 60+ countries since 2002.</p>
+          <div class="footer-socials">
+            <a class="footer-social" href="#">WA</a>
+            <a class="footer-social" href="#">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="index.html#products">Welded Rebar Mesh</a></li>
+            <li><a href="index.html#products">Floor Slab Mesh</a></li>
+            <li><a href="index.html#products">Welded Fence Mesh</a></li>
+            <li><a href="index.html#products">Custom Mesh</a></li>
+            <li><a href="index.html#products">Cold-Drawn Wire</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#process">Production Process</a></li>
+            <li><a href="index.html#why-us">Why Choose Us</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 中粤铁网公司. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING CTAs -->
+<div class="floating-actions" id="fab-group">
+  <a href="https://wa.me/855764976187" class="fab fab-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Inquiry">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a href="index.html#contact" class="fab fab-quote">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9h8M8 13h5M5 3h14a2 2 0 012 2v11a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2z"/></svg>
+    <span>Free Quote</span>
+  </a>
+</div>
+
+<script>
+  /* Hamburger toggle */
+  var ham = document.getElementById('hamburger');
+  var mNav = document.getElementById('mobile-nav');
+  if (ham && mNav) {
+    ham.addEventListener('click', function () {
+      var open = mNav.classList.toggle('open');
+      ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  /* Sticky header shadow */
+  window.addEventListener('scroll', function () {
+    var header = document.getElementById('site-header');
+    if (header) {
+      header.style.boxShadow = window.scrollY > 10
+        ? '0 2px 16px rgba(0,0,0,0.12)'
+        : '0 1px 0 rgba(0,0,0,0.08)';
+    }
+  }, { passive: true });
+  /* Smooth anchor clicks */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var id = this.getAttribute('href').slice(1);
+      if (!id) { e.preventDefault(); return; }
+      var target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

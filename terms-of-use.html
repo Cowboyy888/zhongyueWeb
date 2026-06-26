@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Terms of Use for Zhongyue Steel / 中粤铁网公司 — the rules governing your use of www.zysteels.net and our services." />
+<meta name="robots" content="index, follow" />
+<title>Terms of Use — Zhongyue Steel</title>
+<link rel="canonical" href="https://www.zysteels.net/terms-of-use.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Zhongyue Steel" />
+<meta property="og:url" content="https://www.zysteels.net/terms-of-use.html" />
+<meta property="og:title" content="Terms of Use — Zhongyue Steel" />
+<meta property="og:description" content="The terms and conditions governing use of the Zhongyue Steel website and services." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* ── Terms of Use page-specific styles ── */
+  .policy-hero {
+    background: var(--dark);
+    padding: 120px 0 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .policy-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(196,28,28,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .policy-hero .section-label { color: var(--red); margin-bottom: 16px; }
+  .policy-hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 12px;
+  }
+  .policy-hero p { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
+
+  .policy-body { padding: 80px 0 100px; background: #fafafa; }
+  .policy-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 56px 64px;
+    max-width: 860px;
+    margin: 0 auto;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+  }
+  @media (max-width: 768px) {
+    .policy-card { padding: 32px 24px; }
+    .policy-hero { padding: 100px 0 48px; }
+  }
+
+  .policy-card h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 48px 0 12px;
+    padding-top: 48px;
+    border-top: 1px solid #eee;
+  }
+  .policy-card h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .policy-card h2 .num {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 4px;
+    margin-right: 10px;
+    vertical-align: middle;
+    letter-spacing: 0;
+  }
+  .policy-card p {
+    color: #4a4a4a;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0 0 16px;
+  }
+  .policy-card ul, .policy-card ol {
+    margin: 0 0 16px 20px;
+    color: #4a4a4a;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  .policy-card li { margin-bottom: 6px; }
+  .policy-card a {
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(196,28,28,0.3);
+    transition: border-color 0.2s;
+  }
+  .policy-card a:hover { border-color: var(--red); }
+
+  .policy-highlight {
+    background: rgba(196,28,28,0.05);
+    border-left: 3px solid var(--red);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 20px 0;
+    color: #3a3a3a;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .policy-highlight.blue {
+    background: rgba(30,64,175,0.05);
+    border-color: #1e40af;
+  }
+  .policy-updated {
+    display: inline-block;
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+  .policy-contact-box {
+    background: var(--dark);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 48px;
+    text-align: center;
+  }
+  .policy-contact-box h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+    letter-spacing: 0.04em;
+  }
+  .policy-contact-box p { color: rgba(255,255,255,0.6); margin: 0 0 20px; font-size: 0.95rem; }
+  .policy-contact-box a.btn-primary {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .policy-contact-box a.btn-primary:hover { background: #a81c1c; transform: translateY(-1px); }
+
+  .toc {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+  }
+  .toc h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 14px;
+  }
+  .toc ol { margin: 0; padding-left: 20px; color: var(--dark); }
+  .toc li { margin-bottom: 6px; font-size: 0.92rem; }
+  .toc a {
+    color: var(--dark);
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    text-decoration: none;
+  }
+  .toc a:hover { color: var(--red); border-color: var(--red); }
+
+  .def-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+    margin: 16px 0 24px;
+  }
+  @media (max-width: 600px) { .def-grid { grid-template-columns: 1fr; } }
+  .def-item {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+  }
+  .def-item strong { color: var(--dark); display: block; margin-bottom: 2px; }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-info">
+      <span>📍 CJJG+HHH, Khum Trapeang Kong, Cambodia</span>
+      <span>📞 +855 76 497 6187</span>
+      <span>✉️ sales@zhongyuetiewang.com</span>
+    </div>
+    <div>Mon–Sat: 08:00 – 17:00 | <a href="index.html#contact">Free Quote</a></div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="中粤铁网公司 Logo" />
+      <div>
+        <div class="logo-text"><span>中粤</span>铁网公司</div>
+        <div class="logo-sub">Zhongyue Steel Wire Group</div>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#products">Products</a>
+      <a href="index.html#facility">Factory</a>
+      <a href="index.html#delivery">Delivery</a>
+      <a href="index.html#why-us">Why Us</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-right">
+      <a href="index.html#contact" class="btn-primary">Free Quote</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#products">Products</a>
+  <a href="index.html#delivery">Delivery</a>
+  <a href="index.html#why-us">Why Us</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="policy-hero">
+  <div class="container">
+    <div class="section-label">Legal</div>
+    <h1>Terms of Use</h1>
+    <p>使用条款 &nbsp;·&nbsp; Last updated: June 26, 2026</p>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="policy-body">
+  <div class="container">
+    <div class="policy-card">
+
+      <span class="policy-updated">Effective: June 26, 2026</span>
+
+      <p>
+        Please read these Terms of Use (<strong>"Terms"</strong>) carefully before using the website located at <a href="https://www.zysteels.net">www.zysteels.net</a> (the <strong>"Site"</strong>), operated by 中粤铁网公司 / Zhongyue Steel Wire Group (<strong>"Zhongyue Steel"</strong>, <strong>"we"</strong>, <strong>"our"</strong>, or <strong>"us"</strong>).
+      </p>
+      <div class="policy-highlight">
+        By accessing or using this Site, submitting an inquiry, or doing business with us through any channel linked from this Site, you confirm that you have read, understood, and agree to be bound by these Terms. If you do not agree, please do not use the Site.
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="toc">
+        <h3>Contents</h3>
+        <ol>
+          <li><a href="#t1">Definitions</a></li>
+          <li><a href="#t2">Acceptance &amp; Eligibility</a></li>
+          <li><a href="#t3">Permitted Use of the Site</a></li>
+          <li><a href="#t4">Prohibited Conduct</a></li>
+          <li><a href="#t5">Product &amp; Pricing Information</a></li>
+          <li><a href="#t6">Inquiries, Quotes &amp; Orders</a></li>
+          <li><a href="#t7">Intellectual Property</a></li>
+          <li><a href="#t8">Third-Party Links &amp; Services</a></li>
+          <li><a href="#t9">Disclaimer of Warranties</a></li>
+          <li><a href="#t10">Limitation of Liability</a></li>
+          <li><a href="#t11">Indemnification</a></li>
+          <li><a href="#t12">Governing Law &amp; Dispute Resolution</a></li>
+          <li><a href="#t13">Changes to These Terms</a></li>
+          <li><a href="#t14">Severability &amp; Entire Agreement</a></li>
+          <li><a href="#t15">Contact Us</a></li>
+        </ol>
+      </div>
+
+      <!-- 1 -->
+      <h2 id="t1"><span class="num">1</span>Definitions</h2>
+      <div class="def-grid">
+        <div class="def-item"><strong>"Site"</strong>The website at www.zysteels.net and all related subdomains, pages, and content.</div>
+        <div class="def-item"><strong>"User" / "you"</strong>Any person or entity that accesses or uses the Site for any purpose.</div>
+        <div class="def-item"><strong>"Content"</strong>All text, images, videos, specifications, data, branding, and other materials published on the Site.</div>
+        <div class="def-item"><strong>"Services"</strong>Product inquiries, quotation requests, order placement, and any other business activity conducted through the Site or linked channels.</div>
+        <div class="def-item"><strong>"Order"</strong>A confirmed commercial purchase agreement between you and Zhongyue Steel for the supply of steel products.</div>
+        <div class="def-item"><strong>"Marks"</strong>The Zhongyue Steel name, logo, 中粤铁网公司 trade name, and all associated trademarks and service marks.</div>
+      </div>
+
+      <!-- 2 -->
+      <h2 id="t2"><span class="num">2</span>Acceptance &amp; Eligibility</h2>
+      <p>
+        By using the Site you represent that:
+      </p>
+      <ul>
+        <li>You are at least 18 years of age and have full legal capacity to enter into binding agreements.</li>
+        <li>If you are acting on behalf of a company or other legal entity, you have the authority to bind that entity to these Terms.</li>
+        <li>Your use of the Site and any transaction you enter into will comply with all applicable laws in your jurisdiction.</li>
+      </ul>
+      <p>
+        If you do not meet these requirements, you may not access or use the Site.
+      </p>
+
+      <!-- 3 -->
+      <h2 id="t3"><span class="num">3</span>Permitted Use of the Site</h2>
+      <p>You may use the Site solely for lawful, legitimate business purposes, including:</p>
+      <ul>
+        <li>Browsing product specifications, certifications, and company information.</li>
+        <li>Submitting inquiries and requesting quotations for steel products.</li>
+        <li>Contacting our sales team by phone, email, or WhatsApp as listed on the Site.</li>
+        <li>Downloading publicly available technical documents (e.g., product datasheets) for internal evaluation purposes.</li>
+      </ul>
+      <p>All other uses require our prior written consent.</p>
+
+      <!-- 4 -->
+      <h2 id="t4"><span class="num">4</span>Prohibited Conduct</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the Site for any unlawful purpose or in violation of any applicable law or regulation.</li>
+        <li>Scrape, crawl, index, or systematically download Content from the Site using automated tools without our express written permission.</li>
+        <li>Copy, reproduce, republish, distribute, or commercially exploit any Content or Marks without prior written authorisation.</li>
+        <li>Submit false, misleading, or fraudulent information in any inquiry or contact form.</li>
+        <li>Attempt to gain unauthorised access to any part of the Site, its servers, or any connected system.</li>
+        <li>Transmit viruses, malware, or any code designed to disrupt, damage, or intercept any data or system.</li>
+        <li>Impersonate Zhongyue Steel, any employee, partner, or other person in connection with use of the Site.</li>
+        <li>Use the Site to send unsolicited commercial communications (spam) to any person.</li>
+        <li>Frame or mirror any part of the Site without our prior written consent.</li>
+      </ul>
+      <p>We reserve the right to terminate or restrict access for any user we reasonably believe has violated this section.</p>
+
+      <!-- 5 -->
+      <h2 id="t5"><span class="num">5</span>Product &amp; Pricing Information</h2>
+      <p>
+        All product descriptions, specifications, dimensions, images, and technical data on the Site are provided for informational purposes only. While we make every effort to ensure accuracy, we make no guarantees that the Content is complete, current, or error-free.
+      </p>
+      <ul>
+        <li><strong>Specifications:</strong> Product tolerances, wire diameters, mesh spacings, and material grades are indicative. Final confirmed specifications are set out in a signed purchase order or sales contract.</li>
+        <li><strong>Pricing:</strong> No prices displayed on this Site constitute a binding offer. All prices are subject to change without notice and are confirmed only in a formal written quotation issued by our sales team.</li>
+        <li><strong>Availability:</strong> Product availability and lead times shown on the Site are estimates only and do not constitute a guarantee of stock or delivery date.</li>
+        <li><strong>Images:</strong> Product photographs and renderings are illustrative. Actual products may vary slightly in appearance from those depicted.</li>
+      </ul>
+      <div class="policy-highlight blue">
+        A binding sales contract is formed only upon Zhongyue Steel issuing a signed written sales confirmation or proforma invoice that you have accepted. Website content alone does not constitute an offer or contract.
+      </div>
+
+      <!-- 6 -->
+      <h2 id="t6"><span class="num">6</span>Inquiries, Quotes &amp; Orders</h2>
+      <p>
+        When you submit an inquiry or quotation request through the Site:
+      </p>
+      <ul>
+        <li>You authorise us to contact you using the details you provide.</li>
+        <li>Quotations issued by our sales team are valid for the period stated in the quotation (typically 7–14 calendar days), after which prices may change.</li>
+        <li>An Order is binding only once both parties have signed a purchase order or sales contract and any required deposit has been received.</li>
+        <li>All Orders are subject to our separate Sales Terms &amp; Conditions, which will be provided with your quotation. In the event of conflict between these Terms of Use and the Sales Terms &amp; Conditions, the Sales Terms &amp; Conditions prevail for transactional matters.</li>
+        <li>We reserve the right to decline any Order at our discretion, including for compliance or capacity reasons.</li>
+      </ul>
+
+      <!-- 7 -->
+      <h2 id="t7"><span class="num">7</span>Intellectual Property</h2>
+      <p>
+        All Content on the Site — including text, graphics, photographs, logos, icons, product designs, technical drawings, and software — is the property of Zhongyue Steel or its licensors and is protected by applicable copyright, trademark, and other intellectual property laws.
+      </p>
+      <p>
+        We grant you a limited, non-exclusive, non-transferable, revocable licence to access and view the Site and its Content for your own internal business evaluation purposes only. This licence does not include the right to:
+      </p>
+      <ul>
+        <li>Modify, adapt, or create derivative works from any Content.</li>
+        <li>Use any Marks, trade names, or logos without our prior written consent.</li>
+        <li>Reproduce or distribute Content commercially or publicly.</li>
+        <li>Remove or alter any copyright, trademark, or proprietary notices.</li>
+      </ul>
+      <p>
+        Any feedback, suggestions, or ideas you submit to us become our property, and we may use them without restriction or compensation to you.
+      </p>
+
+      <!-- 8 -->
+      <h2 id="t8"><span class="num">8</span>Third-Party Links &amp; Services</h2>
+      <p>
+        The Site may contain links to third-party websites, services, or resources (for example, WhatsApp, freight carrier portals, or certification bodies). These links are provided for your convenience only.
+      </p>
+      <ul>
+        <li>We do not control third-party sites and are not responsible for their content, privacy practices, or availability.</li>
+        <li>A link does not imply our endorsement or affiliation with the linked site or its operators.</li>
+        <li>You access third-party sites entirely at your own risk and should review their terms and privacy policies.</li>
+      </ul>
+      <p>
+        Our contact and inquiry forms are processed by Formspree. Your use of those forms is also subject to <a href="https://formspree.io/legal/terms-of-service/" target="_blank" rel="noopener noreferrer">Formspree's Terms of Service</a>. Our website is hosted on Cloudflare Pages, subject to <a href="https://www.cloudflare.com/en-gb/website-terms/" target="_blank" rel="noopener noreferrer">Cloudflare's Terms of Service</a>.
+      </p>
+
+      <!-- 9 -->
+      <h2 id="t9"><span class="num">9</span>Disclaimer of Warranties</h2>
+      <p>
+        THE SITE AND ALL CONTENT ARE PROVIDED ON AN <strong>"AS IS"</strong> AND <strong>"AS AVAILABLE"</strong> BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
+      </p>
+      <ul>
+        <li>Implied warranties of merchantability, fitness for a particular purpose, or non-infringement.</li>
+        <li>Warranties that the Site will be uninterrupted, error-free, secure, or free of viruses or harmful components.</li>
+        <li>Warranties as to the accuracy, completeness, currency, or reliability of any Content.</li>
+      </ul>
+      <p>
+        Some jurisdictions do not allow the exclusion of implied warranties. In such jurisdictions, the above exclusions apply to the fullest extent permitted by applicable law.
+      </p>
+
+      <!-- 10 -->
+      <h2 id="t10"><span class="num">10</span>Limitation of Liability</h2>
+      <p>
+        TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL ZHONGYUE STEEL, ITS DIRECTORS, EMPLOYEES, AGENTS, OR SUPPLIERS BE LIABLE TO YOU FOR:
+      </p>
+      <ul>
+        <li>Any indirect, incidental, special, consequential, or punitive damages.</li>
+        <li>Loss of profits, revenue, goodwill, data, or business opportunities.</li>
+        <li>Damages arising from your reliance on any Content, product information, or pricing displayed on the Site.</li>
+        <li>Damages arising from unauthorised access to or alteration of your data or transmissions.</li>
+        <li>Any matter beyond our reasonable control.</li>
+      </ul>
+      <p>
+        Our total aggregate liability to you for any claim arising out of or related to these Terms or your use of the Site shall not exceed USD $100 (one hundred US dollars), or the amount you paid us in the 12 months preceding the claim, whichever is greater.
+      </p>
+      <div class="policy-highlight">
+        Nothing in these Terms limits liability that cannot be excluded by law, such as liability for fraud, personal injury caused by our negligence, or death.
+      </div>
+
+      <!-- 11 -->
+      <h2 id="t11"><span class="num">11</span>Indemnification</h2>
+      <p>
+        You agree to defend, indemnify, and hold harmless Zhongyue Steel and its officers, directors, employees, and agents from and against any claims, liabilities, damages, judgments, awards, losses, costs, or expenses (including reasonable legal fees) arising out of or relating to:
+      </p>
+      <ul>
+        <li>Your violation of these Terms.</li>
+        <li>Your use of the Site or any Content in a manner not authorised by these Terms.</li>
+        <li>Any false or misleading information you submit to us.</li>
+        <li>Your infringement of any third-party intellectual property, privacy, or other rights.</li>
+      </ul>
+
+      <!-- 12 -->
+      <h2 id="t12"><span class="num">12</span>Governing Law &amp; Dispute Resolution</h2>
+      <p>
+        These Terms shall be governed by and construed in accordance with the laws of the Kingdom of Cambodia, without regard to its conflict-of-law principles.
+      </p>
+      <p>
+        Any dispute, controversy, or claim arising out of or relating to these Terms, or the breach, termination, or validity thereof, shall be resolved as follows:
+      </p>
+      <ol>
+        <li><strong>Negotiation:</strong> The parties shall first attempt to resolve the dispute through good-faith negotiation for a period of 30 days after written notice of the dispute.</li>
+        <li><strong>Mediation:</strong> If negotiation fails, either party may refer the dispute to mediation under such rules as the parties may agree.</li>
+        <li><strong>Litigation:</strong> If mediation is unsuccessful or not agreed upon, disputes shall be submitted to the exclusive jurisdiction of the competent courts of Phnom Penh, Cambodia.</li>
+      </ol>
+      <p>
+        Notwithstanding the above, Zhongyue Steel reserves the right to seek injunctive or other equitable relief in any court of competent jurisdiction to protect its intellectual property or confidential information.
+      </p>
+
+      <!-- 13 -->
+      <h2 id="t13"><span class="num">13</span>Changes to These Terms</h2>
+      <p>
+        We reserve the right to modify these Terms at any time. When we make material changes, we will update the "Last updated" date at the top of this page. Your continued use of the Site after any changes constitutes your acceptance of the revised Terms.
+      </p>
+      <p>
+        We encourage you to review these Terms periodically. If you do not agree with any updated Terms, you must stop using the Site.
+      </p>
+
+      <!-- 14 -->
+      <h2 id="t14"><span class="num">14</span>Severability &amp; Entire Agreement</h2>
+      <p>
+        If any provision of these Terms is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, that provision shall be modified to the minimum extent necessary to make it enforceable, and the remaining provisions shall continue in full force and effect.
+      </p>
+      <p>
+        These Terms, together with our <a href="privacy-policy.html">Privacy Policy</a> and any applicable Sales Terms &amp; Conditions, constitute the entire agreement between you and Zhongyue Steel with respect to your use of the Site, and supersede all prior agreements, representations, and understandings.
+      </p>
+      <p>
+        Our failure to enforce any right or provision of these Terms shall not be deemed a waiver of that right or provision.
+      </p>
+
+      <!-- 15 -->
+      <h2 id="t15"><span class="num">15</span>Contact Us</h2>
+      <p>If you have questions or concerns about these Terms, please contact us:</p>
+      <ul>
+        <li><strong>Company:</strong> 中粤铁网公司 / Zhongyue Steel Wire Group</li>
+        <li><strong>Address:</strong> CJJG+HHH, Khum Trapeang Kong, Cambodia</li>
+        <li><strong>Email:</strong> <a href="mailto:sales@zhongyuetiewang.com">sales@zhongyuetiewang.com</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+85576497618">+855 76 497 6187</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/855764976187" target="_blank" rel="noopener noreferrer">wa.me/855764976187</a></li>
+      </ul>
+
+      <!-- CTA -->
+      <div class="policy-contact-box">
+        <h3>Ready to Place an Order?</h3>
+        <p>Our sales team responds within 24 hours with a formal quotation tailored to your project.</p>
+        <a href="index.html#contact" class="btn-primary">Get a Free Quote</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="中粤铁网公司 Logo" />
+            <div>
+              <div class="logo-text"><span>中粤</span>铁网公司</div>
+              <div class="logo-sub">Zhongyue Steel Wire Group</div>
+            </div>
+          </a>
+          <p class="footer-about">Professional welded rebar mesh manufacturer in Cambodia. ISO 9001 certified, serving 60+ countries since 2002.</p>
+          <div class="footer-socials">
+            <a class="footer-social" href="#">WA</a>
+            <a class="footer-social" href="#">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="index.html#products">Welded Rebar Mesh</a></li>
+            <li><a href="index.html#products">Floor Slab Mesh</a></li>
+            <li><a href="index.html#products">Welded Fence Mesh</a></li>
+            <li><a href="index.html#products">Custom Mesh</a></li>
+            <li><a href="index.html#products">Cold-Drawn Wire</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#process">Production Process</a></li>
+            <li><a href="index.html#why-us">Why Choose Us</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-use.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 中粤铁网公司. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING CTAs -->
+<div class="floating-actions" id="fab-group">
+  <a href="https://wa.me/855764976187" class="fab fab-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Inquiry">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a href="index.html#contact" class="fab fab-quote">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9h8M8 13h5M5 3h14a2 2 0 012 2v11a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2z"/></svg>
+    <span>Free Quote</span>
+  </a>
+</div>
+
+<script>
+  var ham = document.getElementById('hamburger');
+  var mNav = document.getElementById('mobile-nav');
+  if (ham && mNav) {
+    ham.addEventListener('click', function () {
+      var open = mNav.classList.toggle('open');
+      ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  window.addEventListener('scroll', function () {
+    var header = document.getElementById('site-header');
+    if (header) {
+      header.style.boxShadow = window.scrollY > 10
+        ? '0 2px 16px rgba(0,0,0,0.12)'
+        : '0 1px 0 rgba(0,0,0,0.08)';
+    }
+  }, { passive: true });
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var id = this.getAttribute('href').slice(1);
+      if (!id) { e.preventDefault(); return; }
+      var target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
