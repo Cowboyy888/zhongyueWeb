@@ -1491,8 +1491,50 @@ h1.hero-brand-block { font: inherit; }
   position: relative;
   z-index: 2;
 }
-.fact-item { background: rgba(255,255,255,0.03); padding: 52px 28px; text-align: center; }
-.fact-emoji { font-size: 36px; margin-bottom: 18px; display: block; }
+.fact-item {
+  background: rgba(255,255,255,0.03);
+  padding: 52px 28px;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+.fact-item:hover { background: rgba(255,255,255,0.06); }
+.fact-emoji {
+  font-size: 42px;
+  margin-bottom: 18px;
+  display: block;
+  will-change: transform;
+}
+
+/* 🏭 Factory — bobs up & down like a running plant */
+.fact-item:nth-child(1) .fact-emoji {
+  animation: fact-float 3.2s ease-in-out infinite;
+}
+/* 🌍 Globe — slow Earth rotation */
+.fact-item:nth-child(2) .fact-emoji {
+  animation: fact-globe 10s linear infinite;
+}
+/* ⚙️ Gear — spins like a real gear */
+.fact-item:nth-child(3) .fact-emoji {
+  animation: fact-gear 3s linear infinite;
+}
+
+/* Hover: pause to let user appreciate */
+.fact-item:hover .fact-emoji { animation-play-state: paused; }
+
+@keyframes fact-float {
+  0%, 100% { transform: translateY(0)   scale(1);    filter: drop-shadow(0 0 0px rgba(227,30,36,0));    }
+  45%       { transform: translateY(-12px) scale(1.12); filter: drop-shadow(0 8px 16px rgba(227,30,36,0.35)); }
+  65%       { transform: translateY(-8px)  scale(1.07); }
+}
+@keyframes fact-globe {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+@keyframes fact-gear {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
 .fact-num { font-family: var(--font-display); font-size: 64px; font-weight: 900; color: var(--red); line-height: 1; }
 .fact-label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #6A80A0; margin-top: 10px; font-weight: 600; }
 
@@ -2014,6 +2056,7 @@ footer { background: var(--dark); color: #8FA0B8; }
   .ticker-inner { animation-duration: 0.01ms !important; }
   .partners-track { animation-duration: 0.01ms !important; }
   .pl-icon { animation: none; }
+  .fact-emoji { animation: none !important; }
   .about-live-dot { animation: none; opacity: 1; }
   .ptl-step,
   .ptl-step-node { transition: none !important; }
