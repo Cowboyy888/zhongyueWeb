@@ -4,3 +4,8 @@ node_modules/
 package-lock.json
 zhongyue-web/test-results/
 zhongyue-web/.next/
+
+# Secrets
+.env
+.env.local
+.env*.local
