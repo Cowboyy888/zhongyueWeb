@@ -347,6 +347,22 @@ function setLang(lang) {
 
   gsap.registerPlugin(ScrollTrigger);
 
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    ['.hero-tagline','.hero-desc','.hero-btns','.hero-stats-bar','.feature-card',
+     '.facility-eyebrow-text','.fac-line-1','.fac-line-2','.facility-desc',
+     '.facility-stats','.facility-cta'].forEach(function(s) {
+      document.querySelectorAll(s).forEach(function(el) {
+        el.style.opacity = '1'; el.style.transform = 'none';
+      });
+    });
+    document.querySelectorAll('.ptl-step').forEach(function(s) { s.classList.add('visible'); });
+    var fabEl = document.getElementById('fab-group');
+    if (fabEl) fabEl.classList.add('visible');
+  }
+
+  if (!prefersReducedMotion) {
+
   /* ── HERO ENTRANCE ANIMATION ── */
   /* Restores opacity on elements that are CSS-initialised to opacity:0 */
   (function initHeroEntrance() {
@@ -761,6 +777,8 @@ function setLang(lang) {
       onLeaveBack: function () { fabGroup.classList.remove('visible'); }
     });
   }
+
+  } /* end if (!prefersReducedMotion) */
 
   /* ── Active nav highlighting (IntersectionObserver — no scroll listener needed) ── */
   var navLinks = document.querySelectorAll('nav a[href^="#"], .mobile-nav a[href^="#"]');
