@@ -8,6 +8,10 @@
 <meta name="robots" content="index, follow" />
 <meta name="author" content="Zhongyue Steel Wire Group" />
 <meta name="theme-color" content="#1a1a1a" />
+<meta name="geo.region" content="KH" />
+<meta name="geo.placename" content="Khum Trapeang Kong, Cambodia" />
+<meta name="geo.position" content="11.0;105.0" />
+<meta name="ICBM" content="11.0, 105.0" />
 <title>中粤铁网公司 — 专业钢筋网制造商 | Zhongyue Steel</title>
 <!-- Canonical -->
 <link rel="canonical" href="https://www.zysteels.net/" />
@@ -41,6 +45,8 @@
   "image": "https://www.zysteels.net/images/factory-gate.jpg",
   "description": "Professional welded rebar mesh manufacturer in Cambodia. ISO 9001 certified, wire 3–12mm, serving 60+ countries since 2002.",
   "foundingDate": "2002",
+  "numberOfEmployees": {"@type": "QuantitativeValue", "value": 100},
+  "areaServed": ["KH", "CN", "SG", "TH", "VN", "MY", "ID", "PH", "MM"],
   "address": {
     "@type": "PostalAddress",
     "addressCountry": "KH",
@@ -52,7 +58,38 @@
     "contactType": "sales",
     "availableLanguage": ["Chinese", "English"]
   },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "08:00",
+    "closes": "17:00"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Welded Steel Mesh Products",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "焊接钢筋网 Welded Rebar Mesh"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "地台网 Floor Mesh"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "围栏网 Fencing Mesh"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "异型定制网 Custom Mesh"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "冷拔钢丝 Cold-drawn Wire"}}
+    ]
+  },
   "sameAs": []
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://www.zysteels.net/",
+  "name": "Zhongyue Steel",
+  "inLanguage": ["zh-CN", "en"],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhongyue Steel / 中粤铁网公司",
+    "url": "https://www.zysteels.net/"
+  }
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,15 +100,16 @@
 <link rel="dns-prefetch" href="https://maps.app.goo.gl" />
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
 <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet" /></noscript>
-<link rel="alternate" hreflang="zh-CN" href="index.html" />
-<link rel="alternate" hreflang="en" href="index.html?lang=en" />
+<link rel="alternate" hreflang="zh-CN" href="https://www.zysteels.net/" />
+<link rel="alternate" hreflang="en" href="https://www.zysteels.net/?lang=en" />
+<link rel="alternate" hreflang="x-default" href="https://www.zysteels.net/" />
 <link rel="preload" as="image" type="image/webp" href="images/factory-gate.webp" fetchpriority="high" />
 <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<a class="skip-link" href="#home">跳至主内容 / Skip to content</a>
+<a class="skip-link" href="#main-content">跳至主内容 / Skip to content</a>
 
 <!-- TOPBAR -->
 <div class="topbar">
@@ -128,6 +166,9 @@
   <a href="#why-us" data-i18n="nav-why-long">我们的优势</a>
   <a href="#contact" data-i18n="nav-contact">联系我们</a>
 </div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -961,6 +1002,8 @@
     </div>
   </div>
 </section>
+
+</main><!-- end #main-content -->
 
 <!-- FOOTER -->
 <footer>
