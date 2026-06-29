@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "mkdir -p dist && cp -r index.html index-en.html privacy-policy.html terms-of-use.html style.css script.js images dist/"
+    "build": "mkdir -p dist && cp -r index.html index-en.html privacy-policy.html terms-of-use.html style.css script.js images robots.txt sitemap.xml dist/"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1"
