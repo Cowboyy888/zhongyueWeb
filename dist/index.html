@@ -109,7 +109,12 @@
 </head>
 <body>
 
+<!-- Scroll progress bar -->
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
 <a class="skip-link" href="#main-content">跳至主内容 / Skip to content</a>
+<!-- Mobile nav backdrop -->
+<div class="mobile-backdrop" id="mobile-backdrop"></div>
 
 <!-- TOPBAR -->
 <div class="topbar">
@@ -218,7 +223,7 @@
     <!-- Stats row -->
     <div class="hero-stats-bar" id="hero-meta">
       <div class="hero-stat-item">
-        <div class="hero-stat-num"><span class="meta-num" data-count="10">0</span><span class="meta-plus">+</span></div>
+        <div class="hero-stat-num"><span class="meta-num" data-count="20">0</span><span class="meta-plus">+</span></div>
         <div class="hero-stat-label" data-i18n="meta-years">年行业经验</div>
       </div>
       <div class="hero-stat-div"></div>
@@ -1003,7 +1008,6 @@
         </div>
       </div>
       <div>
-        <!-- Replace REPLACE_WITH_FORM_ID: sign up at formspree.io, create a form, paste the ID here -->
         <form class="contact-form" id="contact-form"
               action="https://formspree.io/f/xwvdnklo"
               method="POST" novalidate>
@@ -1048,7 +1052,8 @@
           </div>
           <div class="form-group">
             <label for="input-detail" data-i18n="form-detail">询价详情 &amp; 规格要求</label>
-            <textarea id="input-detail" name="message" data-i18n-placeholder="form-detail-ph" placeholder="请填写线径、间距、网片尺寸、数量及交货地点……" spellcheck="true"></textarea>
+            <textarea id="input-detail" name="message" data-i18n-placeholder="form-detail-ph" placeholder="请填写线径、间距、网片尺寸、数量及交货地点……" spellcheck="true" maxlength="1000"></textarea>
+            <div class="char-counter" id="char-counter" aria-live="polite">0 / 1000</div>
           </div>
           <button class="btn-primary form-submit-btn" id="submit-btn" type="submit" data-i18n="form-submit">
             提交询价 / Send Inquiry
@@ -1056,6 +1061,18 @@
         </form>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Live Chat Embed -->
+<section class="section live-chat-section" id="live-chat">
+  <div class="container">
+    <div class="section-header" style="text-align:center;margin-bottom:2rem;">
+      <span class="section-tag" data-i18n="chat-tag">在线客服</span>
+      <h2 class="section-title" data-i18n="chat-title">实时<em>咨询</em></h2>
+      <p class="section-lead" data-i18n="chat-lead">有问题？直接和我们的销售团队实时对话。</p>
+    </div>
+    <div id='tawk_6a4368f88642321d48550f18' style="min-height:500px;border-radius:12px;overflow:hidden;"></div>
   </div>
 </section>
 
@@ -1128,6 +1145,11 @@
   </div>
 </footer>
 
+<!-- SCROLL TO TOP -->
+<button class="scroll-top-btn" id="scroll-top-btn" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
 <!-- FLOATING CTAs -->
 <div class="floating-actions" id="fab-group">
   <a href="https://wa.me/855764976187" class="fab fab-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp 咨询 / WhatsApp Inquiry">
@@ -1141,24 +1163,19 @@
 
 <!-- Cloudflare Turnstile -->
 
-<!-- Tawk.to Live Chat
-     To activate: replace TAWK_PROPERTY_ID and TAWK_WIDGET_ID below with your
-     values from https://dashboard.tawk.to → Administration → Chat Widget
-     Then remove the "if(false)" wrapper. -->
+<!--Start of Tawk.to Script-->
 <script type="text/javascript">
-if (true) {
-  var Tawk_API = Tawk_API || {};
-  var Tawk_LoadStart = new Date();
-  (function(){
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/6a4368f88642321d48550f18/1jsbl42sl';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-  })();
-}
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+Tawk_API.embedded='tawk_6a4368f88642321d48550f18';
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a4368f88642321d48550f18/1jsbo5cj4';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);})();
 </script>
+<!--End of Tawk.to Script-->
 
 <!-- CDN Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>

@@ -1844,7 +1844,7 @@ footer { background: var(--dark); color: #8FA0B8; }
 ══════════════════════════════════ */
 .floating-actions {
   position: fixed;
-  bottom: 28px; right: 24px;
+  bottom: 90px; right: 24px;
   z-index: 998;
   display: flex;
   flex-direction: column;
@@ -1910,7 +1910,7 @@ footer { background: var(--dark); color: #8FA0B8; }
   .process-grid { grid-template-columns: 1fr 1fr; }
   .ptl-steps { grid-template-columns: repeat(4, 1fr); }
   .ptl-line { display: none; }
-  .floating-actions { bottom: 20px; right: 16px; }
+  .floating-actions { bottom: 90px; right: 16px; }
   .feature-cards-grid { grid-template-columns: 1fr 1fr; }
   .feature-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .hero-stats-bar { flex-wrap: wrap; border-radius: 12px; }
@@ -2174,7 +2174,7 @@ footer { background: var(--dark); color: #8FA0B8; }
 /* ── Scroll-to-top button ── */
 .scroll-top-btn {
   position: fixed;
-  bottom: 7.5rem;
+  bottom: 210px;
   right: 1.5rem;
   width: 44px; height: 44px;
   background: rgba(20,22,26,0.85);
@@ -2278,5 +2278,18 @@ nav a.nav-active { color: var(--red, #e31e24); }
 nav a.nav-active::after { transform: scaleX(1); }
 
 @media (max-width: 991px) {
-  .scroll-top-btn { bottom: 8.5rem; right: 1rem; }
+  .scroll-top-btn { bottom: 210px; right: 1rem; }
+}
+
+/* ── Live Chat Embed Section ── */
+.live-chat-section { background: #111416; }
+#tawk_6a4368f88642321d48550f18 {
+  min-height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.4);
+}
+@media (max-width: 767px) {
+  #tawk_6a4368f88642321d48550f18 { min-height: 420px; }
 }

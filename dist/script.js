@@ -18,11 +18,11 @@ var i18nData = {
     'hero-badge': '专业钢筋网制造商 · Since 2002',
     'hero-h1': '铸就<em>钢铁</em><br/>品质<em>恒久</em>',
     'hero-tagline': '铸造力量，塑造未来',
-    'hero-desc': '中粤铁网公司深耕钢铁行业逾10年，精密生产焊接钢筋网，服务全球60余个国家。',
+    'hero-desc': '中粤铁网公司深耕钢铁行业逾20年，精密生产焊接钢筋网，服务全球60余个国家。',
     'hero-btn-products': '查看产品', 'hero-btn-process': '了解工艺', 'hero-btn-contact': '联系我们',
     'feat-1-title': '高品质产品', 'feat-1-desc': 'ISO 9001认证，每批附随完整质检报告',
     'feat-2-title': '先进技术', 'feat-2-desc': '全自动焊网生产线，日产能超800吨',
-    'feat-3-title': '值得信赖的伙伴', 'feat-3-desc': '10年深耕行业，服务全球60余个国家',
+    'feat-3-title': '值得信赖的伙伴', 'feat-3-desc': '20余年深耕行业，服务全球60余个国家',
     'feat-4-title': '可持续发展', 'feat-4-desc': '绿色生产工艺，符合国际环保标准',
     'meta-years': '年行业经验', 'meta-cap': '日产能（吨）', 'meta-countries': '出口国家', 'meta-retention': '客户留存率',
     'spec-custom-val': '定制规格', 'spec-strength-val': '高强度',
@@ -67,6 +67,7 @@ var i18nData = {
     'p5-cat': '原材料', 'p5-name': '冷拔钢丝 / 盘条',
     'p5-desc': '高强度冷拔钢丝及热轧盘条，直径3–12mm，适用于自动焊网机直接投料，也可散装供货，满足不同规模需求。',
     'p-quote': '立即询价 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+    'p-details': '查看规格',
     'factory-tag': '实力工厂', 'factory-title': '先进设备<em>精密制造</em>',
     'factory-lead': '全自动焊网生产线 · 冷拔钢丝设备 · 智能质检系统<br/>年产能超过20万吨，满足国内外大型工程需求。',
     'factory-feature-img-label': '全自动多点焊网机 · 48焊头同步作业',
@@ -110,6 +111,7 @@ var i18nData = {
     'cta-title': '准备好采购<br/>优质钢筋网？',
     'cta-desc': '24小时内提供附随质检报告的正式报价单。',
     'cta-btn': '立即获取报价',
+    'chat-tag': '在线客服', 'chat-title': '实时<em>咨询</em>', 'chat-lead': '有问题？直接和我们的销售团队实时对话。',
     'contact-tag': '联系我们', 'contact-title': '商务<em>洽谈</em>',
     'contact-desc': '无论您需要即期报价、长期供货协议还是技术选型支持，我们的专业团队将在一个工作日内给予回复。',
     'contact-addr-label': '工厂地址', 'contact-addr': 'CJJG+HHH, Khum Trapeang Kong, Cambodia',
@@ -131,6 +133,17 @@ var i18nData = {
     'footer-cert': '质量认证',
     'footer-copy': '© 2026 中粤铁网公司. 版权所有. | <a href="#">粤ICP备XXXXXXXX号</a>',
     'footer-privacy': '隐私政策', 'footer-terms': '使用条款', 'footer-cert-link': '质量证书',
+    'nav-gallery': '图片展示',
+    'gallery-tag': '产品与工厂', 'gallery-title': '产品与<em>工厂展示</em>',
+    'gallery-lead': '实地拍摄，真实呈现我们的产品质量与生产实力。',
+    'gallery-cap-p1': '焊接钢筋网', 'gallery-cap-p2': '楼板钢筋网',
+    'gallery-cap-p3': '焊接围栏网', 'gallery-cap-p4': '异型钢筋网',
+    'gallery-cap-p5': '冷拔钢丝 / 盘条',
+    'gallery-cap-m1': '自动焊网生产线', 'gallery-cap-m2': '调直设备',
+    'gallery-cap-m3': '质量检测', 'gallery-cap-m4': '包装工序',
+    'gallery-cap-m5': '工厂设备', 'gallery-cap-m6': '生产车间',
+    'gallery-cap-d1': '整车发运', 'gallery-cap-d2': '物流车队',
+    'gallery-cap-fg': '工厂大门',
     'page-title': '中粤铁网公司 — 专业钢筋网制造商 | Zhongyue Steel',
     'meta-desc': 'Zhongyue Steel — 专业焊接钢筋网制造商，ISO 9001认证，线径3–12mm，服务全球60余个国家，2002年成立。',
   },
@@ -145,11 +158,11 @@ var i18nData = {
     'hero-badge': 'Professional Steel Mesh Manufacturer · Since 2002',
     'hero-h1': 'Built for <em>Strength</em><br/>Made to <em>Last</em>',
     'hero-tagline': 'Building Strength. Shaping Tomorrow.',
-    'hero-desc': 'Zhongyue Steel — 10+ years of precision steel mesh manufacturing. Serving 60+ countries worldwide.',
+    'hero-desc': 'Zhongyue Steel — 20+ years of precision welded rebar mesh manufacturing, trusted by builders across 60+ countries.',
     'hero-btn-products': 'View Products', 'hero-btn-process': 'Our Process', 'hero-btn-contact': 'Contact Us',
     'feat-1-title': 'High Quality Products', 'feat-1-desc': 'ISO 9001 certified with full QC reports on every batch',
     'feat-2-title': 'Advanced Technology', 'feat-2-desc': 'Fully automated welding lines, 800+ tonnes daily capacity',
-    'feat-3-title': 'Trusted Partner', 'feat-3-desc': '10+ years of industry expertise, serving 60+ countries',
+    'feat-3-title': 'Trusted Partner', 'feat-3-desc': '20+ years of industry expertise, serving 60+ countries',
     'feat-4-title': 'Sustainable Future', 'feat-4-desc': 'Green production processes meeting international standards',
     'meta-years': 'Yrs Experience', 'meta-cap': 'Daily Output (T)', 'meta-countries': 'Export Countries', 'meta-retention': 'Client Retention',
     'spec-custom-val': 'Custom Sizes', 'spec-strength-val': 'High Strength',
@@ -167,7 +180,7 @@ var i18nData = {
     'about-badge-text': 'Yrs of<br/>Expertise',
     'about-year-label': 'Founded · Est. Year',
     'about-live-label': 'Live Production',
-    'about-lead': 'Founded in 2002, Zhongyue Steel has dedicated itself to the R&D and production of welded rebar mesh. With fully automated welding, precision cutting systems, and rigorous QC, we have become one of the most influential steel mesh suppliers in Cambodia.',
+    'about-lead': 'Since 2002, Zhongyue Steel has focused exclusively on welded rebar mesh — building fully automated production lines, precision cutting systems, and an industry-leading QC process. Today we are Cambodia\'s most trusted steel mesh supplier, with clients across 60+ countries.',
     'about-f1-title': 'ISO 9001:2015 Certified',
     'about-f1-desc': 'Every batch ships with a full test report covering weld tensile strength, wire diameter tolerance, and mesh spacing accuracy — plus a quality certificate and material certificate.',
     'about-f2-title': 'Fully Automated High-Speed Lines',
@@ -194,6 +207,7 @@ var i18nData = {
     'p5-cat': 'Raw Material', 'p5-name': 'Cold-Drawn Wire / Rod',
     'p5-desc': 'High-strength cold-drawn wire and hot-rolled rod, diameter 3–12mm. Suitable for direct feed into automatic welders or available in bulk.',
     'p-quote': 'Get a Quote <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+    'p-details': 'View Specs',
     'factory-tag': 'Our Factory', 'factory-title': 'Advanced Equipment, <em>Precision Made</em>',
     'factory-lead': 'Fully automated mesh welding lines · Cold-drawn wire equipment · Smart QC systems<br/>Annual capacity exceeds 200,000 tonnes for large-scale domestic and international projects.',
     'factory-feature-img-label': 'Auto Multi-Point Welder · 48 Heads Simultaneous',
@@ -210,7 +224,7 @@ var i18nData = {
     'fc5-desc': 'Equipped with 10-tonne overhead cranes and a fully integrated cold-draw → straighten → weld → cut → inspect → stock line. Daily capacity up to 800 tonnes.',
     'fact-1': 'Daily Output (T)', 'fact-2': 'Export Countries', 'fact-3': 'Staff Members', 'fact-4': 'Industry Awards',
     'why-tag': 'Why Choose Us', 'why-title': 'Six Reasons to <em>Choose Zhongyue</em>',
-    'why-lead': 'Six core reasons why top global engineers and contractors choose Zhongyue Steel.',
+    'why-lead': 'Here is why engineers and procurement teams across six continents specify Zhongyue Steel.',
     'why-1-title': 'Factory Quality Certificate', 'why-1-desc': 'Every batch ships with test reports covering weld tensile strength, wire tolerance, and mesh accuracy — fully traceable.',
     'why-2-title': 'On-Time Delivery', 'why-2-desc': '99% on-time fulfillment rate. Own fleet plus port partnerships — standard orders ship within 15 business days.',
     'why-3-title': 'Custom Specification Service', 'why-3-desc': 'Custom wire diameter, spacing, and panel size per drawing. In-house technical engineers provide full support.',
@@ -234,9 +248,10 @@ var i18nData = {
     'del-stat-2-unit': 'T / Truck', 'del-stat-2-label': 'Max load per trip',
     'del-stat-3-unit': '+ Provinces', 'del-stat-3-label': 'Nationwide coverage',
     'del-stat-4-label': 'Cargo damage guarantee',
-    'cta-title': 'Ready to Order<br/>Premium Steel Mesh?',
-    'cta-desc': 'Receive a formal quotation with QC report within 24 hours.',
+    'cta-title': 'Ready to Source<br/>Premium Steel Mesh?',
+    'cta-desc': 'Receive a formal quotation with full QC documentation within 24 hours.',
     'cta-btn': 'Get a Quote Now',
+    'chat-tag': 'Live Chat', 'chat-title': 'Talk to <em>Us Now</em>', 'chat-lead': 'Have a question? Chat directly with our sales team in real time.',
     'contact-tag': 'Contact Us', 'contact-title': 'Business <em>Inquiries</em>',
     'contact-desc': 'Whether you need an immediate quote, a long-term supply agreement, or technical selection support — our expert team will reply within one business day.',
     'contact-addr-label': 'Factory Address', 'contact-addr': 'CJJG+HHH, Khum Trapeang Kong, Cambodia',
@@ -258,6 +273,17 @@ var i18nData = {
     'footer-cert': 'Quality Certificate',
     'footer-copy': '© 2026 Zhongyue Steel Wire Group. All Rights Reserved.',
     'footer-privacy': 'Privacy Policy', 'footer-terms': 'Terms of Use', 'footer-cert-link': 'Certificates',
+    'nav-gallery': 'Gallery',
+    'gallery-tag': 'Products & Factory', 'gallery-title': 'Products & <em>Factory Gallery</em>',
+    'gallery-lead': 'Real photos from our production floor and finished products.',
+    'gallery-cap-p1': 'Welded Rebar Mesh', 'gallery-cap-p2': 'Floor Slab Mesh',
+    'gallery-cap-p3': 'Welded Fence Mesh', 'gallery-cap-p4': 'Custom-Shape Mesh',
+    'gallery-cap-p5': 'Cold-Drawn Wire / Rod',
+    'gallery-cap-m1': 'Welding Production Line', 'gallery-cap-m2': 'Wire Straightening',
+    'gallery-cap-m3': 'Quality Inspection', 'gallery-cap-m4': 'Packaging Station',
+    'gallery-cap-m5': 'Factory Equipment', 'gallery-cap-m6': 'Production Floor',
+    'gallery-cap-d1': 'Bulk Shipment', 'gallery-cap-d2': 'Delivery Fleet',
+    'gallery-cap-fg': 'Factory Entrance',
     'page-title': 'Zhongyue Steel — Professional Welded Rebar Mesh Manufacturer',
     'meta-desc': 'ISO 9001 certified welded rebar mesh manufacturer in Cambodia. Wire 3–12mm, custom sizes. Serving 60+ countries since 2002. Get a free quote in 24 hours.',
   },
@@ -309,22 +335,7 @@ function setLang(lang) {
   }
 
   /* ── MOBILE MENU ── */
-  var hamburger = document.getElementById('hamburger');
-  var mobileNav = document.getElementById('mobile-nav');
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', function () {
-      var isOpen = mobileNav.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', isOpen);
-      hamburger.setAttribute('aria-label', isOpen ? '关闭菜单 / Close menu' : '打开菜单 / Open menu');
-    });
-    mobileNav.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        mobileNav.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.setAttribute('aria-label', '打开菜单 / Open menu');
-      }
-    });
-  }
+  /* hamburger logic moved to UI/UX enhancements block below */
 
   /* ── NATIVE SMOOTH SCROLL (delegated anchor clicks) ── */
   document.addEventListener('click', function (e) {
@@ -778,7 +789,148 @@ function setLang(lang) {
     });
   }
 
+  /* ── Gallery scroll-in animation ── */
+  gsap.utils.toArray('.gallery-item').forEach(function(card, i) {
+    gsap.from(card, {
+      scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' },
+      opacity: 0, y: 28, duration: 0.45, delay: (i % 3) * 0.08, ease: 'power2.out'
+    });
+  });
+
   } /* end if (!prefersReducedMotion) */
+
+  /* ── Gallery lightbox ── */
+  (function() {
+    var items = document.querySelectorAll('.gallery-item');
+    var lightbox = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lb-img');
+    var lbCaption = document.getElementById('lb-caption');
+    var lbClose = document.getElementById('lb-close');
+    var lbPrev = document.getElementById('lb-prev');
+    var lbNext = document.getElementById('lb-next');
+    if (!lightbox || !items.length) return;
+
+    var galleryData = [];
+    items.forEach(function(item) {
+      var img = item.querySelector('img');
+      galleryData.push({ src: img ? img.src : '', key: item.getAttribute('data-caption-key') || '' });
+    });
+
+    var currentIdx = 0;
+
+    function openLb(idx) {
+      currentIdx = idx;
+      var d = galleryData[idx];
+      lbImg.src = d.src;
+      lbImg.alt = lbCaption.textContent = (i18nData[currentLang] && i18nData[currentLang][d.key]) || '';
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function prev() { openLb((currentIdx - 1 + galleryData.length) % galleryData.length); }
+    function next() { openLb((currentIdx + 1) % galleryData.length); }
+
+    items.forEach(function(item, i) { item.addEventListener('click', function() { openLb(i); }); });
+    lbClose.addEventListener('click', closeLb);
+    lbPrev.addEventListener('click', prev);
+    lbNext.addEventListener('click', next);
+    lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLb(); });
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+  })();
+
+  /* ── Scroll progress bar ── */
+  var scrollProgressBar = document.getElementById('scroll-progress');
+  if (scrollProgressBar) {
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      scrollProgressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight * 100) : 0) + '%';
+    }, { passive: true });
+  }
+
+  /* ── Scroll-to-top button ── */
+  var scrollTopBtn = document.getElementById('scroll-top-btn');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', function() {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ── Hamburger X + backdrop ── */
+  var hamburgerBtn = document.getElementById('hamburger');
+  var mobileNavEl = document.getElementById('mobile-nav');
+  var backdrop = document.getElementById('mobile-backdrop');
+  function closeMobileNav() {
+    if (!mobileNavEl) return;
+    mobileNavEl.classList.remove('open');
+    if (hamburgerBtn) {
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      hamburgerBtn.setAttribute('aria-label', '打开菜单 / Open menu');
+    }
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  if (hamburgerBtn && mobileNavEl) {
+    hamburgerBtn.addEventListener('click', function() {
+      var isOpen = mobileNavEl.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+      hamburgerBtn.setAttribute('aria-label', isOpen ? '关闭菜单 / Close menu' : '打开菜单 / Open menu');
+      if (backdrop) backdrop.classList.toggle('active', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileNavEl.addEventListener('click', function(e) { if (e.target.tagName === 'A') closeMobileNav(); });
+    if (backdrop) backdrop.addEventListener('click', closeMobileNav);
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMobileNav(); });
+  }
+
+  /* ── Textarea character counter ── */
+  var textarea = document.getElementById('input-detail');
+  var charCounter = document.getElementById('char-counter');
+  if (textarea && charCounter) {
+    textarea.addEventListener('input', function() {
+      var len = this.value.length;
+      charCounter.textContent = len + ' / 1000';
+      charCounter.classList.toggle('near-limit', len > 800);
+    });
+  }
+
+  /* ── Real-time form field validation ── */
+  var emailInput = document.getElementById('input-email');
+  var nameInput  = document.getElementById('input-name');
+  function validateEmail(val) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()); }
+  if (emailInput) {
+    emailInput.addEventListener('blur', function() {
+      if (!this.value) { this.classList.remove('field-valid','field-invalid'); return; }
+      this.classList.toggle('field-valid', validateEmail(this.value));
+      this.classList.toggle('field-invalid', !validateEmail(this.value));
+    });
+    emailInput.addEventListener('input', function() {
+      if (this.classList.contains('field-invalid') && validateEmail(this.value)) {
+        this.classList.remove('field-invalid'); this.classList.add('field-valid');
+      }
+    });
+  }
+  if (nameInput) {
+    nameInput.addEventListener('blur', function() {
+      if (!this.value) { this.classList.remove('field-valid','field-invalid'); return; }
+      var ok = this.value.trim().length >= 2;
+      this.classList.toggle('field-valid', ok);
+      this.classList.toggle('field-invalid', !ok);
+    });
+  }
 
   /* ── Active nav highlighting (IntersectionObserver — no scroll listener needed) ── */
   var navLinks = document.querySelectorAll('nav a[href^="#"], .mobile-nav a[href^="#"]');
@@ -861,15 +1013,12 @@ function setLang(lang) {
           submitBtn.classList.add('success');
           contactForm.querySelectorAll('input:not([type="hidden"]), textarea, select')
             .forEach(function (el) { el.value = ''; });
-          /* Reset Turnstile for next submission */
-          if (typeof turnstile !== 'undefined') { turnstile.reset('#cf-turnstile'); }
           setTimeout(function () {
             submitBtn.textContent = submitLabel;
             submitBtn.classList.remove('success');
             submitBtn.disabled = false;
           }, 3500);
         } else {
-          if (typeof turnstile !== 'undefined') { turnstile.reset('#cf-turnstile'); }
           submitBtn.textContent = currentLang === 'en' ? 'Error — try again' : '提交失败，请重试';
           setTimeout(function () {
             submitBtn.textContent = submitLabel;
@@ -878,7 +1027,6 @@ function setLang(lang) {
         }
       }).catch(function () {
         var submitLabel = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry');
-        if (typeof turnstile !== 'undefined') { turnstile.reset('#cf-turnstile'); }
         submitBtn.textContent = currentLang === 'en' ? 'Error — try again' : '提交失败，请重试';
         setTimeout(function () {
           submitBtn.textContent = submitLabel;
