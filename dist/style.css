@@ -2281,15 +2281,3 @@ nav a.nav-active::after { transform: scaleX(1); }
   .scroll-top-btn { bottom: 210px; right: 1rem; }
 }
 
-/* ── Live Chat Embed Section ── */
-.live-chat-section { background: #111416; }
-#tawk_6a4368f88642321d48550f18 {
-  min-height: 500px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.07);
-  box-shadow: 0 4px 40px rgba(0,0,0,0.4);
-}
-@media (max-width: 767px) {
-  #tawk_6a4368f88642321d48550f18 { min-height: 420px; }
-}
