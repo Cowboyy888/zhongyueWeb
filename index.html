@@ -1126,6 +1126,25 @@
 
 <!-- Cloudflare Turnstile -->
 
+<!-- Tawk.to Live Chat
+     To activate: replace TAWK_PROPERTY_ID and TAWK_WIDGET_ID below with your
+     values from https://dashboard.tawk.to → Administration → Chat Widget
+     Then remove the "if(false)" wrapper. -->
+<script type="text/javascript">
+if (false) { /* REPLACE false WITH true AFTER ADDING YOUR IDs BELOW */
+  var Tawk_API = Tawk_API || {};
+  var Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/TAWK_PROPERTY_ID/TAWK_WIDGET_ID';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+}
+</script>
+
 <!-- CDN Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
