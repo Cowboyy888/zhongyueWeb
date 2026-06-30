@@ -796,12 +796,32 @@ function setLang(lang) {
   /* ── CONTACT FORM ── */
   var contactForm = document.getElementById('contact-form');
   if (contactForm) {
+    var formLoadTime = Date.now();
+
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      var nameEl   = document.getElementById('input-name');
-      var emailEl  = document.getElementById('input-email');
+      var nameEl    = document.getElementById('input-name');
+      var emailEl   = document.getElementById('input-email');
       var submitBtn = document.getElementById('submit-btn');
-      var replyTo  = document.getElementById('replyto-field');
+      var replyTo   = document.getElementById('replyto-field');
+      var hpField   = document.getElementById('hp-website');
+      var currentLang = localStorage.getItem('zy-lang') || 'zh';
+
+      /* Honeypot: bots fill hidden fields, humans don't */
+      if (hpField && hpField.value) return;
+
+      /* Timing: genuine users take >2 s to fill a form */
+      if (Date.now() - formLoadTime < 2000) return;
+
+      /* Client-side rate limiting: max 3 submissions per hour */
+      var RL_KEY = 'zy_form_submissions';
+      var now = Date.now();
+      var log = JSON.parse(localStorage.getItem(RL_KEY) || '[]').filter(function(t) { return now - t < 3600000; });
+      if (log.length >= 3) {
+        submitBtn.textContent = currentLang === 'en' ? 'Too many attempts — try later' : '提交过于频繁，请稍后再试';
+        setTimeout(function() { submitBtn.textContent = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || '提交询价 / Send Inquiry'; }, 4000);
+        return;
+      }
 
       if (nameEl && !nameEl.value.trim()) {
         nameEl.focus();
@@ -817,7 +837,6 @@ function setLang(lang) {
       if (emailEl) emailEl.style.borderColor = '';
       if (replyTo && emailEl) replyTo.value = emailEl.value;
 
-      var currentLang = localStorage.getItem('zy-lang') || 'zh';
       submitBtn.disabled = true;
       submitBtn.textContent = currentLang === 'en' ? 'Sending…' : '提交中…';
 
@@ -828,16 +847,23 @@ function setLang(lang) {
       }).then(function (res) {
         var submitLabel = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry');
         if (res.ok) {
+          /* Log successful submission for rate limiting */
+          log.push(Date.now());
+          localStorage.setItem(RL_KEY, JSON.stringify(log));
+
           submitBtn.textContent = currentLang === 'en' ? '✓ Sent!' : '✓ 提交成功';
           submitBtn.classList.add('success');
           contactForm.querySelectorAll('input:not([type="hidden"]), textarea, select')
             .forEach(function (el) { el.value = ''; });
+          /* Reset Turnstile for next submission */
+          if (typeof turnstile !== 'undefined') { turnstile.reset('#cf-turnstile'); }
           setTimeout(function () {
             submitBtn.textContent = submitLabel;
             submitBtn.classList.remove('success');
             submitBtn.disabled = false;
           }, 3500);
         } else {
+          if (typeof turnstile !== 'undefined') { turnstile.reset('#cf-turnstile'); }
           submitBtn.textContent = currentLang === 'en' ? 'Error — try again' : '提交失败，请重试';
           setTimeout(function () {
             submitBtn.textContent = submitLabel;
@@ -846,6 +872,7 @@ function setLang(lang) {
         }
       }).catch(function () {
         var submitLabel = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry');
+        if (typeof turnstile !== 'undefined') { turnstile.reset('#cf-turnstile'); }
         submitBtn.textContent = currentLang === 'en' ? 'Error — try again' : '提交失败，请重试';
         setTimeout(function () {
           submitBtn.textContent = submitLabel;
