@@ -2153,3 +2153,130 @@ footer { background: var(--dark); color: #8FA0B8; }
 @media (max-width: 575px) {
   .gallery-grid { grid-template-columns: 1fr; gap: 0.5rem; }
 }
+
+/* ══════════════════════════════════
+   UI/UX ENHANCEMENTS
+══════════════════════════════════ */
+
+/* ── Scroll progress bar ── */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--red, #e31e24), var(--gold, #c8a96e));
+  z-index: 2001;
+  pointer-events: none;
+  transition: width 0.08s linear;
+  will-change: width;
+}
+
+/* ── Scroll-to-top button ── */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 7.5rem;
+  right: 1.5rem;
+  width: 44px; height: 44px;
+  background: rgba(20,22,26,0.85);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: #fff;
+  opacity: 0; pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s;
+  z-index: 890;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.scroll-top-btn.visible {
+  opacity: 1; pointer-events: all; transform: translateY(0);
+}
+.scroll-top-btn:hover { background: var(--red, #e31e24); border-color: var(--red, #e31e24); }
+.scroll-top-btn svg { width: 18px; height: 18px; stroke: currentColor; }
+
+/* ── Hamburger → X animation ── */
+.hamburger span {
+  transition: transform 0.28s ease, opacity 0.2s ease, width 0.2s ease;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Mobile nav — animated slide-in ── */
+.mobile-nav {
+  display: flex !important;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+  pointer-events: none;
+}
+.mobile-nav.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: all;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s;
+}
+
+/* ── Mobile backdrop ── */
+.mobile-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 998;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.mobile-backdrop.active { opacity: 1; pointer-events: all; }
+
+/* ── Button shimmer on hover ── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+.btn-primary:hover::before { left: 160%; }
+
+/* ── Form UX improvements ── */
+.char-counter {
+  font-size: 11px;
+  color: rgba(0,0,0,0.35);
+  text-align: right;
+  margin-top: 4px;
+  transition: color 0.2s;
+}
+.char-counter.near-limit { color: #c2410c; }
+
+.form-group input.field-valid,
+.form-group select.field-valid {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+.form-group input.field-invalid { border-color: #dc2626; }
+.field-error {
+  font-size: 11px;
+  color: #dc2626;
+  margin-top: 4px;
+  display: none;
+  font-weight: 600;
+}
+.form-group input.field-invalid ~ .field-error { display: block; }
+
+/* ── Nav active state ── */
+nav a.nav-active { color: var(--red, #e31e24); }
+nav a.nav-active::after { transform: scaleX(1); }
+
+@media (max-width: 991px) {
+  .scroll-top-btn { bottom: 8.5rem; right: 1rem; }
+}

@@ -333,22 +333,7 @@ function setLang(lang) {
   }
 
   /* ── MOBILE MENU ── */
-  var hamburger = document.getElementById('hamburger');
-  var mobileNav = document.getElementById('mobile-nav');
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', function () {
-      var isOpen = mobileNav.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', isOpen);
-      hamburger.setAttribute('aria-label', isOpen ? '关闭菜单 / Close menu' : '打开菜单 / Open menu');
-    });
-    mobileNav.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        mobileNav.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.setAttribute('aria-label', '打开菜单 / Open menu');
-      }
-    });
-  }
+  /* hamburger logic moved to UI/UX enhancements block below */
 
   /* ── NATIVE SMOOTH SCROLL (delegated anchor clicks) ── */
   document.addEventListener('click', function (e) {
@@ -858,6 +843,92 @@ function setLang(lang) {
       if (e.key === 'ArrowRight') next();
     });
   })();
+
+  /* ── Scroll progress bar ── */
+  var scrollProgressBar = document.getElementById('scroll-progress');
+  if (scrollProgressBar) {
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      scrollProgressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight * 100) : 0) + '%';
+    }, { passive: true });
+  }
+
+  /* ── Scroll-to-top button ── */
+  var scrollTopBtn = document.getElementById('scroll-top-btn');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', function() {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ── Hamburger X + backdrop ── */
+  var hamburgerBtn = document.getElementById('hamburger');
+  var mobileNavEl = document.getElementById('mobile-nav');
+  var backdrop = document.getElementById('mobile-backdrop');
+  function closeMobileNav() {
+    if (!mobileNavEl) return;
+    mobileNavEl.classList.remove('open');
+    if (hamburgerBtn) {
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      hamburgerBtn.setAttribute('aria-label', '打开菜单 / Open menu');
+    }
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  if (hamburgerBtn && mobileNavEl) {
+    hamburgerBtn.addEventListener('click', function() {
+      var isOpen = mobileNavEl.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+      hamburgerBtn.setAttribute('aria-label', isOpen ? '关闭菜单 / Close menu' : '打开菜单 / Open menu');
+      if (backdrop) backdrop.classList.toggle('active', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileNavEl.addEventListener('click', function(e) { if (e.target.tagName === 'A') closeMobileNav(); });
+    if (backdrop) backdrop.addEventListener('click', closeMobileNav);
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMobileNav(); });
+  }
+
+  /* ── Textarea character counter ── */
+  var textarea = document.getElementById('input-detail');
+  var charCounter = document.getElementById('char-counter');
+  if (textarea && charCounter) {
+    textarea.addEventListener('input', function() {
+      var len = this.value.length;
+      charCounter.textContent = len + ' / 1000';
+      charCounter.classList.toggle('near-limit', len > 800);
+    });
+  }
+
+  /* ── Real-time form field validation ── */
+  var emailInput = document.getElementById('input-email');
+  var nameInput  = document.getElementById('input-name');
+  function validateEmail(val) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()); }
+  if (emailInput) {
+    emailInput.addEventListener('blur', function() {
+      if (!this.value) { this.classList.remove('field-valid','field-invalid'); return; }
+      this.classList.toggle('field-valid', validateEmail(this.value));
+      this.classList.toggle('field-invalid', !validateEmail(this.value));
+    });
+    emailInput.addEventListener('input', function() {
+      if (this.classList.contains('field-invalid') && validateEmail(this.value)) {
+        this.classList.remove('field-invalid'); this.classList.add('field-valid');
+      }
+    });
+  }
+  if (nameInput) {
+    nameInput.addEventListener('blur', function() {
+      if (!this.value) { this.classList.remove('field-valid','field-invalid'); return; }
+      var ok = this.value.trim().length >= 2;
+      this.classList.toggle('field-valid', ok);
+      this.classList.toggle('field-invalid', !ok);
+    });
+  }
 
   /* ── Active nav highlighting (IntersectionObserver — no scroll listener needed) ── */
   var navLinks = document.querySelectorAll('nav a[href^="#"], .mobile-nav a[href^="#"]');
