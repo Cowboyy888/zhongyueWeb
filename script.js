@@ -861,15 +861,12 @@ function setLang(lang) {
           submitBtn.classList.add('success');
           contactForm.querySelectorAll('input:not([type="hidden"]), textarea, select')
             .forEach(function (el) { el.value = ''; });
-          /* Reset Turnstile for next submission */
-          if (typeof turnstile !== 'undefined') { turnstile.reset('#cf-turnstile'); }
           setTimeout(function () {
             submitBtn.textContent = submitLabel;
             submitBtn.classList.remove('success');
             submitBtn.disabled = false;
           }, 3500);
         } else {
-          if (typeof turnstile !== 'undefined') { turnstile.reset('#cf-turnstile'); }
           submitBtn.textContent = currentLang === 'en' ? 'Error — try again' : '提交失败，请重试';
           setTimeout(function () {
             submitBtn.textContent = submitLabel;
@@ -878,7 +875,6 @@ function setLang(lang) {
         }
       }).catch(function () {
         var submitLabel = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry');
-        if (typeof turnstile !== 'undefined') { turnstile.reset('#cf-turnstile'); }
         submitBtn.textContent = currentLang === 'en' ? 'Error — try again' : '提交失败，请重试';
         setTimeout(function () {
           submitBtn.textContent = submitLabel;

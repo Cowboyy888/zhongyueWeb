@@ -998,13 +998,6 @@
             <label for="input-detail" data-i18n="form-detail">询价详情 &amp; 规格要求</label>
             <textarea id="input-detail" name="message" data-i18n-placeholder="form-detail-ph" placeholder="请填写线径、间距、网片尺寸、数量及交货地点……" spellcheck="true"></textarea>
           </div>
-          <!-- Cloudflare Turnstile CAPTCHA
-               Replace data-sitekey with your real key from dash.cloudflare.com → Turnstile
-               Current key is the test key (always passes — safe for development) -->
-          <div class="cf-turnstile" id="cf-turnstile"
-               data-sitekey="1x00000000000000000000AA"
-               data-theme="dark"
-               data-size="normal"></div>
           <button class="btn-primary form-submit-btn" id="submit-btn" type="submit" data-i18n="form-submit">
             提交询价 / Send Inquiry
           </button>
@@ -1095,7 +1088,6 @@
 </div>
 
 <!-- Cloudflare Turnstile -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <!-- CDN Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
