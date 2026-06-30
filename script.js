@@ -131,6 +131,17 @@ var i18nData = {
     'footer-cert': '质量认证',
     'footer-copy': '© 2026 中粤铁网公司. 版权所有. | <a href="#">粤ICP备XXXXXXXX号</a>',
     'footer-privacy': '隐私政策', 'footer-terms': '使用条款', 'footer-cert-link': '质量证书',
+    'nav-gallery': '图片展示',
+    'gallery-tag': '产品与工厂', 'gallery-title': '产品与<em>工厂展示</em>',
+    'gallery-lead': '实地拍摄，真实呈现我们的产品质量与生产实力。',
+    'gallery-cap-p1': '焊接钢筋网', 'gallery-cap-p2': '楼板钢筋网',
+    'gallery-cap-p3': '焊接围栏网', 'gallery-cap-p4': '异型钢筋网',
+    'gallery-cap-p5': '冷拔钢丝 / 盘条',
+    'gallery-cap-m1': '自动焊网生产线', 'gallery-cap-m2': '调直设备',
+    'gallery-cap-m3': '质量检测', 'gallery-cap-m4': '包装工序',
+    'gallery-cap-m5': '工厂设备', 'gallery-cap-m6': '生产车间',
+    'gallery-cap-d1': '整车发运', 'gallery-cap-d2': '物流车队',
+    'gallery-cap-fg': '工厂大门',
     'page-title': '中粤铁网公司 — 专业钢筋网制造商 | Zhongyue Steel',
     'meta-desc': 'Zhongyue Steel — 专业焊接钢筋网制造商，ISO 9001认证，线径3–12mm，服务全球60余个国家，2002年成立。',
   },
@@ -258,6 +269,17 @@ var i18nData = {
     'footer-cert': 'Quality Certificate',
     'footer-copy': '© 2026 Zhongyue Steel Wire Group. All Rights Reserved.',
     'footer-privacy': 'Privacy Policy', 'footer-terms': 'Terms of Use', 'footer-cert-link': 'Certificates',
+    'nav-gallery': 'Gallery',
+    'gallery-tag': 'Products & Factory', 'gallery-title': 'Products & <em>Factory Gallery</em>',
+    'gallery-lead': 'Real photos from our production floor and finished products.',
+    'gallery-cap-p1': 'Welded Rebar Mesh', 'gallery-cap-p2': 'Floor Slab Mesh',
+    'gallery-cap-p3': 'Welded Fence Mesh', 'gallery-cap-p4': 'Custom-Shape Mesh',
+    'gallery-cap-p5': 'Cold-Drawn Wire / Rod',
+    'gallery-cap-m1': 'Welding Production Line', 'gallery-cap-m2': 'Wire Straightening',
+    'gallery-cap-m3': 'Quality Inspection', 'gallery-cap-m4': 'Packaging Station',
+    'gallery-cap-m5': 'Factory Equipment', 'gallery-cap-m6': 'Production Floor',
+    'gallery-cap-d1': 'Bulk Shipment', 'gallery-cap-d2': 'Delivery Fleet',
+    'gallery-cap-fg': 'Factory Entrance',
     'page-title': 'Zhongyue Steel — Professional Welded Rebar Mesh Manufacturer',
     'meta-desc': 'ISO 9001 certified welded rebar mesh manufacturer in Cambodia. Wire 3–12mm, custom sizes. Serving 60+ countries since 2002. Get a free quote in 24 hours.',
   },
@@ -778,7 +800,62 @@ function setLang(lang) {
     });
   }
 
+  /* ── Gallery scroll-in animation ── */
+  gsap.utils.toArray('.gallery-item').forEach(function(card, i) {
+    gsap.from(card, {
+      scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' },
+      opacity: 0, y: 28, duration: 0.45, delay: (i % 3) * 0.08, ease: 'power2.out'
+    });
+  });
+
   } /* end if (!prefersReducedMotion) */
+
+  /* ── Gallery lightbox ── */
+  (function() {
+    var items = document.querySelectorAll('.gallery-item');
+    var lightbox = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lb-img');
+    var lbCaption = document.getElementById('lb-caption');
+    var lbClose = document.getElementById('lb-close');
+    var lbPrev = document.getElementById('lb-prev');
+    var lbNext = document.getElementById('lb-next');
+    if (!lightbox || !items.length) return;
+
+    var galleryData = [];
+    items.forEach(function(item) {
+      var img = item.querySelector('img');
+      galleryData.push({ src: img ? img.src : '', key: item.getAttribute('data-caption-key') || '' });
+    });
+
+    var currentIdx = 0;
+
+    function openLb(idx) {
+      currentIdx = idx;
+      var d = galleryData[idx];
+      lbImg.src = d.src;
+      lbImg.alt = lbCaption.textContent = (i18nData[currentLang] && i18nData[currentLang][d.key]) || '';
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function prev() { openLb((currentIdx - 1 + galleryData.length) % galleryData.length); }
+    function next() { openLb((currentIdx + 1) % galleryData.length); }
+
+    items.forEach(function(item, i) { item.addEventListener('click', function() { openLb(i); }); });
+    lbClose.addEventListener('click', closeLb);
+    lbPrev.addEventListener('click', prev);
+    lbNext.addEventListener('click', next);
+    lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLb(); });
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+  })();
 
   /* ── Active nav highlighting (IntersectionObserver — no scroll listener needed) ── */
   var navLinks = document.querySelectorAll('nav a[href^="#"], .mobile-nav a[href^="#"]');
