@@ -846,6 +846,12 @@ function setLang(lang) {
         headers: { 'Accept': 'application/json' }
       }).then(function (res) {
         var submitLabel = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry');
+        if (res.status === 422) {
+          /* Formspree: email not yet confirmed — owner must click confirmation link */
+          submitBtn.textContent = currentLang === 'en' ? 'Please confirm your Formspree email first' : '请先确认Formspree邮件';
+          submitBtn.disabled = false;
+          return;
+        }
         if (res.ok) {
           /* Log successful submission for rate limiting */
           log.push(Date.now());
