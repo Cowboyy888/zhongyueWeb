@@ -101,4 +101,4 @@ This repo is wired to a DailyGoalMap ORBIT task queue with four specialist agent
 
 **Slash commands:** `/implement <id>`, `/review-before-pr <id>`, `/qa-task <id>`, `/sync-agent-task [agent]`
 
-**Key rule:** Agents never push. `wf:approved` → human runs `git push origin main` → CI deploys.
+**Key rule:** Agents never push or deploy. `wf:approved` → human runs `git push origin main` then `wrangler pages deploy dist/ --project-name=zysteels --branch=main`.

@@ -13,58 +13,83 @@
 
 ```
 Human (or advisor) creates task
-  └─ tags: wf:coder-task, project:zhongyue-web, assign:coder
+  └─ tags: wf:ready, project:zhongyue-web, assign:coder
 
 coder picks up via tasks.next assign:coder
-  └─ implements → runs quality gate → commits (no push)
-  └─ tasks.complete → wf:done, assign:code-reviewer
+  └─ tasks.status → in_progress
+  └─ implements → checks off checklist items via tasks.checklist
+  └─ runs quality gate → commits (no push)
+  └─ tasks.status → in_review
+  └─ tasks.tags.add [wf:done, assign:code-reviewer]
+  └─ tasks.tags.remove [assign:coder]
+  └─ tasks.comment handoff note
 
 code-reviewer picks up via tasks.next assign:code-reviewer
-  ├─ PASS → tasks.complete → wf:approved
-  │          Human: git push origin main → CI runs
-  └─ FAIL → tasks.create [CHANGE-REQUEST] → wf:change-request, assign:coder
-             coder reworks → code-reviewer re-reviews
+  ├─ PASS → tasks.status → done
+  │          tasks.tags.add [wf:approved]
+  │          tasks.tags.remove [assign:code-reviewer]
+  │          tasks.comment "Approved: ..."
+  │          Human: git push origin main → wrangler pages deploy (manual)
+  └─ FAIL → tasks.create [CHANGE-REQUEST]
+               tags: wf:change-request, assign:coder
+               tasks.deps.add: original task blocked_by change-request
+             tasks.comment "Change request filed: <id>"
+
+coder reworks → re-routes to code-reviewer → loop
 
 qa-agent picks up via tasks.next assign:qa-agent
-  └─ exercises app → tasks.create [BUG] → wf:bug, assign:coder
-     coder fixes bug → code-reviewer reviews → wf:approved → human pushes
+  └─ exercises live site → tasks.create [BUG]
+       tags: wf:bug, assign:coder
+       dedupe_key: "bug/<slug>" (prevents duplicate reports)
+     coder fixes → code-reviewer reviews → wf:approved → human deploys
 
 advisor picks up via tasks.next assign:advisor
-  └─ tasks.create sub-tasks → wf:coder-task, assign:coder
+  └─ tasks.create sub-tasks with checklist acceptance criteria
+       tags: wf:ready, assign:coder, parent_id: epic-task-id
 
 Any agent blocked:
-  └─ tasks.create [NEEDS-HUMAN] → wf:needs-human, project:zhongyue-web, assign:<agent>
-     [optional: wf:blocked if it blocks a parent]
+  └─ tasks.create [NEEDS-HUMAN] <what I need>
+       tags: wf:needs-human, project:zhongyue-web
+       dedupe_key: "needs-human/<slug>"
+       tasks.deps.add: stuck task blocked_by needs-human task
      Agent continues other available work.
 ```
 
-## Routing table (what to do after tasks.complete)
+## Routing table
 
-| Who completed | New state | Routed to |
-|---|---|---|
-| coder | `wf:done`, `assign:code-reviewer` | code-reviewer loop |
-| code-reviewer PASS | `wf:approved` | human (push/deploy) |
-| code-reviewer FAIL | new task `wf:change-request`, `assign:coder` | coder loop |
-| qa-agent | new task `wf:bug`, `assign:coder` | coder loop |
-| advisor | new tasks `wf:coder-task`, `assign:coder` | coder loop |
+| Who completed | Next status | Tags to add | Tags to remove | Routed to |
+|---|---|---|---|---|
+| coder | `in_review` | `wf:done`, `assign:code-reviewer` | `assign:coder` | code-reviewer loop |
+| code-reviewer PASS | `done` | `wf:approved` | `assign:code-reviewer` | human (push+deploy) |
+| code-reviewer FAIL | stays `in_review` | — | — | new change-request task → coder |
+| qa-agent | — | — | — | new bug task → coder |
+| advisor | — | — | — | new sub-tasks → coder |
 
-## Deploy (human-only — agents never push)
+## Deploy step (human-only — agents never push or deploy)
 
 When `wf:approved` appears on a task:
-1. Human reviews `git log main..HEAD` and `git diff main...HEAD`
-2. Human runs `git push origin main`
-3. CI (`.github/workflows/ci.yml`) automatically runs: lint → typecheck → test → build
+
+1. Human reviews: `git log main..HEAD` and `git diff main...HEAD`
+2. Human commits if anything unstaged: `git add <files> && git commit -m "..."`
+3. Human builds: `npm run build`
+4. Human pushes: `git push origin main`
+5. Human deploys:
+   ```bash
+   CLOUDFLARE_API_TOKEN="..." wrangler pages deploy dist/ --project-name=zysteels --branch=main
+   ```
+
+No CI pipeline exists — every deploy is manual.
 
 ## Task creation template
 
 ```
 Title:  [TYPE] Short imperative description
-Tags:   wf:<state>, project:zhongyue-web, assign:<agent>
+Tags:   wf:ready, project:zhongyue-web, assign:<agent>
 
 ## Goal
 What and why.
 
-## Acceptance criteria
+## Acceptance criteria (checklist)
 - [ ] Testable condition 1
 - [ ] Testable condition 2
 
@@ -76,8 +101,8 @@ Relevant files, constraints, related task IDs.
 
 ```
 Title:  [NEEDS-HUMAN] <what I need — one sentence>
-Tags:   wf:needs-human, project:zhongyue-web, assign:<filing-agent>
-        [+ wf:blocked if this blocks a parent task]
+Tags:   wf:needs-human, project:zhongyue-web
+dedupe_key: needs-human/<slug>
 
 ## What I need
 ## Why
