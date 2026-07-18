@@ -824,8 +824,9 @@ function setLang(lang) {
     function openLb(idx) {
       currentIdx = idx;
       var d = galleryData[idx];
+      var lang = localStorage.getItem('zy-lang') || 'zh';
       lbImg.src = d.src;
-      lbImg.alt = lbCaption.textContent = (i18nData[currentLang] && i18nData[currentLang][d.key]) || '';
+      lbImg.alt = lbCaption.textContent = (i18nData[lang] && i18nData[lang][d.key]) || '';
       if (lbCounter) lbCounter.textContent = (idx + 1) + ' / ' + galleryData.length;
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
