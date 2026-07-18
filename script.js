@@ -807,6 +807,7 @@ function setLang(lang) {
     var lightbox = document.getElementById('lightbox');
     var lbImg = document.getElementById('lb-img');
     var lbCaption = document.getElementById('lb-caption');
+    var lbCounter = document.getElementById('lb-counter');
     var lbClose = document.getElementById('lb-close');
     var lbPrev = document.getElementById('lb-prev');
     var lbNext = document.getElementById('lb-next');
@@ -825,6 +826,7 @@ function setLang(lang) {
       var d = galleryData[idx];
       lbImg.src = d.src;
       lbImg.alt = lbCaption.textContent = (i18nData[currentLang] && i18nData[currentLang][d.key]) || '';
+      if (lbCounter) lbCounter.textContent = (idx + 1) + ' / ' + galleryData.length;
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
@@ -846,6 +848,14 @@ function setLang(lang) {
       if (e.key === 'ArrowLeft') prev();
       if (e.key === 'ArrowRight') next();
     });
+
+    /* touch swipe support */
+    var touchStartX = 0;
+    lightbox.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+    }, { passive: true });
   })();
 
   /* ── Scroll progress bar ── */
