@@ -27,8 +27,8 @@ export const SITE = {
   facebookAppId: "", // Add your App ID from developers.facebook.com/apps
   socialLinks: {
     whatsapp: "https://wa.me/855764976187",
-    facebook: "https://www.facebook.com/zysteels",
-    messenger: "https://m.me/zysteels",
+    facebook: "https://www.facebook.com/profile.php?id=61591429964266",
+    messenger: "https://m.me/61591429964266",
   },
   ogImage: "/images/factory-gate.webp",
   locale: "en_US",
