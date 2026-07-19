@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FacebookMessenger from "@/components/FacebookMessenger";
 import { organizationSchema, localBusinessSchema, websiteSchema } from "@/lib/structured-data";
 
 const inter = Inter({
@@ -57,15 +60,26 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   verification: {
-    // Add Google Search Console verification token here when available
-    // google: "your-google-verification-token",
+    // google: "your-google-search-console-token",
   },
   alternates: {
     canonical: SITE.url,
   },
+  // Facebook App ID + page link — update SITE.facebookAppId in lib/seo.ts
+  // when you have an app registered at developers.facebook.com/apps
+  other: Object.assign(
+    { "og:see_also": SITE.socialLinks.facebook } as Record<string, string>,
+    SITE.facebookAppId ? { "fb:app_id": SITE.facebookAppId } : {}
+  ),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -76,10 +90,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://embed.tawk.to" />
+        {/* Root-level JSON-LD: Organization + LocalBusiness + WebSite */}
         <JsonLd schema={[organizationSchema(), localBusinessSchema(), websiteSchema()]} />
       </head>
       <body className="min-h-screen bg-zinc-950 text-white antialiased">
+        <Header />
         {children}
+        <Footer />
+        {/* Floating Facebook Messenger chat button */}
+        <FacebookMessenger />
       </body>
     </html>
   );

@@ -23,8 +23,12 @@ export const SITE = {
   countries: "60+",
   capacity: "200,000 tons/year",
   certifications: ["ISO 9001", "GB/T 1499.3", "BS 4483", "ASTM A1064"],
+  // Update facebook/messenger to your actual Facebook Page username
+  facebookAppId: "", // Add your App ID from developers.facebook.com/apps
   socialLinks: {
     whatsapp: "https://wa.me/855764976187",
+    facebook: "https://www.facebook.com/zysteels",
+    messenger: "https://m.me/zysteels",
   },
   ogImage: "/images/factory-gate.webp",
   locale: "en_US",

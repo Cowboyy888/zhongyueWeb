@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
-import { buildMetadata } from "@/lib/seo";
+import SocialFollow from "@/components/SocialFollow";
+import { buildMetadata, SITE } from "@/lib/seo";
 import { faqSchema, webPageSchema } from "@/lib/structured-data";
-import { SITE } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "ZY Steel — Wire Mesh Manufacturer Cambodia | Factory Direct",
@@ -263,6 +263,9 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── SOCIAL FOLLOW ── */}
+        <SocialFollow />
+
         {/* ── FAQ ── */}
         <section aria-labelledby="faq-heading" className="bg-zinc-950 px-6 py-24">
           <div className="mx-auto max-w-3xl">
@@ -311,63 +314,6 @@ export default function HomePage() {
         </section>
       </main>
 
-      {/* ── FOOTER ── */}
-      <footer className="bg-zinc-900 px-6 py-12 text-zinc-500">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <h3 className="mb-3 font-semibold text-white">{SITE.name}</h3>
-              <p className="text-sm leading-relaxed">{SITE.tagline}</p>
-              <p className="mt-3 text-sm">
-                <a href={`tel:${SITE.phone}`} className="hover:text-white">
-                  {SITE.phoneDisplay}
-                </a>
-              </p>
-              <p className="text-sm">
-                <a href={`mailto:${SITE.email}`} className="hover:text-white">
-                  {SITE.email}
-                </a>
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-3 font-semibold text-white">Products</h3>
-              <ul className="space-y-1 text-sm">
-                {PRODUCTS.map((p) => (
-                  <li key={p.href}>
-                    <Link href={p.href} className="hover:text-white">
-                      {p.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="mb-3 font-semibold text-white">Blog</h3>
-              <ul className="space-y-1 text-sm">
-                <li><Link href="/blog/what-is-welded-wire-mesh" className="hover:text-white">What Is Welded Wire Mesh?</Link></li>
-                <li><Link href="/blog/wire-mesh-vs-rebar" className="hover:text-white">Wire Mesh vs Rebar</Link></li>
-                <li><Link href="/blog/how-to-choose-wire-mesh" className="hover:text-white">How to Choose Wire Mesh</Link></li>
-                <li><Link href="/blog" className="hover:text-white">All Articles →</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="mb-3 font-semibold text-white">Company</h3>
-              <ul className="space-y-1 text-sm">
-                <li><Link href="/contact" className="hover:text-white">Contact Us</Link></li>
-                <li><span>{SITE.address.street}</span></li>
-                <li><span>{SITE.address.city}, {SITE.address.country}</span></li>
-                <li><span>Mon–Sat 08:00–17:00</span></li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-10 border-t border-zinc-800 pt-6 text-center text-xs">
-            <p>
-              © {new Date().getFullYear()} {SITE.legalName}. All rights reserved. Wire mesh
-              manufacturer in Cambodia.
-            </p>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

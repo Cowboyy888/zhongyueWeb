@@ -33,7 +33,11 @@ export function organizationSchema() {
         availableLanguage: ["English", "Chinese"],
       },
     ],
-    sameAs: [SITE.socialLinks.whatsapp],
+    sameAs: [
+      SITE.socialLinks.facebook,
+      SITE.socialLinks.whatsapp,
+      SITE.url,
+    ],
   };
 }
 
