@@ -1808,6 +1808,8 @@ footer { background: var(--dark); color: #8FA0B8; }
   border-radius: 4px; transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 .footer-social:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.footer-social-fb:hover { background: #1877F2; border-color: #1877F2; }
+.footer-social-msg:hover { background: #0078ff; border-color: #0078ff; }
 .footer-col h4 { font-family: var(--font-display); font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #fff; margin-bottom: 22px; }
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 11px; }
@@ -1884,6 +1886,15 @@ footer { background: var(--dark); color: #8FA0B8; }
   box-shadow: 0 4px 20px rgba(34,197,94,0.4);
 }
 .fab-wa:hover { box-shadow: 0 8px 32px rgba(34,197,94,0.55); }
+.fab-fb {
+  width: 48px;
+  padding: 0;
+  justify-content: center;
+  background: linear-gradient(135deg, #00c6ff 0%, #0078ff 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0,120,255,0.4);
+}
+.fab-fb:hover { box-shadow: 0 8px 32px rgba(0,120,255,0.55); }
 .fab-quote {
   padding: 0 20px;
   background: var(--red);
