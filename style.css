@@ -2547,27 +2547,6 @@ nav a.nav-active::after { transform: scaleX(1); }
 }
 .fb-page-detail-strong { font-weight: 600; color: #1877F2; }
 
-/* Official Facebook Like button wrapper */
-.fb-official-like-wrap {
-  margin-top: 20px;
-  min-height: 28px;
-}
-
-/* Official Facebook Page Plugin container */
-.fb-official-page-plugin {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  background: #fff;
-  margin-bottom: 16px;
-}
-/* Hide the fallback branded card when the SDK renders the real plugin */
-.fb-official-page-plugin:not(:empty) ~ .fb-page-card-fallback {
-  display: none;
-}
-/* Branded fallback card (shown if SDK blocked by adblocker) */
-.fb-page-card-fallback { display: block; }
-
 /* Responsive */
 @media (max-width: 900px) {
   .fb-official-grid { grid-template-columns: 1fr; gap: 40px; }
