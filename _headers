@@ -1,6 +1,38 @@
 /*
+  # Security headers — applied to every response
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+  # Content-Security-Policy
+  # Allows: own origin, Google Analytics/GTM, GSAP CDN, Google Fonts,
+  #         Facebook SDK & Page Plugin iframes, Tawk.to chat, Formspree forms.
+  # 'unsafe-inline' required for existing inline scripts & Tawk.to.
+  # 'unsafe-eval' required for Tawk.to worker scripts.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com https://connect.facebook.net https://embed.tawk.to https://va.tawk.to; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; frame-src https://www.facebook.com https://staticxx.facebook.com https://web.facebook.com https://*.tawk.to; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://graph.facebook.com https://formspree.io https://*.tawk.to wss://*.tawk.to; worker-src blob: 'self'; object-src 'none'; base-uri 'self'
+
+  # Cache control for static assets
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/style.css
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/script.js
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/site.webmanifest
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml; charset=utf-8
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain; charset=utf-8

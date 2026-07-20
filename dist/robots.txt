@@ -1,4 +1,36 @@
+# robots.txt — Zhongyue Steel (ZY Steel) · https://www.zysteels.net
+# Updated: 2026-07-20
+
+# ── All crawlers: allow everything ──────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /.claude/
+Disallow: /tests/
+Disallow: /zhongyue-web/
 
+# ── Google AdsBot (respects crawl rules for ad quality) ────────
+User-agent: AdsBot-Google
+Allow: /
+Disallow: /node_modules/
+Disallow: /dist/
+
+# ── Facebook crawler — allow full access for OG previews ───────
+User-agent: facebookexternalhit
+Allow: /
+
+# ── Bing / Microsoft bot ────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+
+# ── Twitter card preview bot ────────────────────────────────────
+User-agent: Twitterbot
+Allow: /
+
+# ── WhatsApp preview bot ─────────────────────────────────────────
+User-agent: WhatsApp
+Allow: /
+
+# ── Sitemap declaration ─────────────────────────────────────────
 Sitemap: https://www.zysteels.net/sitemap.xml
