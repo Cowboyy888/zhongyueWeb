@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import SocialFollow from "@/components/SocialFollow";
+import FacebookSection from "@/components/FacebookSection";
 import { buildMetadata, SITE } from "@/lib/seo";
 import { faqSchema, webPageSchema } from "@/lib/structured-data";
 
@@ -265,6 +266,9 @@ export default function HomePage() {
 
         {/* ── SOCIAL FOLLOW ── */}
         <SocialFollow />
+
+        {/* ── FACEBOOK FEED ── */}
+        <FacebookSection />
 
         {/* ── FAQ ── */}
         <section aria-labelledby="faq-heading" className="bg-zinc-950 px-6 py-24">
