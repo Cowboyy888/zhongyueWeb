@@ -844,7 +844,8 @@ function setLang(lang) {
     var galleryData = [];
     items.forEach(function(item) {
       var img = item.querySelector('img');
-      galleryData.push({ src: img ? img.src : '', key: item.getAttribute('data-caption-key') || '' });
+      var animSrc = item.getAttribute('data-animated-src');
+      galleryData.push({ src: animSrc || (img ? img.src : ''), key: item.getAttribute('data-caption-key') || '' });
     });
 
     var currentIdx = 0;
