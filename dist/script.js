@@ -1,6 +1,6 @@
 /* ============================================
-   中粤铁网公司 — Premium Interactive JS
-   Three.js mesh background + GSAP + Lenis
+   中粤铁网公司 — Interactive JS
+   GSAP + ScrollTrigger + Canvas animations
    ============================================ */
 
 /* ══════════════════════════════════
@@ -1013,7 +1013,7 @@ function setLang(lang) {
       var log = JSON.parse(localStorage.getItem(RL_KEY) || '[]').filter(function(t) { return now - t < 3600000; });
       if (log.length >= 3) {
         submitBtn.textContent = currentLang === 'en' ? 'Too many attempts — try later' : '提交过于频繁，请稍后再试';
-        setTimeout(function() { submitBtn.textContent = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || '提交询价 / Send Inquiry'; }, 4000);
+        setTimeout(function() { submitBtn.textContent = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价'); }, 4000);
         return;
       }
 
@@ -1039,7 +1039,7 @@ function setLang(lang) {
         body: new FormData(contactForm),
         headers: { 'Accept': 'application/json' }
       }).then(function (res) {
-        var submitLabel = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry');
+        var submitLabel = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价');
         if (res.status === 422) {
           /* Formspree: email not yet confirmed — owner must click confirmation link */
           submitBtn.textContent = currentLang === 'en' ? 'Please confirm your Formspree email first' : '请先确认Formspree邮件';
@@ -1068,7 +1068,7 @@ function setLang(lang) {
           }, 3000);
         }
       }).catch(function () {
-        var submitLabel = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价 / Send Inquiry');
+        var submitLabel = (i18nData[currentLang] && i18nData[currentLang]['form-submit']) || (currentLang === 'en' ? 'Send Inquiry' : '提交询价');
         submitBtn.textContent = currentLang === 'en' ? 'Error — try again' : '提交失败，请重试';
         setTimeout(function () {
           submitBtn.textContent = submitLabel;
