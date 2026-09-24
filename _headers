@@ -8,10 +8,9 @@
 
   # Content-Security-Policy
   # Allows: own origin, Google Analytics/GTM, GSAP CDN, Google Fonts,
-  #         Facebook SDK & Page Plugin iframes, Tawk.to chat, Formspree forms.
-  # 'unsafe-inline' required for existing inline scripts & Tawk.to.
-  # 'unsafe-eval' required for Tawk.to worker scripts.
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com https://connect.facebook.net https://embed.tawk.to https://va.tawk.to; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; frame-src https://www.facebook.com https://staticxx.facebook.com https://web.facebook.com https://*.tawk.to; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://graph.facebook.com https://formspree.io https://*.tawk.to wss://*.tawk.to; worker-src blob: 'self'; object-src 'none'; base-uri 'self'
+  #         Facebook SDK & Page Plugin iframes, Formspree forms.
+  # 'unsafe-inline' required for existing inline scripts (GTM, FB SDK init).
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; frame-src https://www.facebook.com https://staticxx.facebook.com https://web.facebook.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://graph.facebook.com https://formspree.io; object-src 'none'; base-uri 'self'
 
   # Cache control for static assets
   Cache-Control: public, max-age=3600, must-revalidate
