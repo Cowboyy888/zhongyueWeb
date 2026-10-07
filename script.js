@@ -852,10 +852,16 @@ function setLang(lang) {
       currentIdx = idx;
       var d = galleryData[idx];
       var lang = localStorage.getItem('zy-lang') || 'zh';
+      lightbox.classList.add('active', 'lb-loading');
+      lbImg.style.opacity = '0';
+      lbImg.onload = function() {
+        lightbox.classList.remove('lb-loading');
+        lbImg.style.opacity = '1';
+      };
+      lbImg.onerror = function() { lightbox.classList.remove('lb-loading'); lbImg.style.opacity = '1'; };
       lbImg.src = d.src;
       lbImg.alt = lbCaption.textContent = (i18nData[lang] && i18nData[lang][d.key]) || '';
       if (lbCounter) lbCounter.textContent = (idx + 1) + ' / ' + galleryData.length;
-      lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
     function closeLb() {

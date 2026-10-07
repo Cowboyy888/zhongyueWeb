@@ -1431,7 +1431,7 @@ h1.hero-brand-block { font: inherit; }
 .funfacts::before {
   content: '';
   position: absolute; inset: 0;
-  background: url('images/factory-bg.jpg') center/cover no-repeat;
+  background: url('images/factory-bg.webp') center/cover no-repeat;
   opacity: 0.06;
 }
 .funfacts-grid {
@@ -1453,8 +1453,16 @@ h1.hero-brand-block { font: inherit; }
 .fact-emoji {
   font-size: 42px;
   margin-bottom: 18px;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   will-change: transform;
+}
+.fact-emoji svg {
+  width: 48px; height: 48px;
+  stroke: var(--red);
+  fill: none;
+  filter: drop-shadow(0 2px 8px rgba(227,30,36,0.25));
 }
 
 /* 🏭 Factory — bobs up & down like a running plant */
@@ -1465,9 +1473,9 @@ h1.hero-brand-block { font: inherit; }
 .fact-item:nth-child(2) .fact-emoji {
   animation: fact-globe 10s linear infinite;
 }
-/* ⚙️ Gear — spins like a real gear */
+/* 👥 Team — same gentle float as production */
 .fact-item:nth-child(3) .fact-emoji {
-  animation: fact-gear 3s linear infinite;
+  animation: fact-float 3.8s ease-in-out infinite;
 }
 
 /* Hover: pause to let user appreciate */
@@ -2125,6 +2133,38 @@ footer { background: var(--dark); color: #8FA0B8; }
 .lightbox-counter {
   color: rgba(255,255,255,0.4); font-size: 0.8rem;
   white-space: nowrap;
+}
+.lightbox-img { transition: opacity 0.25s ease; }
+.lightbox-spinner {
+  position: absolute;
+  width: 44px; height: 44px;
+  border: 3px solid rgba(255,255,255,0.12);
+  border-top-color: var(--red);
+  border-radius: 50%;
+  animation: lb-spin 0.7s linear infinite;
+  display: none;
+  pointer-events: none;
+}
+.lightbox.lb-loading .lightbox-spinner { display: block; }
+@keyframes lb-spin { to { transform: rotate(360deg); } }
+
+/* Gallery: video-play button for animated items */
+.gallery-play-btn {
+  width: 62px; height: 62px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 24px rgba(227,30,36,0.55);
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s;
+}
+.gallery-item:hover .gallery-play-btn {
+  transform: scale(1.15);
+  box-shadow: 0 8px 36px rgba(227,30,36,0.75);
+}
+.gallery-play-btn svg {
+  width: 22px; height: 22px;
+  fill: #fff; stroke: none;
+  margin-left: 3px;
 }
 
 @media (max-width: 991px) {

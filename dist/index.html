@@ -187,6 +187,9 @@
 <link rel="alternate" hreflang="en" href="https://www.zysteels.net/?lang=en" />
 <link rel="alternate" hreflang="x-default" href="https://www.zysteels.net/" />
 <link rel="preload" as="image" type="image/webp" href="images/factory-gate.webp" fetchpriority="high" />
+<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" />
+<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" />
+<link rel="preload" as="script" href="script.js" />
 <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 <link rel="stylesheet" href="style.css" />
 </head>
@@ -669,7 +672,7 @@
     <div class="products-grid">
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="images/product-1.webp" alt="焊接钢筋网" loading="lazy" decoding="async" width="1200" height="1600" />
+          <img src="images/product-1.webp" alt="焊接钢筋网" loading="lazy" decoding="async" fetchpriority="low" width="1200" height="1600" />
           <span class="product-num">01 — <span data-i18n="p1-num-label">主推产品</span></span>
         </div>
         <div class="product-body">
@@ -684,7 +687,7 @@
       </div>
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="images/product-2.webp" alt="地台网" loading="lazy" decoding="async" width="1200" height="1600" />
+          <img src="images/product-2.webp" alt="地台网" loading="lazy" decoding="async" fetchpriority="low" width="1200" height="1600" />
           <span class="product-num">02</span>
         </div>
         <div class="product-body">
@@ -699,7 +702,7 @@
       </div>
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="images/product-3.webp" alt="围栏网" loading="lazy" decoding="async" width="1200" height="1600" />
+          <img src="images/product-3.webp" alt="围栏网" loading="lazy" decoding="async" fetchpriority="low" width="1200" height="1600" />
           <span class="product-num">03</span>
         </div>
         <div class="product-body">
@@ -714,7 +717,7 @@
       </div>
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="images/product-4.webp" alt="异型定制网" loading="lazy" decoding="async" width="1448" height="1086" />
+          <img src="images/product-4.webp" alt="异型定制网" loading="lazy" decoding="async" fetchpriority="low" width="1448" height="1086" />
           <span class="product-num">04</span>
         </div>
         <div class="product-body">
@@ -729,7 +732,7 @@
       </div>
       <div class="product-card">
         <div class="product-img-wrap">
-          <img src="images/product-5.webp" alt="冷拔钢丝" loading="lazy" decoding="async" width="1448" height="1086" />
+          <img src="images/product-5.webp" alt="冷拔钢丝" loading="lazy" decoding="async" fetchpriority="low" width="1448" height="1086" />
           <span class="product-num">05</span>
         </div>
         <div class="product-body">
@@ -832,17 +835,17 @@
   <div class="container">
     <div class="funfacts-grid">
       <div class="fact-item">
-        <span class="fact-emoji">🏭</span>
+        <span class="fact-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M3 7l5-3v3M8 7l5-3v3M13 7l5-3v3M3 10v11M21 10v11M8 10v11M13 10v11M18 10v11"/></svg></span>
         <div class="fact-num" data-count="800">0</div>
         <div class="fact-label" data-i18n="fact-1">日产能（吨）</div>
       </div>
       <div class="fact-item">
-        <span class="fact-emoji">🌍</span>
+        <span class="fact-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3c-2.5 2.5-4 5.5-4 9s1.5 6.5 4 9M12 3c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9"/></svg></span>
         <div class="fact-num" data-count="60">0</div>
         <div class="fact-label" data-i18n="fact-2">出口国家</div>
       </div>
       <div class="fact-item">
-        <span class="fact-emoji">⚙️</span>
+        <span class="fact-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span>
         <div class="fact-num" data-count="40">0</div>
         <div class="fact-label" data-i18n="fact-3">专业员工</div>
       </div>
@@ -1008,7 +1011,7 @@
       <div class="gallery-item" data-caption-key="gallery-cap-p2"><img src="images/product-2.webp" alt="楼板钢筋网" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">Preview</span></div></div>
       <div class="gallery-item" data-caption-key="gallery-cap-p3"><img src="images/product-3.webp" alt="焊接围栏网" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">Preview</span></div></div>
       <div class="gallery-item" data-caption-key="gallery-cap-p4"><img src="images/product-4.webp" alt="异型钢筋网" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">Preview</span></div></div>
-      <div class="gallery-item" data-caption-key="gallery-cap-p5"><img src="images/product-5.webp" alt="冷拔钢丝" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">Preview</span></div></div>
+      <div class="gallery-item" data-caption-key="gallery-cap-p5"><img src="images/product-5.webp" alt="冷拔钢丝" loading="lazy" decoding="async" fetchpriority="low" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">Preview</span></div></div>
       <div class="gallery-item" data-caption-key="gallery-cap-m1"><img src="images/machine-1.webp" alt="自动焊网生产线" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">Preview</span></div></div>
       <div class="gallery-item" data-caption-key="gallery-cap-m2"><img src="images/machine-2.webp" alt="调直设备" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">Preview</span></div></div>
       <div class="gallery-item" data-caption-key="gallery-cap-m3"><img src="images/machine-3.webp" alt="质量检测" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">Preview</span></div></div>
@@ -1018,8 +1021,8 @@
       <div class="gallery-item" data-caption-key="gallery-cap-d1"><img src="images/delivery-1.webp" alt="整车发运" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">Preview</span></div></div>
       <div class="gallery-item" data-caption-key="gallery-cap-d2"><img src="images/delivery-2.webp" alt="物流车队" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">Preview</span></div></div>
       <div class="gallery-item" data-caption-key="gallery-cap-fg"><img src="images/factory-gate.webp" alt="工厂大门" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">Preview</span></div></div>
-      <div class="gallery-item" data-caption-key="gallery-cap-gif1" data-animated-src="images/gif1.webp"><img src="images/machine-5.webp" alt="工厂实景展示" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">▶ Play</span></div></div>
-      <div class="gallery-item" data-caption-key="gallery-cap-gif2" data-animated-src="images/gif2.webp"><img src="images/machine-6.webp" alt="生产线实景" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg><span class="gallery-preview-label">▶ Play</span></div></div>
+      <div class="gallery-item" data-caption-key="gallery-cap-gif1" data-animated-src="images/gif1.webp"><img src="images/machine-5.webp" alt="工厂实景展示" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><div class="gallery-play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7V5z"/></svg></div></div></div>
+      <div class="gallery-item" data-caption-key="gallery-cap-gif2" data-animated-src="images/gif2.webp"><img src="images/machine-6.webp" alt="生产线实景" loading="lazy" decoding="async" width="1448" height="1086" /><div class="gallery-overlay"><div class="gallery-play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7V5z"/></svg></div></div></div>
     </div>
   </div>
 </section>
@@ -1029,6 +1032,7 @@
   <button class="lightbox-close" id="lb-close" aria-label="Close">✕</button>
   <button class="lightbox-prev" id="lb-prev" aria-label="Previous">&#8249;</button>
   <button class="lightbox-next" id="lb-next" aria-label="Next">&#8250;</button>
+  <div class="lightbox-spinner" aria-hidden="true"></div>
   <img class="lightbox-img" id="lb-img" src="" alt="" />
   <div class="lightbox-footer">
     <p class="lightbox-caption" id="lb-caption"></p>
